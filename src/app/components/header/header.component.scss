@@ -1,0 +1,41 @@
+@use "styles/colors" as c;
+.header {
+  background-color: c.$header-background;
+  color: white;
+  padding-left: 1%;
+  height: 10%;
+  overflow: hidden;
+  box-shadow: 0px -4px 7px 1px rgba(105, 105, 105, 0.75) inset;
+
+  &__title {
+    height: 100%;
+    border: none;
+    background-color: c.$main-background;
+    font-size: 23pt;
+    //semi-bold
+    margin-left: 2%;
+    box-shadow: 0px 0px 15px 1px rgba(56, 56, 56, 0.75);
+  }
+  &__toggleCollumn {
+    color: white; //!!!!! doppelt und dreifach
+    align-items: flex-end;
+    border: none;
+    background-color: c.$header-buttons;
+    box-shadow: 0px 0px 15px 1px rgba(56, 56, 56, 0.75);
+    width: 299px;
+    height: 44px;
+    border-radius: 6px;
+    margin: 0 1% 0 1%;
+    font-size: 18pt;
+  }
+  &__logo {
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    background-color: c.$logo-background;
+  }
+  &__dots {
+    color: white;
+    text-decoration: none;
+  }
+}
