@@ -1,38 +1,57 @@
 @use "styles/colors" as c;
 .header {
   background-color: c.$header-background;
-  color: white;
+  color: c.$font-color;
   padding-left: 1%;
-  height: 10%;
+  height: 77px;
   overflow: hidden;
   box-shadow: 0px -4px 7px 1px rgba(105, 105, 105, 0.75) inset;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
   &__title {
     height: 100%;
+    width: 306px;
     border: none;
+    color: c.$font-color;
     background-color: c.$main-background;
-    font-size: 23pt;
+    font-size: 23px;
+    font-style: semi-bold;
     //semi-bold
     margin-left: 2%;
     box-shadow: 0px 0px 15px 1px rgba(56, 56, 56, 0.75);
   }
+
+  &__right {
+    min-width: 800px;
+    justify-content: flex-end;
+    right: 0;
+    text-align: right;
+  }
+
+  &__left {
+    min-width: 800px;
+    justify-content: flex-start;
+    right: 0;
+  }
+
   &__toggleCollumn {
     color: white; //!!!!! doppelt und dreifach
-    align-items: flex-end;
     border: none;
     background-color: c.$header-buttons;
     box-shadow: 0px 0px 15px 1px rgba(56, 56, 56, 0.75);
     width: 299px;
     height: 44px;
     border-radius: 6px;
-    margin: 0 1% 0 1%;
-    font-size: 18pt;
+    margin-right: 1%;
+    font-size: 18px;
   }
   &__logo {
-    height: 100%;
     color: white;
     text-decoration: none;
-    background-color: c.$logo-background;
+    background-color: c.$main-background;
   }
   &__dots {
     color: white;

@@ -1,8 +1,16 @@
 <div class="header">
-  <a (click)="goToHomeview()">Home</a>
-  <button class="header__title">Titel des Meetings ></button>
-  <button class="header__toggleCollumn">() Of Courses anzeigen</button>
-  <button class="header__toggleCollumn">() Bookmarks anzeigen</button>
-  <a class="header__logo">logo</a>
-  <a class="header__dots">dotdot</a>
+  <div class="header__left">
+    <a (click)="goToHomeview()">Home</a>
+    <button class="header__title">Titel des Meetings ></button>
+  </div>
+  <div class="header__right">
+    <button *ngIf="collumn" class="header__toggleCollumn">
+      () Of Courses anzeigen
+    </button>
+    <button *ngIf="collumn" class="header__toggleCollumn">
+      () Bookmarks anzeigen
+    </button>
+    <a class="header__logo">logo</a>
+    <a class="header__dots">dotdot</a>
+  </div>
 </div>
