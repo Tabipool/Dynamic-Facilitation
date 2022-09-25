@@ -1,17 +1,17 @@
 <div class="header">
   <div class="header__left">
-    <i class="fa-solid fa-house"></i>
     <a (click)="goToHomeview()">Home</a>
-    <button class="header__title">Titel des Meetings ></button>
+    <button *ngIf="flipchart" class="header__title">
+      Titel des Meetings >
+    </button>
   </div>
   <div class="header__right">
-    <button *ngIf="collumn" class="header__toggleCollumn">
+    <button *ngIf="flipchart" class="header__toggleCollumn">
       () Of Courses anzeigen
     </button>
-    <button *ngIf="collumn" class="header__toggleCollumn">
+    <button *ngIf="flipchart" class="header__toggleCollumn">
       () Bookmarks anzeigen
     </button>
-    <a class="header__logo">logo</a>
     <a class="header__dots">dotdot</a>
   </div>
 </div>

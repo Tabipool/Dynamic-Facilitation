@@ -8,6 +8,7 @@ import { FlipchartsComponent } from './pages/flipcharts';
 import { AppRoutingModule } from './app-routing.module';
 import { IssuecollectorComponent } from './pages/issuecollector/issuecollector.component';
 import { HeaderComponent } from './components/header';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HeaderComponent } from './components/header';
     HomeviewComponent,
     IssuecollectorComponent,
     HeaderComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],

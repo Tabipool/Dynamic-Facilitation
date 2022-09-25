@@ -1,0 +1,10 @@
+@use "styles/colors" as c;
+
+.login-wrapper {
+  margin: 20rem auto;
+  width: 20rem;
+}
+
+body {
+  background-color: c.$main-background;
+}

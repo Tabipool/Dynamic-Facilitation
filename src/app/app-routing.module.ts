@@ -4,9 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeviewComponent } from './pages/homeview';
 import { FlipchartsComponent } from './pages/flipcharts';
 import { IssuecollectorComponent } from './pages/issuecollector';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeviewComponent },
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeviewComponent },
   { path: 'flipcharts', component: FlipchartsComponent },
   { path: 'issuecollector', component: IssuecollectorComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
