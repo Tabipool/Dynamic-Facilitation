@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IssuecollectorComponent } from './pages/issuecollector/issuecollector.component';
 import { HeaderComponent } from './components/header';
 import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,12 @@ import { LoginComponent } from './pages/login/login.component';
     HeaderComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

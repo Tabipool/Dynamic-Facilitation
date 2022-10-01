@@ -3,7 +3,7 @@
   background-color: c.$header-background;
   color: c.$font-color;
   padding-left: 1%;
-  height: 73px;
+  height: 65px;
   overflow: hidden;
 
   display: flex;
@@ -27,7 +27,7 @@
     justify-content: flex-end;
     right: 0;
     text-align: right;
-    margin: 0.9%;
+    margin: 0.6%;
   }
 
   &__left {

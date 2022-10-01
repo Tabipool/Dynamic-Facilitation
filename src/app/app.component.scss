@@ -1,0 +1,8 @@
+@use "../styles/_colors.scss" as c;
+//@use "../node_modules/bootstrap/scss/bootstrap.scss" as b;
+
+body {
+  background-color: c.$main-background;
+}
+
+$body-bg: c.$main-background;
