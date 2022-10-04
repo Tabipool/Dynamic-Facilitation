@@ -14,11 +14,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(signInForm: NgForm) {
-    console.log(signInForm.value);
     const signInData = new SignInData(
-      signInForm.value.email,
+      signInForm.value.username,
       signInForm.value.password
     );
     this.authenticationService.Authenticate(signInData);
+    console.log(this.authenticationService.isAuthenticated);
   }
 }

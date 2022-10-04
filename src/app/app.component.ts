@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FlipchartsComponent } from './pages/flipcharts';
+import { FlipchartsComponent } from './pages/flipcharts'; //!!
+import { AuthenticationService } from './service/authentication/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { FlipchartsComponent } from './pages/flipcharts';
 })
 export class AppComponent {
   title = 'Dynamic-Facilitation';
+
+  constructor(public authenticationService: AuthenticationService) {}
 
   isFlipchartview: boolean = false;
 

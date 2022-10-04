@@ -1,8 +1,22 @@
 @use "styles/colors" as c;
 
 .login-wrapper {
-  margin: 20rem auto;
+  margin-top: 10rem;
+  margin-left: 5em;
   width: 20rem;
+}
+
+.submitButton {
+  background-color: c.$turquoise;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 221px;
+  height: 44px;
+}
+
+.form-control {
+  margin-bottom: 2rem;
 }
 
 body {
