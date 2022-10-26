@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-button',
-  templateUrl: './add-button.component.html',
-  styleUrls: ['./add-button.component.scss']
+  template: ` <button type="button" (click)="(null)" [ngClass]="classes">
+    +
+  </button>`,
+  styleUrls: ['./add-button.component.scss'],
 })
-export class AddButtonComponent implements OnInit {
+export class AddButtonComponent {
+  @Input()
+  flipchart = true;
 
-  constructor() { }
+  public get classes(): string[] {
+    const mode = this.flipchart
+      ? 'add-button__flipchart'
+      : 'add-button__issues';
 
-  ngOnInit(): void {
+    return ['add-button', mode];
   }
-
 }

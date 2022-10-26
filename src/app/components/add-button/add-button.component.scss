@@ -1,0 +1,15 @@
+@use "styles/colors" as c;
+
+.add-button {
+  border: none;
+  border-radius: 100%;
+  color: c.$turquoise;
+
+  &__flipchart {
+    background-color: c.$item-background;
+  }
+  &__issues {
+    background-color: white;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}

@@ -233,7 +233,7 @@
     "components": [
         {
             "name": "AddButtonComponent",
-            "id": "component-AddButtonComponent-ad96866a6b0895bbf0594f9dd3ed520a2e9c371003dfb7268967e6610f35174962ea42d9153d2c4585badd4cd72f763cfdf33ed48ec188fad7f188015f146d19",
+            "id": "component-AddButtonComponent-babdb7624fbd61cbf9c0b058052a3da4eb813c1e25fa999ac44febad851098b091e100e189fe7043b977090ab7c048a23ae1774465d95ab252ea581ad55cac36",
             "file": "src/app/components/add-button/add-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -245,25 +245,23 @@
                 "./add-button.component.scss"
             ],
             "styles": [],
-            "templateUrl": [
-                "./add-button.component.html"
-            ],
+            "template": "<button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">   +\n </button>",
+            "templateUrl": [],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
-            "methodsClass": [
+            "inputsClass": [
                 {
-                    "name": "ngOnInit",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 12,
+                    "name": "flipchart",
+                    "defaultValue": "true",
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "boolean",
+                    "decorators": []
                 }
             ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -271,27 +269,26 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  templateUrl: './add-button.component.html',\n  styleUrls: ['./add-button.component.scss']\n})\nexport class AddButtonComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">\n    +\n  </button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c$turquoise;\r\n\r\n  .add-button__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  .add-button__issues {\r\n    background-color: white;\r\n  }\r\n}\r\n",
                     "styleUrl": "./add-button.component.scss"
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<p>add-button works!</p>\n<button>+</button>\n"
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 14
+                    }
+                }
+            }
         },
         {
             "name": "AppComponent",
@@ -1410,21 +1407,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Large",
@@ -1603,18 +1600,6 @@
                     "defaultValue": "moduleMetadata({\r\n  imports: [],\r\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -1625,6 +1610,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -1874,7 +1871,7 @@
                 "linktype": "component",
                 "name": "AddButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {

@@ -11,6 +11,16 @@ export default {
   //decorators: [metadata],
 } as Meta;
 
-export const Default: Story<AddButtonComponent> = (addButtonComponent) => ({
-  props: addButtonComponent,
+const Template: Story<AddButtonComponent> = (args: AddButtonComponent) => ({
+  props: args,
 });
+
+export const Flipchart = Template.bind({});
+Flipchart.args = {
+  flipchart: true,
+};
+
+export const Issues = Template.bind({});
+Issues.args = {
+  flipchart: false,
+};
