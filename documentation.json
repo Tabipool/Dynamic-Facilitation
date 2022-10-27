@@ -273,7 +273,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c$turquoise;\r\n\r\n  .add-button__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  .add-button__issues {\r\n    background-color: white;\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c.$turquoise;\r\n\r\n  &__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  &__issues {\r\n    background-color: white;\r\n    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);\r\n  }\r\n}\r\n",
                     "styleUrl": "./add-button.component.scss"
                 }
             ],
@@ -730,7 +730,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$font-color;\r\n  padding-left: 1%;\r\n  height: 65px;\r\n  overflow: hidden;\r\n\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$font-color;\r\n    background-color: c.$main-background;\r\n    font-size: 23px;\r\n    font-style: semi-bold;\r\n    //semi-bold\r\n    margin-left: 2%;\r\n  }\r\n\r\n  &__right {\r\n    min-width: 800px;\r\n    justify-content: flex-end;\r\n    right: 0;\r\n    text-align: right;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    min-width: 800px;\r\n    justify-content: flex-start;\r\n    right: 0;\r\n  }\r\n\r\n  &__toggleCollumn {\r\n    color: white; //!!!!! doppelt und dreifach\r\n    border: none;\r\n    background-color: c.$header-buttons;\r\n    width: 299px;\r\n    height: 44px;\r\n    border-radius: 6px;\r\n    margin-right: 1%;\r\n    font-size: 18px;\r\n  }\r\n  &__logo {\r\n    color: white;\r\n    text-decoration: none;\r\n    background-color: c.$main-background;\r\n  }\r\n  &__dots {\r\n    color: white;\r\n    text-decoration: none;\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$font-color;\r\n  padding-left: 1%;\r\n  height: 65px;\r\n  overflow: hidden;\r\n\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$dark-grey;\r\n    background-color: c.$main-background;\r\n    font-size: 23px;\r\n    font-style: semi-bold;\r\n    //semi-bold\r\n    margin-left: 2%;\r\n  }\r\n\r\n  &__right {\r\n    min-width: 800px;\r\n    justify-content: flex-end;\r\n    right: 0;\r\n    text-align: right;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    min-width: 800px;\r\n    justify-content: flex-start;\r\n    right: 0;\r\n  }\r\n\r\n  &__toggleCollumn {\r\n    color: white; //!!!!! doppelt und dreifach\r\n    border: none;\r\n    background-color: c.$header-buttons;\r\n    width: 299px;\r\n    height: 44px;\r\n    border-radius: 6px;\r\n    margin-right: 1%;\r\n    font-size: 18px;\r\n  }\r\n  &__logo {\r\n    color: white;\r\n    text-decoration: none;\r\n    background-color: c.$main-background;\r\n  }\r\n  &__dots {\r\n    color: white;\r\n    text-decoration: none;\r\n  }\r\n}\r\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -892,7 +892,7 @@
         },
         {
             "name": "ItemComponent",
-            "id": "component-ItemComponent-d09b7f5dcf68469b3b75190eb7e13f0ee57c416fec6c1dbda0edfca44fb0fde16c37434cb6f1bd679a5f654f484dc103ed49e9b4272c59b852f35cdfdd9a78d1",
+            "id": "component-ItemComponent-b82e61bd15995fb766ef652ef3bdc9838e2e73f5a1c82c923871a7b476c72ed87c4ec26d4443a38c1affbfcac08639ce578f6d620194c4b4d7245baa8c6b5cd6",
             "file": "src/app/components/item/item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -908,7 +908,17 @@
                 "./item.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "flipchart",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
@@ -919,16 +929,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.scss'],\n})\nexport class ItemComponent {}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item',\n  templateUrl: './item.component.html',\n  styleUrls: ['./item.component.scss'],\n})\nexport class ItemComponent {\n  @Input()\n  flipchart = true;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  width: 200px;\r\n  height: 200px;\r\n  border: solid 1px #ccc;\r\n  color: rgba(0, 0, 0, 0.87);\r\n  cursor: move;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  text-align: center;\r\n  background: c.$item-background;\r\n  border-radius: 4px;\r\n  position: relative;\r\n  z-index: 1;\r\n  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);\r\n  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),\r\n    0 1px 5px 0 rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  min-height: 106px;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\nlabel {\r\n  background-color: white;\r\n}\r\n",
                     "styleUrl": "./item.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"item-box\" cdkDrag></div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <label>11.</label>\n  <textarea></textarea>\n\n  <button>n</button>\n\n  <button>y</button>\n</div>\n"
         },
         {
             "name": "LoginComponent",
@@ -1397,11 +1407,21 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/add-button/add-Button.stories.ts",
+                "file": "src/app/components/item/item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Story<AddButtonComponent>",
-                "defaultValue": "(addButtonComponent) => ({\r\n  props: addButtonComponent,\r\n})"
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "environment",
@@ -1414,14 +1434,24 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
-                "name": "environment",
+                "name": "Flipchart",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
+                "file": "src/app/components/add-button/add-Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Issues",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/add-button/add-Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "Large",
@@ -1551,6 +1581,16 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/add-button/add-Button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<AddButtonComponent>",
+                "defaultValue": "(args: AddButtonComponent) => ({\r\n  props: args,\r\n})"
             }
         ],
         "functions": [],
@@ -1578,26 +1618,28 @@
                     "type": "literal type"
                 }
             ],
-            "src/app/components/add-button/add-Button.stories.ts": [
+            "src/app/components/item/item.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/add-button/add-Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<AddButtonComponent>",
-                    "defaultValue": "(addButtonComponent) => ({\r\n  props: addButtonComponent,\r\n})"
-                },
-                {
-                    "name": "metadata",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/add-button/add-Button.stories.ts",
+                    "file": "src/app/components/item/item.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "moduleMetadata({\r\n  imports: [],\r\n})"
+                    "defaultValue": "() => ({})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/environments/environment.ts": [
@@ -1612,16 +1654,46 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "src/environments/environment.prod.ts": [
+            "src/app/components/add-button/add-Button.stories.ts": [
                 {
-                    "name": "environment",
+                    "name": "Flipchart",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
+                    "file": "src/app/components/add-button/add-Button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Issues",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/add-button/add-Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "metadata",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/add-button/add-Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "moduleMetadata({\r\n  imports: [],\r\n})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/add-button/add-Button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<AddButtonComponent>",
+                    "defaultValue": "(args: AddButtonComponent) => ({\r\n  props: args,\r\n})"
                 }
             ],
             "src/stories/Button.stories.ts": [
@@ -1850,7 +1922,17 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Default",
+                "name": "Flipchart",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/add-button/add-Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Issues",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1861,6 +1943,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "metadata",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/add-button/add-Button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1888,6 +1980,16 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/item/item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
