@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flipcharts.component.scss'],
 })
 export class FlipchartsComponent implements OnInit {
-  constructor() {
-    console.log('hallo');
-  }
+  problem: any[] = [];
+  info_data: any[] = [];
+  thoughts: any[] = [];
+  solutions: any[] = [];
+
+  constructor() {}
 
   ngOnInit(): void {}
 }

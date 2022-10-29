@@ -1,9 +1,9 @@
 import { moduleMetadata } from '@storybook/angular';
-import { ItemComponent } from './item.component';
+import { AddedItemComponent } from './added-item.component';
 
 export default {
-  title: 'general/item/base',
-  component: ItemComponent,
+  title: 'general/item/added-item',
+  component: AddedItemComponent,
   //decorators: [metadata],
 };
 

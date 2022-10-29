@@ -9,10 +9,12 @@ $mid-grey: #899da0;
 
 //shifts
 
-$shift-lightBlue: #a9c7ff;
-$shift-blue: #5ba4ff;
-$shift-turquoise: #00aaa0;
-$shift-lightgreen: #caff5b;
-$shift-yellow: #ffce22;
-$shift-lightorange: #ffb237;
-$shift-orange: #ff793f;
+$shift-colors: (
+  shift-lightBlue: #a9c7ff,
+  shift-blue: #5ba4ff,
+  shift-turquoise: #00aaa0,
+  shift-lightgreen: #caff5b,
+  shift-yellow: #ffce22,
+  shift-lightorange: #ffb237,
+  shift-orange: #ff793f,
+);

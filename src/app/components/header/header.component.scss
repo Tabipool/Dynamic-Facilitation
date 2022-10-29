@@ -1,7 +1,7 @@
 @use "styles/colors" as c;
 .header {
   background-color: c.$header-background;
-  color: c.$font-color;
+  color: c.$dark-grey;
   padding-left: 1%;
   height: 65px;
   overflow: hidden;
@@ -39,7 +39,7 @@
   &__toggleCollumn {
     color: white; //!!!!! doppelt und dreifach
     border: none;
-    background-color: c.$header-buttons;
+    background-color: c.$dark-grey;
     width: 299px;
     height: 44px;
     border-radius: 6px;
