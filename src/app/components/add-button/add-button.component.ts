@@ -18,4 +18,10 @@ export class AddButtonComponent {
 
     return ['add-button', mode];
   }
+
+  onClick() {
+    if (this.flipchart) {
+    } else {
+    }
+  }
 }
