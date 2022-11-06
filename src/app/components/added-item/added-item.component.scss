@@ -6,6 +6,7 @@
   border-radius: 0px 16px 16px 0px;
   padding: 15px;
   display: flex;
+  flex-direction: row;
 }
 
 .item-box:active {
@@ -14,17 +15,31 @@
 }
 
 .shift-color {
-  display: block;
   background-color: map-get(c.$shift-colors, shift-blue);
-  height: 98px;
+  height: auto;
   width: 10px;
   align-items: flex-start;
   margin-top: -15px;
   margin-bottom: -15px;
   margin-left: -15px;
+  margin-right: 10px;
 }
 
 .right-wrapper {
-  align-items: flex-start;
-  margin-left: 10px;
+  width: 100%;
+}
+
+.counting-label {
+  float: left;
+  margin-right: 5px;
+  height: 100%;
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item-text {
+  width: 100%;
 }

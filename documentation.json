@@ -233,7 +233,7 @@
     "components": [
         {
             "name": "AddButtonComponent",
-            "id": "component-AddButtonComponent-babdb7624fbd61cbf9c0b058052a3da4eb813c1e25fa999ac44febad851098b091e100e189fe7043b977090ab7c048a23ae1774465d95ab252ea581ad55cac36",
+            "id": "component-AddButtonComponent-313ad389ed4700f23f6d315a06189282b2c336c40d0aaeacdc2765fb2a801c74d7b0690a6e3967ab11dcc8fabb4a0f4f6f80c32807c7e90fb4538ebe7453fd0f",
             "file": "src/app/components/add-button/add-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -261,7 +261,18 @@
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -269,7 +280,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">\n    +\n  </button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">\n    +\n  </button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n\n  onClick() {\n    if (this.flipchart) {\n    } else {\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -289,6 +300,68 @@
                     }
                 }
             }
+        },
+        {
+            "name": "AddedItemComponent",
+            "id": "component-AddedItemComponent-dc12899b92b6ce29b941e6cd86a8c3dd22ef4cb99308bcf3aa46c6a036ad6dbc1805ba1b44944e697b171172d228af8d62833bf0845a07c9c61aa2499e026895",
+            "file": "src/app/components/added-item/added-item.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-added-item",
+            "styleUrls": [
+                "./added-item.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./added-item.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss']\n})\nexport class AddedItemComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  align-items: flex-start;\r\n}\r\n\r\n.counting-label {\r\n  height: auto;\r\n  width: auto;\r\n  float: left;\r\n}\r\n\r\n.icon-wrapper {\r\n  align-items: flex-end;\r\n  align-self: flex-end;\r\n}\r\n",
+                    "styleUrl": "./added-item.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"couting-label\">11.</div>\n    <span>Problemstellung x y die etw</span>\n    <div class=\"icon-wrapper\"><button>dot</button></div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
@@ -974,12 +1047,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  min-height: 106px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "./item.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">11.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" />\n  </div>\n\n  <button id=\"cancelbtn\" class=\"submit-cancel-buttons\">n</button>\n\n  <button id=\"submitbtn\" class=\"submit-cancel-buttons\">y</button>\n</div>\n"
+            "templateData": "<div class=\"item-box\">\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">11.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" />\n  </div>\n\n  <button id=\"cancelbtn\" class=\"submit-cancel-buttons\">n</button>\n\n  <button id=\"submitbtn\" class=\"submit-cancel-buttons\">y</button>\n</div>\n"
         },
         {
             "name": "ItemFlipchartComponent",
@@ -1025,7 +1098,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  min-height: 106px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "../item.component.scss"
                 }
             ],
@@ -1341,6 +1414,9 @@
                             "name": "AddButtonComponent"
                         },
                         {
+                            "name": "AddedItemComponent"
+                        },
+                        {
                             "name": "HeaderComponent"
                         },
                         {
@@ -1514,6 +1590,16 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/app/components/item/item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/added-item/added-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1740,6 +1826,18 @@
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/item/item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
+            "src/app/components/added-item/added-item.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/added-item/added-item.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -2091,7 +2189,26 @@
                 "linktype": "component",
                 "name": "AddButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/added-item/added-item.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AddedItemComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/added-item/added-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
