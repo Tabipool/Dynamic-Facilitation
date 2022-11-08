@@ -4,6 +4,13 @@
   border: none;
   border-radius: 100%;
   color: c.$turquoise;
+  height: 35px;
+  width: 35px;
+  font-size: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 
   &__flipchart {
     background-color: c.$item-background;

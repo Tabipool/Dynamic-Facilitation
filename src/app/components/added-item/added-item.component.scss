@@ -2,11 +2,16 @@
 
 .item-box {
   background-color: c.$item-background;
-  width: 314.4px;
+  width: 100%;
   border-radius: 0px 16px 16px 0px;
   padding: 15px;
   display: flex;
   flex-direction: row;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Serenity";
+  font-style: normal;
 }
 
 .item-box:active {

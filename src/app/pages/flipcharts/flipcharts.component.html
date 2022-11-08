@@ -1,20 +1,54 @@
-<div>
-  <div class="chartview">
+<div class="wrapper">
+  <div cdkDropListGroup class="chartview">
+    <app-chart class="chartview__charts" title="Problemstellung"></app-chart>
+    <app-chart
+      class="chartview__charts"
+      title="Info, Data, Sichtweisen"
+    ></app-chart>
+    <app-chart class="chartview__charts" title="Bedenken"></app-chart>
+    <app-chart class="chartview__charts" title="Lösungen"></app-chart>
+  </div>
+</div>
+
+<!--
     <div class="chartview__charts">
       <p>Problemstellung</p>
-      <div cdkDropList></div>
+      <app-add-button
+        [flipchart]="true"
+        class="chartview__add-button"
+        *ngIf="!addingItem"
+        (click)="ToggleInput()"
+      ></app-add-button>
+      <app-item-flipchart *ngIf="addingItem"></app-item-flipchart>
+      <div class="chartview__dropList" cdkDropList></div>
     </div>
+
     <div class="chartview__charts">
       <p>Info, Data, Sichtweisen</p>
-      <div cdkDropList></div>
+      <app-add-button
+        [flipchart]="true"
+        class="chartview__add-button"
+        *ngIf="!addingItem"
+      ></app-add-button>
+      <div class="chartview__dropList" cdkDropList></div>
     </div>
     <div class="chartview__charts">
       <p>Bedenken</p>
-      <div cdkDropList></div>
+      <app-add-button
+        [flipchart]="true"
+        class="chartview__add-button"
+        *ngIf="!addingItem"
+      ></app-add-button>
+      <div class="chartview__dropList" cdkDropList></div>
     </div>
     <div class="chartview__charts">
       <p>Lösungen</p>
-      <div cdkDropList></div>
-    </div>
-  </div>
-</div>
+      <app-add-button
+        [flipchart]="true"
+        class="chartview__add-button"
+        *ngIf="!addingItem"
+      ></app-add-button>
+      <div class="chartview__dropList" cdkDropList>
+        <app-added-item></app-added-item>
+      </div>
+    </div> -->

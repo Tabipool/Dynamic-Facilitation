@@ -2,9 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-button',
-  template: ` <button type="button" (click)="(null)" [ngClass]="classes">
-    +
-  </button>`,
+  template: ` <button type="button" [ngClass]="classes">+</button>`,
   styleUrls: ['./add-button.component.scss'],
 })
 export class AddButtonComponent {
@@ -19,9 +17,9 @@ export class AddButtonComponent {
     return ['add-button', mode];
   }
 
-  onClick() {
+  /*onClick() {
     if (this.flipchart) {
     } else {
     }
-  }
+  }*/
 }

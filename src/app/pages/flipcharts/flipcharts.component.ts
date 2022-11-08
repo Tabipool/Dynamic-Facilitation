@@ -11,7 +11,13 @@ export class FlipchartsComponent implements OnInit {
   thoughts: any[] = [];
   solutions: any[] = [];
 
+  addingItem: boolean = false;
+
   constructor() {}
+
+  ToggleInput() {
+    this.addingItem = !this.addingItem;
+  }
 
   ngOnInit(): void {}
 }

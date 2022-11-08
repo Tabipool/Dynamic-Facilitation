@@ -345,7 +345,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  align-items: flex-start;\r\n}\r\n\r\n.counting-label {\r\n  height: auto;\r\n  width: auto;\r\n  float: left;\r\n}\r\n\r\n.icon-wrapper {\r\n  align-items: flex-end;\r\n  align-self: flex-end;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n",
                     "styleUrl": "./added-item.component.scss"
                 }
             ],
@@ -361,7 +361,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"couting-label\">11.</div>\n    <span>Problemstellung x y die etw</span>\n    <div class=\"icon-wrapper\"><button>dot</button></div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">11.</div>\n    <div class=\"item-text\">\n      Problemstellung x y die etwas länger ist als erwartet und so hoffentlich 2\n      zeilen belegt\n    </div>\n    <div class=\"icon-wrapper\"><button>dot</button></div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
@@ -1589,7 +1589,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/item/item.stories.ts",
+                "file": "src/app/components/added-item/added-item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1599,7 +1599,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/added-item/added-item.stories.ts",
+                "file": "src/app/components/item/item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1619,21 +1619,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Flipchart",
@@ -1820,24 +1820,24 @@
                     "type": "literal type"
                 }
             ],
-            "src/app/components/item/item.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/app/components/item/item.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "() => ({})"
-                }
-            ],
             "src/app/components/added-item/added-item.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "src/app/components/added-item/added-item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
+            "src/app/components/item/item.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/item/item.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -1856,18 +1856,6 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -1878,6 +1866,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/components/add-button/add-Button.stories.ts": [

@@ -1,0 +1,29 @@
+.charts {
+  background-color: #fff;
+  height: (100vh-15vh);
+  border-radius: 15px;
+  padding: 20px 10px;
+  gap: 5px;
+
+  &__add-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__dropList {
+    position: relative;
+    margin-top: 15px;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+}
+
+p {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  font-size: 30px;
+}

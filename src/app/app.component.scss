@@ -1,12 +1,17 @@
 @use "../styles/_colors.scss" as c;
+@import url("https://use.typekit.net/owv7fhz.css");
 //@use "../node_modules/bootstrap/scss/bootstrap.scss" as b;
 
 body {
   background-color: c.$main-background;
+  font-family: "Serenity";
+  font-style: normal;
 }
 
 div {
   background-color: c.$main-background;
+  font-family: "Serenity";
+  font-style: normal;
 }
 
 $body-bg: c.$main-background;

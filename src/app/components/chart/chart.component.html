@@ -1,0 +1,14 @@
+<div class="charts">
+  <p>{{ title }}</p>
+  <app-add-button
+    [flipchart]="true"
+    class="charts__add-button"
+    *ngIf="!addingItem"
+    (click)="ToggleInput()"
+  ></app-add-button>
+  <app-item-flipchart *ngIf="addingItem"></app-item-flipchart>
+  <div class="charts__dropList" cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-added-item></app-added-item>
+    <app-added-item></app-added-item>
+  </div>
+</div>
