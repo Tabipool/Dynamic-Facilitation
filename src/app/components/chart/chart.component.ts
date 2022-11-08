@@ -4,6 +4,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { Item } from 'types/Item';
 
 @Component({
   selector: 'app-chart',
@@ -12,6 +13,9 @@ import {
 })
 export class ChartComponent implements OnInit {
   addingItem: boolean = false;
+
+  counter: number = 1;
+  items: Item[] = [];
 
   @Input()
   title: string = '';
@@ -24,7 +28,29 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  drop(event: CdkDragDrop<string[]>) {
+  cancelSubmit() {
+    this.addingItem = false;
+  }
+
+  itemSubmit(item: { description: string; color: string }) {
+    let newItem = new Item();
+    this.addingItem = false;
+    newItem.number = this.counter;
+    newItem.description = item.description;
+    newItem.color = item.color;
+
+    this.items.push(newItem);
+
+    console.log(this.counter);
+    console.log(item);
+    console.log(newItem);
+    console.log(this.items);
+    //this.newItem.type =
+
+    this.counter++;
+  }
+
+  /*drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -39,5 +65,7 @@ export class ChartComponent implements OnInit {
         event.currentIndex
       );
     }
-  }
+
+    console.log(this.addingItem);
+  }*/
 }

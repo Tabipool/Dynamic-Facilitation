@@ -233,7 +233,7 @@
     "components": [
         {
             "name": "AddButtonComponent",
-            "id": "component-AddButtonComponent-313ad389ed4700f23f6d315a06189282b2c336c40d0aaeacdc2765fb2a801c74d7b0690a6e3967ab11dcc8fabb4a0f4f6f80c32807c7e90fb4538ebe7453fd0f",
+            "id": "component-AddButtonComponent-4acdf9f08cb8dfd03319b546d556d604adf8a30c2e7de1fdd4be4d20d234740e1ae9cd80051d33a0aff070213b1b207a1fede9881317e825afc5971e708423aa",
             "file": "src/app/components/add-button/add-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -245,7 +245,7 @@
                 "./add-button.component.scss"
             ],
             "styles": [],
-            "template": "<button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">   +\n </button>",
+            "template": "<button type=\"button\" [ngClass]=\"classes\">+</button>",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -254,25 +254,14 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 12,
+                    "line": 10,
                     "type": "boolean",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [],
-            "methodsClass": [
-                {
-                    "name": "onClick",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 22,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                }
-            ],
+            "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
@@ -280,11 +269,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" (click)=\"(null)\" [ngClass]=\"classes\">\n    +\n  </button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n\n  onClick() {\n    if (this.flipchart) {\n    } else {\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" [ngClass]=\"classes\">+</button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n\n  /*onClick() {\n    if (this.flipchart) {\n    } else {\n    }\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c.$turquoise;\r\n\r\n  &__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  &__issues {\r\n    background-color: white;\r\n    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c.$turquoise;\r\n  height: 35px;\r\n  width: 35px;\r\n  font-size: 30px;\r\n  display: inline-flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n\r\n  &__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  &__issues {\r\n    background-color: white;\r\n    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);\r\n  }\r\n}\r\n",
                     "styleUrl": "./add-button.component.scss"
                 }
             ],
@@ -296,7 +285,7 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 14
+                        "line": 12
                     }
                 }
             }
@@ -345,7 +334,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n",
                     "styleUrl": "./added-item.component.scss"
                 }
             ],
@@ -458,7 +447,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"../styles/_colors.scss\" as c;\r\n//@use \"../node_modules/bootstrap/scss/bootstrap.scss\" as b;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\ndiv {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n$body-bg: c.$main-background;\r\n",
+                    "data": "@use \"../styles/_colors.scss\" as c;\r\n@import url(\"https://use.typekit.net/owv7fhz.css\");\r\n//@use \"../node_modules/bootstrap/scss/bootstrap.scss\" as b;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\ndiv {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\n$body-bg: c.$main-background;\r\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
@@ -616,8 +605,129 @@
             }
         },
         {
+            "name": "ChartComponent",
+            "id": "component-ChartComponent-38ce2473ef850303e0d154fe006a4526fe55ab34eae8bc6f8395261986ec6d0869ed1d5351a9bcd9c6580f06eb7ca5039c4714ff3b9803162d13acef0624d23d",
+            "file": "src/app/components/chart/chart.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-chart",
+            "styleUrls": [
+                "./chart.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./chart.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "addingItem",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "drop",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "CdkDragDrop<string[]>",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "CdkDragDrop<string[]>",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ToggleInput",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  addingItem: boolean = false;\n\n  @Input()\n  title: string = '';\n\n  constructor() {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n\n  drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".charts {\r\n  background-color: #fff;\r\n  height: (100vh-15vh);\r\n  border-radius: 15px;\r\n  padding: 20px 10px;\r\n  gap: 5px;\r\n\r\n  &__add-button {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: flex-end;\r\n  }\r\n\r\n  &__dropList {\r\n    position: relative;\r\n    margin-top: 15px;\r\n    height: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n    gap: 5px;\r\n  }\r\n}\r\n\r\np {\r\n  font-size: 30px;\r\n  font-weight: 700;\r\n  line-height: 36px;\r\n  font-size: 30px;\r\n}\r\n",
+                    "styleUrl": "./chart.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"charts\">\n  <p>{{ title }}</p>\n  <app-add-button\n    [flipchart]=\"true\"\n    class=\"charts__add-button\"\n    *ngIf=\"!addingItem\"\n    (click)=\"ToggleInput()\"\n  ></app-add-button>\n  <app-item-flipchart *ngIf=\"addingItem\"></app-item-flipchart>\n  <div class=\"charts__dropList\" cdkDropList (cdkDropListDropped)=\"drop($event)\">\n    <app-added-item></app-added-item>\n    <app-added-item></app-added-item>\n  </div>\n</div>\n"
+        },
+        {
             "name": "FlipchartsComponent",
-            "id": "component-FlipchartsComponent-fdf11b76a144b00a526ecd432b9c274c3cefa2f6f55303d9ec8949178c1adadd2c9da964800ddd4312fe7d10653c23f9c8e55d7ae081b06b9f64a61ae263578a",
+            "id": "component-FlipchartsComponent-389c4f8a709dd9c46718566a7299bc8ef5e722c32cdecc1b9a1d0e28786a5b6d985a50308b10662cb2ce6772abb0590938a09fe78a87c8c9ebb304cb8bbedc86",
             "file": "src/app/pages/flipcharts/flipcharts.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -636,6 +746,16 @@
             "inputsClass": [],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "addingItem",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
                 {
                     "name": "info_data",
                     "defaultValue": "[]",
@@ -684,7 +804,17 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 16,
+                    "line": 22,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ToggleInput",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -696,11 +826,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  addingItem: boolean = false;\n\n  constructor() {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.chartview {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 2%;\r\n\r\n  &__charts {\r\n    font-size: 30px;\r\n    line-height: 36px;\r\n    font-size: 30px;\r\n    background-color: #fff;\r\n    height: 700px;\r\n    width: 100%;\r\n    margin: 10px;\r\n    border-radius: 15px;\r\n\r\n    padding: 20px 10px;\r\n    gap: 15px;\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.chartview {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 2% 2% 0% 2%;\r\n\r\n  &__charts {\r\n    width: 100%;\r\n    margin: 10px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  height: (100vh-15vh);\r\n}\r\n",
                     "styleUrl": "./flipcharts.component.scss"
                 }
             ],
@@ -711,12 +841,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 12
+                "line": 14
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div>\n  <div class=\"chartview\">\n    <div class=\"chartview__charts\">\n      <p>Problemstellung</p>\n      <div cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Info, Data, Sichtweisen</p>\n      <div cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Bedenken</p>\n      <div cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Lösungen</p>\n      <div cdkDropList></div>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n  </div>\n</div>\n\n<!--\n    <div class=\"chartview__charts\">\n      <p>Problemstellung</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n        (click)=\"ToggleInput()\"\n      ></app-add-button>\n      <app-item-flipchart *ngIf=\"addingItem\"></app-item-flipchart>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n\n    <div class=\"chartview__charts\">\n      <p>Info, Data, Sichtweisen</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Bedenken</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Lösungen</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList>\n        <app-added-item></app-added-item>\n      </div>\n    </div> -->\n"
         },
         {
             "name": "HeaderComponent",
@@ -1047,7 +1177,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "./item.component.scss"
                 }
             ],
@@ -1098,7 +1228,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 314.4px;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "../item.component.scss"
                 }
             ],
@@ -1114,7 +1244,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">11.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" />\n  </div>\n\n  <div class=\"bottom-wrapper\">\n    <button id=\"cancelbtn\" class=\"submit-cancel-buttons\">n</button>\n\n    <div class=\"color-picker-wrapper\">\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-blue\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-blue\" class=\"color-picker-lable\"\n        ><span class=\"shift-blue\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-turquoise\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-turquoise\" class=\"color-picker-lable\"\n        ><span class=\"shift-turquoise\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-orange\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-orange\" class=\"color-picker-lable\"\n        ><span class=\"shift-orange\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-yellow\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-yellow\" class=\"color-picker-lable\"\n        ><span class=\"shift-yellow\"></span\n      ></label>\n\n      <!--<input type=\"radio\" id=\"random\" name=\"color\" />\n      <label for=\"random\"><span class=\"random\"></span>z</label>-->\n    </div>\n\n    <button id=\"submitbtn\" class=\"submit-cancel-buttons\">y</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\">\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">11.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" />\n  </div>\n\n  <div class=\"bottom-wrapper\">\n    <button id=\"cancelbtn\" class=\"submit-cancel-buttons\">n</button>\n\n    <div class=\"color-picker-wrapper\">\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-blue\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-blue\" class=\"color-picker-lable\"\n        ><span class=\"shift-blue\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-turquoise\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-turquoise\" class=\"color-picker-lable\"\n        ><span class=\"shift-turquoise\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-orange\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-orange\" class=\"color-picker-lable\"\n        ><span class=\"shift-orange\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-yellow\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-yellow\" class=\"color-picker-lable\"\n        ><span class=\"shift-yellow\"></span\n      ></label>\n\n      <!--<input type=\"radio\" id=\"random\" name=\"color\" />\n      <label for=\"random\"><span class=\"random\"></span>z</label>-->\n    </div>\n\n    <button id=\"submitbtn\" class=\"submit-cancel-buttons\">y</button>\n  </div>\n</div>\n"
         },
         {
             "name": "LoginComponent",
@@ -1394,14 +1524,50 @@
             ]
         },
         {
+            "name": "ChartModule",
+            "id": "module-ChartModule-18ed87053763283bd24e35cc62a752e6a73af18ed60225be87607bd034437b664b9230171daf9133abd0fdf18df2536bc56cac03cd1facce83cf83e30b83741f",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/components/chart/chart.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ComponentsModule } from 'app/components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule, ComponentsModule, DragDropModule],\n})\nexport class ChartModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "ComponentsModule",
-            "id": "module-ComponentsModule-1d1b10d9041bc97223c2fd0733898975ae85858614452255382752020b616bfe376a953249dbd52f64638a34530cf13aaab79bb3b203b80e514bca249cb438a1",
+            "id": "module-ComponentsModule-7afe22e91d88cda40d54b5b1a16b73b10aee23b7f8fd852b495e5ee1b9dead0d803948a77d68538d7eff15ea364c0ba393ca3707157bf3f269eb1291d17bd4d6",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/components.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\n\n@NgModule({\n  declarations: [ItemComponent, HeaderComponent, AddButtonComponent, ItemFlipchartComponent, AddedItemComponent],\n  imports: [CommonModule, DragDropModule],\n  exports: [ItemComponent, HeaderComponent],\n})\nexport class ComponentsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1415,6 +1581,9 @@
                         },
                         {
                             "name": "AddedItemComponent"
+                        },
+                        {
+                            "name": "ChartComponent"
                         },
                         {
                             "name": "HeaderComponent"
@@ -1435,10 +1604,22 @@
                     "type": "exports",
                     "elements": [
                         {
+                            "name": "AddButtonComponent"
+                        },
+                        {
+                            "name": "AddedItemComponent"
+                        },
+                        {
+                            "name": "ChartComponent"
+                        },
+                        {
                             "name": "HeaderComponent"
                         },
                         {
                             "name": "ItemComponent"
+                        },
+                        {
+                            "name": "ItemFlipchartComponent"
                         }
                     ]
                 },
@@ -1599,6 +1780,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/chart/chart.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/item/item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1619,21 +1810,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Flipchart",
@@ -1832,6 +2023,18 @@
                     "defaultValue": "() => ({})"
                 }
             ],
+            "src/app/components/chart/chart.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/chart/chart.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
             "src/app/components/item/item.stories.ts": [
                 {
                     "name": "Default",
@@ -1856,18 +2059,6 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -1878,6 +2069,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/app/components/add-button/add-Button.stories.ts": [
@@ -2189,7 +2392,7 @@
                 "linktype": "component",
                 "name": "AddButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/2",
                 "status": "low"
             },
             {
@@ -2203,6 +2406,25 @@
             },
             {
                 "filePath": "src/app/components/added-item/added-item.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/chart/chart.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ChartComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/chart/chart.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -2273,7 +2495,7 @@
                 "linktype": "component",
                 "name": "FlipchartsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {

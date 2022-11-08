@@ -6,9 +6,15 @@
     *ngIf="!addingItem"
     (click)="ToggleInput()"
   ></app-add-button>
-  <app-item-flipchart *ngIf="addingItem"></app-item-flipchart>
-  <div class="charts__dropList" cdkDropList (cdkDropListDropped)="drop($event)">
-    <app-added-item></app-added-item>
-    <app-added-item></app-added-item>
+  <app-item-flipchart
+    *ngIf="addingItem"
+    (submitCanceled)="cancelSubmit()"
+    (submitItem)="itemSubmit($event)"
+  ></app-item-flipchart>
+  <div class="charts__dropList" cdkDropList>
+    <app-added-item
+      *ngFor="let item of items"
+      [newItem]="item"
+    ></app-added-item>
   </div>
 </div>

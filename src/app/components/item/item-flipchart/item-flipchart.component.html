@@ -1,11 +1,17 @@
 <div class="item-box">
   <div class="item-input-wrapper">
     <label for="item-input">11.</label>
-    <input type="text" id="item-input" name="item-input" />
+    <input type="text" id="item-input" name="item-input" #textInput required />
   </div>
 
   <div class="bottom-wrapper">
-    <button id="cancelbtn" class="submit-cancel-buttons">n</button>
+    <button
+      id="cancelbtn"
+      class="submit-cancel-buttons"
+      (click)="CancelSubmit()"
+    >
+      n
+    </button>
 
     <div class="color-picker-wrapper">
       <input
@@ -13,6 +19,9 @@
         name="color"
         id="shift-blue"
         class="radio-color-picker"
+        #shiftBlue
+        checked
+        (change)="changeColor($event)"
       />
       <label for="shift-blue" class="color-picker-lable"
         ><span class="shift-blue"></span
@@ -23,6 +32,7 @@
         name="color"
         id="shift-turquoise"
         class="radio-color-picker"
+        (change)="changeColor($event)"
       />
       <label for="shift-turquoise" class="color-picker-lable"
         ><span class="shift-turquoise"></span
@@ -33,6 +43,7 @@
         name="color"
         id="shift-orange"
         class="radio-color-picker"
+        (change)="changeColor($event)"
       />
       <label for="shift-orange" class="color-picker-lable"
         ><span class="shift-orange"></span
@@ -43,6 +54,7 @@
         name="color"
         id="shift-yellow"
         class="radio-color-picker"
+        (change)="changeColor($event)"
       />
       <label for="shift-yellow" class="color-picker-lable"
         ><span class="shift-yellow"></span
@@ -52,6 +64,8 @@
       <label for="random"><span class="random"></span>z</label>-->
     </div>
 
-    <button id="submitbtn" class="submit-cancel-buttons">y</button>
+    <button id="submitbtn" class="submit-cancel-buttons" (click)="SubmitItem()">
+      y
+    </button>
   </div>
 </div>
