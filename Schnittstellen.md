@@ -76,7 +76,7 @@
     "idmeeting": 0,
     "title": "string",
     "description": "string",
-    "savedate": 20.12.2022,
+    "savedate": "datetime"
   }
 ]
 ```
@@ -128,7 +128,7 @@
         "ofcourse": false
       }
     ],
-    "savedate": 20.12.2022,
+    "savedate": "datetime"
   }
 ]
 ```
@@ -155,7 +155,7 @@
         "ofcourse": false
       }
     ],
-    "savedate": 20.12.2022,
+    "savedate": "datetime"
   }
 ]
 ```
