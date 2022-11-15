@@ -23,7 +23,7 @@
 }
 
 .shift-color {
-  background-color: map-get(c.$shift-colors, $color);
+  //background-color: map-get(c.$shift-colors, $color);
   height: auto;
   width: 10px;
   align-items: flex-start;
@@ -51,4 +51,25 @@
 
 .item-text {
   width: 100%;
+}
+
+.menu {
+  border: none;
+  background-color: transparent;
+}
+
+.shift-turquoise {
+  background-color: map-get(c.$shift-colors, shift-turquoise);
+}
+
+.shift-blue {
+  background-color: map-get(c.$shift-colors, shift-blue);
+}
+
+.shift-yellow {
+  background-color: map-get(c.$shift-colors, shift-yellow);
+}
+
+.shift-orange {
+  background-color: map-get(c.$shift-colors, shift-orange);
 }

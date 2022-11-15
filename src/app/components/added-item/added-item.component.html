@@ -1,17 +1,11 @@
 <div class="item-box" cdkDrag>
-  <div
-    #coloredStripe
-    [ngStyle]="{
-      'background-color': newItem.color
-    }"
-    class="shift-color"
-  ></div>
+  <div #coloredStripe [ngClass]="newItem.color" class="shift-color"></div>
 
   <div class="right-wrapper">
     <div class="counting-label">{{ newItem.number }}.</div>
     <div class="item-text">
       {{ newItem.description }}
     </div>
-    <div class="icon-wrapper"><button>dot</button></div>
+    <div class="icon-wrapper"><button class="menu">dot</button></div>
   </div>
 </div>

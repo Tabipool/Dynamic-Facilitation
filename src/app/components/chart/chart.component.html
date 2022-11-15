@@ -10,6 +10,7 @@
     *ngIf="addingItem"
     (submitCanceled)="cancelSubmit()"
     (submitItem)="itemSubmit($event)"
+    [counter]="this.counter"
   ></app-item-flipchart>
   <div class="charts__dropList" cdkDropList>
     <app-added-item

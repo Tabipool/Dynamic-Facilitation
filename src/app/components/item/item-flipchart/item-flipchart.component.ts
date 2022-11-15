@@ -20,6 +20,7 @@ export class ItemFlipchartComponent {
     description: string;
     color: string;
   }>();
+  @Input() counter: number;
 
   @ViewChild('textInput') itemInput!: ElementRef<HTMLInputElement>;
   @ViewChild('shiftBlue') colorRadio!: ElementRef<HTMLInputElement>;
@@ -31,10 +32,12 @@ export class ItemFlipchartComponent {
   }
 
   SubmitItem() {
-    this.submitItem.emit({
-      description: this.itemInput.nativeElement.value,
-      color: this.activeColor,
-    });
+    if (this.itemInput.nativeElement.value != '') {
+      this.submitItem.emit({
+        description: this.itemInput.nativeElement.value,
+        color: this.activeColor,
+      });
+    }
   }
 
   CancelSubmit() {
