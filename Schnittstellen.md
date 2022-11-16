@@ -24,7 +24,7 @@
 ```
 
 ```diff
-!StatusCode: 200 OK
+StatusCode: 200 OK
 ```
 
 **POST api/moderators/** Saves a new moderator
@@ -39,7 +39,7 @@
 ```
 
 ```diff
-!StatusCode: 201 Created
+StatusCode: 201 Created
 ```
 
 **PUT api/moderators/IDmoderator** Updates given moderator
@@ -55,13 +55,13 @@
 ```
 
 ```diff
-!StatusCode: 200 OK
+StatusCode: 200 OK
 ```
 
 **DELETE api/moderators/idmoderator** Deletes the given moderator (with all meetings)
 
 ```diff
-!StatusCode: 204 NoContext
+StatusCode: 204 NoContext
 ```
 
 ---
@@ -82,7 +82,7 @@
 ```
 
 ```diff
-!StatusCode: 200 OK
+StatusCode: 200 OK
 ```
 
 **GET api/meetings/idmeeting** Returns a list of a meeting (with all items)
@@ -108,7 +108,7 @@
 ```
 
 ```diff
-!StatusCode: 200 OK
+StatusCode: 200 OK
 ```
 
 **POST api/meetings/** Saves a new meeting (with all items)
@@ -134,7 +134,7 @@
 ```
 
 ```diff
-!StatusCode: 201 Created
+StatusCode: 201 Created
 ```
 
 **PUT api/meetings/idmeeting** Updates given meeting (with all items)
@@ -161,11 +161,11 @@
 ```
 
 ```diff
-!StatusCode: 200 OK
+StatusCode: 200 OK
 ```
 
 **DELETE api/meetings/idmeeting** Deletes given meeting (with all items)
 
 ```diff
-!StatusCode: 204 NoContext
+StatusCode: 204 NoContext
 ```
