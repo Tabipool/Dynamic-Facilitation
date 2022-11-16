@@ -18,7 +18,7 @@
     "username": "string",
     "name": "string",
     "lastname": "string",
-    "picture-path": "string"
+    "picture-path": "url"
   }
 ]
 ```
