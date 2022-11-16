@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { ComponentsModule } from './components/components.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { CounterService } from './state/counter/counter.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -21,7 +23,7 @@ import { CommonModule } from '@angular/common';
     ComponentsModule,
     DragDropModule,
   ],
-  providers: [],
+  providers: [CounterService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -5,6 +5,7 @@ import {
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { Item } from 'types/Item';
+import { CounterService } from '../../state/counter/counter.service';
 
 @Component({
   selector: 'app-chart',
@@ -12,21 +13,19 @@ import { Item } from 'types/Item';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
+  constructor(public _counterService: CounterService) {}
   addingItem: boolean = false;
 
-  counter: number = 1;
   items: Item[] = [];
 
   @Input()
   title: string = '';
 
-  constructor() {}
-
   ToggleInput() {
     this.addingItem = !this.addingItem;
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   cancelSubmit() {
     this.addingItem = false;
@@ -35,19 +34,19 @@ export class ChartComponent implements OnInit {
   itemSubmit(item: { description: string; color: string }) {
     let newItem = new Item();
     this.addingItem = false;
-    newItem.number = this.counter;
+    newItem.number = this._counterService.getValue();
     newItem.description = item.description;
     newItem.color = item.color;
 
     this.items.push(newItem);
 
-    console.log(this.counter);
+    //console.log(this.counterService.getValue());
     console.log(item);
     console.log(newItem);
     console.log(this.items);
     //this.newItem.type =
 
-    this.counter++;
+    this._counterService.increase();
   }
 
   /*drop(event: CdkDragDrop<string[]>) {

@@ -1,17 +1,26 @@
 <div class="header">
   <div class="header__left">
-    <a (click)="goToHomeview()">Home</a>
+    <a (click)="goToHomeview()"
+      ><img class="header__logo" src="assets/images/DFLogo.png"
+    /></a>
     <button *ngIf="flipchart" class="header__title">
       Titel des Meetings >
     </button>
+    <button *ngIf="flipchart" class="header__transparentButton">
+      <img class="header__icons" src="assets/icons/floppy-disk-solid.svg" />
+    </button>
   </div>
   <div class="header__right">
-    <button *ngIf="flipchart" class="header__toggleCollumn">
-      () Of Courses anzeigen
+    <button *ngIf="flipchart" class="header__transparentButton">
+      <img class="header__icons" src="assets/icons/star-solid.svg" />
     </button>
-    <button *ngIf="flipchart" class="header__toggleCollumn">
-      () Bookmarks anzeigen
+    <button *ngIf="flipchart" class="header__transparentButton">
+      <img class="header__icons" src="assets/icons/bookmark-solid.svg" />
     </button>
-    <a class="header__dots">dotdot</a>
+    <button class="header__transparentButton">
+      <img class="header__dots" src="assets/icons/circle-solid.svg" />
+      <img class="header__dots" src="assets/icons/circle-solid.svg" />
+      <img class="header__dots" src="assets/icons/circle-solid.svg" />
+    </button>
   </div>
 </div>

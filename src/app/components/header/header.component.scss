@@ -5,7 +5,6 @@
   padding-left: 1%;
   height: 65px;
   overflow: hidden;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,40 +19,43 @@
     font-weight: 600;
     font-size: 26px;
     line-height: 31px;
-    margin-left: 2%;
+    margin: 0 2%;
   }
 
   &__right {
-    min-width: 800px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
     justify-content: flex-end;
-    right: 0;
-    text-align: right;
+    align-items: center;
     margin: 0.6%;
   }
 
   &__left {
-    min-width: 800px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
     justify-content: flex-start;
-    right: 0;
+    align-items: center;
   }
-
-  &__toggleCollumn {
-    color: white; //!!!!! doppelt und dreifach
+  &__transparentButton {
     border: none;
-    background-color: c.$dark-grey;
-    width: 299px;
-    height: 44px;
-    border-radius: 6px;
+    background-color: transparent;
     margin-right: 1%;
-    font-size: 18px;
-  }
-  &__logo {
-    color: white;
-    text-decoration: none;
-    background-color: c.$main-background;
   }
   &__dots {
-    color: white;
-    text-decoration: none;
+    width: 10.5px;
+    height: 10.5px;
+    margin: 1px;
+  }
+  &__icons {
+    height: 31px;
+    width: 32.09px;
+    color: c.$dark-grey;
+  }
+  &__logo {
+    width: 75px;
+    height: 50px;
+    margin: 7px;
   }
 }
