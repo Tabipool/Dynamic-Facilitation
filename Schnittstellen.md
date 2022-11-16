@@ -85,7 +85,7 @@
 !StatusCode: 200 OK
 ```
 
-**GET api/meetings/idmeeting** Returns a list of all meetings (with all items)
+**GET api/meetings/idmeeting** Returns a list of a meeting (with all items)
 
 ```json
 [
