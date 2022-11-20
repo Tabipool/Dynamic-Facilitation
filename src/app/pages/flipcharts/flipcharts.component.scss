@@ -13,8 +13,22 @@ body {
     width: 100%;
     margin: 10px;
   }
+
+  &__openCharts {
+    background-color: #fff;
+    height: (100vh-15vh);
+    border-radius: 15px;
+    padding: 20px 10px;
+    gap: 5px;
+  }
 }
 
 .wrapper {
   height: (100vh-15vh);
+}
+
+p {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
 }

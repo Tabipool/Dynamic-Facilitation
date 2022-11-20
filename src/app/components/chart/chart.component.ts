@@ -40,12 +40,6 @@ export class ChartComponent implements OnInit {
 
     this.items.push(newItem);
 
-    //console.log(this.counterService.getValue());
-    console.log(item);
-    console.log(newItem);
-    console.log(this.items);
-    //this.newItem.type =
-
     this._counterService.increase();
   }
 

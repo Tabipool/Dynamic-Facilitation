@@ -24,4 +24,8 @@ export class AddedItemComponent implements OnInit {
     );
     console.log(this.newItem.color);
   }
+
+  OpenMenu() {
+    console.log('hello');
+  }
 }

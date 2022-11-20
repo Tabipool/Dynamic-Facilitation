@@ -7,6 +7,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
 import { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';
 import { AddedItemComponent } from './added-item/added-item.component';
 import { ChartComponent } from './chart/chart.component';
+import { ItemMenuComponent } from './item-menu/item-menu.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ChartComponent } from './chart/chart.component';
     ItemFlipchartComponent,
     AddedItemComponent,
     ChartComponent,
+    ItemMenuComponent,
   ],
   imports: [CommonModule, DragDropModule],
   exports: [

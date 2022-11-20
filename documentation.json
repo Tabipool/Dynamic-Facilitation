@@ -2,6 +2,65 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "ItemState",
+            "id": "interface-ItemState-7c5d80ec837b3c0772d37e4e58c9b52e60b7f1e6cbe142565ed689acce9b88646b327ace6161a4c7c1d37e07881a7ffe5e89e2ea2ce27ab338a1e2b909b03e78",
+            "file": "src/app/state/Items/item.reducer.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Item } from 'types/Item';\r\n\r\nexport interface ItemState {\r\n  items: Item[];\r\n  problems: Item[];\r\n  infos: Item[];\r\n  concerns: Item[];\r\n  solutions: Item[];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "concerns",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "infos",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "problems",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "solutions",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 165,
+            "methods": []
+        },
+        {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
             "file": "src/stories/User.ts",
@@ -120,11 +179,151 @@
                 "line": 10
             },
             "type": "injectable"
+        },
+        {
+            "name": "CounterService",
+            "id": "injectable-CounterService-7cbcef43d99a7345af8fd9da3f8f9952b195cfedc0375b8b2ab0b3486023b245ce7d29aa4f1f2941ef023f7a60ef795207d678180d5a76271131023ba92a9c28",
+            "file": "src/app/state/counter/counter.service.ts",
+            "properties": [
+                {
+                    "name": "counter",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "decrease",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 11,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "getValue",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "number",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "increase",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 7,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport class CounterService {\r\n  public counter = 1;\r\n\r\n  public increase() {\r\n    this.counter++;\r\n  }\r\n\r\n  public decrease() {\r\n    this.counter--;\r\n  }\r\n\r\n  public getValue(): number {\r\n    return this.counter;\r\n  }\r\n}\r\n",
+            "type": "injectable"
         }
     ],
     "guards": [],
     "interceptors": [],
     "classes": [
+        {
+            "name": "Item",
+            "id": "class-Item-afb0d2a4f916379c60d6d592426df9bf12f7bee569632e876c3800f4e0e2c05bcf13bdc8ab882d0e45ef2f9872b4ad120f3bc7785332c20e6c38e0c0293dcbdd",
+            "file": "src/types/Item.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "enum chartCaption {\r\n  p,\r\n  i,\r\n  b,\r\n  l,\r\n}\r\n\r\nexport class Item {\r\n  number: number;\r\n  description: string;\r\n  color: string;\r\n  type: chartCaption;\r\n  bookmark: boolean = false;\r\n  ofCourse: boolean = false;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "bookmark",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "number",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "ofCourse",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "chartCaption",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
         {
             "name": "SignInData",
             "id": "class-SignInData-61dffae75f7992a88fad40c7fe3f258da5cc93206bf4797facc4af35e8053c8ab6cd8c504a812657a9a7c7e8c0e9b80f9d356d6384f09c091648c0e955384745",
@@ -292,7 +491,7 @@
         },
         {
             "name": "AddedItemComponent",
-            "id": "component-AddedItemComponent-dc12899b92b6ce29b941e6cd86a8c3dd22ef4cb99308bcf3aa46c6a036ad6dbc1805ba1b44944e697b171172d228af8d62833bf0845a07c9c61aa2499e026895",
+            "id": "component-AddedItemComponent-9cec7cb8f73ccbdbaf8b41b0511efdaf3a23aa1b6c7dc77b579b7e0b3c4177671d9a5da26d3d6499ad4a87b2628a276516b19b50448122f6993cb69b69fa6a39",
             "file": "src/app/components/added-item/added-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -308,17 +507,63 @@
                 "./added-item.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "newItem",
+                    "defaultValue": "new Item()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "Item",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "this.newItem.color",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "shiftColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef<HTMLDivElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'coloredStripe'"
+                        }
+                    ]
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "ngAfterViewInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -330,11 +575,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss']\n})\nexport class AddedItemComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { style } from '@angular/animations';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from 'types/Item';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n\n  color: string = this.newItem.color;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n:root {\r\n  $color: \"shift-blue\";\r\n}\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-weight: 300;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n  font-family: \"Serenity\", sans-serif;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  //background-color: map-get(c.$shift-colors, $color);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n\r\n.menu {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n.shift-turquoise {\r\n  background-color: map-get(c.$shift-colors, shift-turquoise);\r\n}\r\n\r\n.shift-blue {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n}\r\n\r\n.shift-yellow {\r\n  background-color: map-get(c.$shift-colors, shift-yellow);\r\n}\r\n\r\n.shift-orange {\r\n  background-color: map-get(c.$shift-colors, shift-orange);\r\n}\r\n",
                     "styleUrl": "./added-item.component.scss"
                 }
             ],
@@ -345,16 +590,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 14
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">11.</div>\n    <div class=\"item-text\">\n      Problemstellung x y die etwas länger ist als erwartet und so hoffentlich 2\n      zeilen belegt\n    </div>\n    <div class=\"icon-wrapper\"><button>dot</button></div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\"><button class=\"menu\">dot</button></div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-b04c7ee4bc0b9b6eb77831393ecc6dbb59ac406cb5b4b552fa77b1731a263a4164e939ed5de2f1a180b2f97279f0036524f1f51b11b30674659184c41f32e752",
+            "id": "component-AppComponent-452a29d070b7f0ac6cfb4a030f6762883b679fbcb49164b512e14caaebdcc0987efdbcce598d2e0ccfa90ea5657e67e3e328e028688e26dbfd75c73ac5a4a7de",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -380,6 +625,18 @@
                     "type": "AuthenticationService",
                     "optional": false,
                     "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "count",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
                     "line": 13,
                     "modifierKind": [
                         123
@@ -393,7 +650,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 24
                 },
                 {
                     "name": "title",
@@ -403,10 +660,20 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 12
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "onActivate",
                     "args": [
@@ -420,7 +687,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -443,11 +710,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\nimport { FlipchartsComponent } from './pages/flipcharts'; //!!\nimport { AuthenticationService } from './service/authentication/authentication.service';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'Dynamic-Facilitation';\n\n  constructor(public authenticationService: AuthenticationService) {}\n\n  isFlipchartview: boolean = false;\n\n  onActivate(e: any) {\n    this.isFlipchartview = e instanceof FlipchartsComponent;\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { FlipchartsComponent } from './pages/flipcharts'; //!!\nimport { AuthenticationService } from './service/authentication/authentication.service';\nimport { CounterService } from './state/counter/counter.service';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent implements OnInit {\n  title = 'Dynamic-Facilitation';\n  public count: number;\n\n  constructor(\n    public authenticationService: AuthenticationService,\n    private _counterService: CounterService\n  ) {}\n\n  ngOnInit() {\n    this.count = this._counterService.getValue();\n  }\n\n  isFlipchartview: boolean = false;\n\n  onActivate(e: any) {\n    this.isFlipchartview = e instanceof FlipchartsComponent;\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"../styles/_colors.scss\" as c;\r\n@import url(\"https://use.typekit.net/owv7fhz.css\");\r\n//@use \"../node_modules/bootstrap/scss/bootstrap.scss\" as b;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\ndiv {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  font-style: normal;\r\n}\r\n\r\n$body-bg: c.$main-background;\r\n",
+                    "data": "@use \"../styles/_colors.scss\" as c;\r\n@import url(\"https://use.typekit.net/owv7fhz.css\");\r\n//@use \"../node_modules/bootstrap/scss/bootstrap.scss\" as b;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  color: c.$dark-grey;\r\n}\r\n\r\ndiv {\r\n  background-color: c.$main-background;\r\n  font-family: \"Serenity\";\r\n  color: c.$dark-grey;\r\n}\r\n\r\n$body-bg: c.$main-background;\r\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
@@ -463,9 +730,15 @@
                         "type": "AuthenticationService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_counterService",
+                        "type": "CounterService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 11,
+                "line": 13,
                 "jsdoctags": [
                     {
                         "name": "authenticationService",
@@ -475,9 +748,21 @@
                         "tagName": {
                             "text": "param"
                         }
+                    },
+                    {
+                        "name": "_counterService",
+                        "type": "CounterService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
                     }
                 ]
             },
+            "implements": [
+                "OnInit"
+            ],
             "templateData": "<div>\n  <app-header [flipchart]=\"isFlipchartview\"></app-header>\n  <router-outlet (activate)=\"onActivate($event)\"></router-outlet>\n\n  <p *ngIf=\"authenticationService.isAuthenticated\">hallo</p>\n</div>\n"
         },
         {
@@ -606,7 +891,7 @@
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-38ce2473ef850303e0d154fe006a4526fe55ab34eae8bc6f8395261986ec6d0869ed1d5351a9bcd9c6580f06eb7ca5039c4714ff3b9803162d13acef0624d23d",
+            "id": "component-ChartComponent-cdb857c09903c5b3c1d19e52f67e74f937275be1a80b2dfeeb4bfd325f24cd5a9668bca479f3a936efd479756116e7ece9b8cc9deb75b72a2441a263c79fabd1",
             "file": "src/app/components/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -628,13 +913,25 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 22,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
             "propertiesClass": [
+                {
+                    "name": "_counterService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "CounterService",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        123
+                    ]
+                },
                 {
                     "name": "addingItem",
                     "defaultValue": "false",
@@ -643,16 +940,36 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 17
+                },
+                {
+                    "name": "items",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
                 }
             ],
             "methodsClass": [
                 {
-                    "name": "drop",
+                    "name": "cancelSubmit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "itemSubmit",
                     "args": [
                         {
-                            "name": "event",
-                            "type": "CdkDragDrop<string[]>",
+                            "name": "item",
+                            "type": "literal type",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -660,13 +977,13 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "name": "event",
-                            "type": "CdkDragDrop<string[]>",
+                            "name": "item",
+                            "type": "literal type",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -681,7 +998,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -691,7 +1008,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 21,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -703,11 +1020,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  addingItem: boolean = false;\n\n  @Input()\n  title: string = '';\n\n  constructor() {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n\n  drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n\n    this.items.push(newItem);\n\n    //console.log(this.counterService.getValue());\n    console.log(item);\n    console.log(newItem);\n    console.log(this.items);\n    //this.newItem.type =\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".charts {\r\n  background-color: #fff;\r\n  height: (100vh-15vh);\r\n  border-radius: 15px;\r\n  padding: 20px 10px;\r\n  gap: 5px;\r\n\r\n  &__add-button {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: flex-end;\r\n  }\r\n\r\n  &__dropList {\r\n    position: relative;\r\n    margin-top: 15px;\r\n    height: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n    gap: 5px;\r\n  }\r\n}\r\n\r\np {\r\n  font-size: 30px;\r\n  font-weight: 700;\r\n  line-height: 36px;\r\n  font-size: 30px;\r\n}\r\n",
+                    "data": ".charts {\r\n  background-color: #fff;\r\n  height: (100vh-15vh);\r\n  border-radius: 15px;\r\n  padding: 20px 10px;\r\n  gap: 5px;\r\n\r\n  &__add-button {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: flex-end;\r\n  }\r\n\r\n  &__dropList {\r\n    position: relative;\r\n    margin-top: 15px;\r\n    height: auto;\r\n    display: flex;\r\n    flex-direction: column-reverse;\r\n    gap: 5px;\r\n  }\r\n}\r\n\r\np {\r\n  font-size: 30px;\r\n  font-weight: 700;\r\n  line-height: 36px;\r\n}\r\n",
                     "styleUrl": "./chart.component.scss"
                 }
             ],
@@ -717,13 +1034,31 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 17
+                "args": [
+                    {
+                        "name": "_counterService",
+                        "type": "CounterService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "_counterService",
+                        "type": "CounterService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"charts\">\n  <p>{{ title }}</p>\n  <app-add-button\n    [flipchart]=\"true\"\n    class=\"charts__add-button\"\n    *ngIf=\"!addingItem\"\n    (click)=\"ToggleInput()\"\n  ></app-add-button>\n  <app-item-flipchart *ngIf=\"addingItem\"></app-item-flipchart>\n  <div class=\"charts__dropList\" cdkDropList (cdkDropListDropped)=\"drop($event)\">\n    <app-added-item></app-added-item>\n    <app-added-item></app-added-item>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"charts\">\n  <p>{{ title }}</p>\n  <app-add-button\n    [flipchart]=\"true\"\n    class=\"charts__add-button\"\n    *ngIf=\"!addingItem\"\n    (click)=\"ToggleInput()\"\n  ></app-add-button>\n  <app-item-flipchart\n    *ngIf=\"addingItem\"\n    (submitCanceled)=\"cancelSubmit()\"\n    (submitItem)=\"itemSubmit($event)\"\n    [counter]=\"_counterService.getValue()\"\n  ></app-item-flipchart>\n  <div class=\"charts__dropList\" cdkDropList>\n    <app-added-item\n      *ngFor=\"let item of items\"\n      [newItem]=\"item\"\n    ></app-added-item>\n  </div>\n</div>\n"
         },
         {
             "name": "FlipchartsComponent",
@@ -830,7 +1165,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.chartview {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 2% 2% 0% 2%;\r\n\r\n  &__charts {\r\n    width: 100%;\r\n    margin: 10px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  height: (100vh-15vh);\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.chartview {\r\n  display: flex;\r\n  flex-direction: row;\r\n  padding: 2% 2% 0% 2%;\r\n\r\n  &__charts {\r\n    width: 100%;\r\n    margin: 10px;\r\n  }\r\n\r\n  &__openCharts {\r\n    background-color: #fff;\r\n    height: (100vh-15vh);\r\n    border-radius: 15px;\r\n    padding: 20px 10px;\r\n    gap: 5px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  height: (100vh-15vh);\r\n}\r\n\r\np {\r\n  font-size: 30px;\r\n  font-weight: 700;\r\n  line-height: 36px;\r\n}\r\n",
                     "styleUrl": "./flipcharts.component.scss"
                 }
             ],
@@ -846,7 +1181,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n  </div>\n</div>\n\n<!--\n    <div class=\"chartview__charts\">\n      <p>Problemstellung</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n        (click)=\"ToggleInput()\"\n      ></app-add-button>\n      <app-item-flipchart *ngIf=\"addingItem\"></app-item-flipchart>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n\n    <div class=\"chartview__charts\">\n      <p>Info, Data, Sichtweisen</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Bedenken</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList></div>\n    </div>\n    <div class=\"chartview__charts\">\n      <p>Lösungen</p>\n      <app-add-button\n        [flipchart]=\"true\"\n        class=\"chartview__add-button\"\n        *ngIf=\"!addingItem\"\n      ></app-add-button>\n      <div class=\"chartview__dropList\" cdkDropList>\n        <app-added-item></app-added-item>\n      </div>\n    </div> -->\n"
+            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n\n    <div class=\"chartview__openCharts chartview__charts\">\n      <p>OfCourses</p>\n    </div>\n\n    <div class=\"chartview__openCharts chartview__charts\">\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -974,7 +1309,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$dark-grey;\r\n  padding-left: 1%;\r\n  height: 65px;\r\n  overflow: hidden;\r\n\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$dark-grey;\r\n    background-color: c.$main-background;\r\n    font-size: 23px;\r\n    font-style: semi-bold;\r\n    //semi-bold\r\n    margin-left: 2%;\r\n  }\r\n\r\n  &__right {\r\n    min-width: 800px;\r\n    justify-content: flex-end;\r\n    right: 0;\r\n    text-align: right;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    min-width: 800px;\r\n    justify-content: flex-start;\r\n    right: 0;\r\n  }\r\n\r\n  &__toggleCollumn {\r\n    color: white; //!!!!! doppelt und dreifach\r\n    border: none;\r\n    background-color: c.$dark-grey;\r\n    width: 299px;\r\n    height: 44px;\r\n    border-radius: 6px;\r\n    margin-right: 1%;\r\n    font-size: 18px;\r\n  }\r\n  &__logo {\r\n    color: white;\r\n    text-decoration: none;\r\n    background-color: c.$main-background;\r\n  }\r\n  &__dots {\r\n    color: white;\r\n    text-decoration: none;\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$dark-grey;\r\n  padding-left: 1%;\r\n  height: 60px;\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$dark-grey;\r\n    background-color: c.$main-background;\r\n    font-style: normal;\r\n    font-weight: 600;\r\n    font-size: 26px;\r\n    line-height: 31px;\r\n    margin: 0 2%;\r\n  }\r\n\r\n  &__right {\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    display: flex;\r\n    width: 100%;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n  }\r\n  &__transparentButton {\r\n    border: none;\r\n    background-color: transparent;\r\n    margin-right: 1%;\r\n  }\r\n  &__dots {\r\n    width: 10.5px;\r\n    height: 10.5px;\r\n    margin: 1px;\r\n  }\r\n  &__icons {\r\n    height: 31px;\r\n    width: 32.09px;\r\n    color: c.$dark-grey;\r\n  }\r\n  &__logo {\r\n    width: 75px;\r\n    height: 50px;\r\n    margin: 7px;\r\n  }\r\n}\r\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -1008,7 +1343,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\">Home</a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings >\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button *ngIf=\"flipchart\" class=\"header__toggleCollumn\">\n      () Of Courses anzeigen\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__toggleCollumn\">\n      () Bookmarks anzeigen\n    </button>\n    <a class=\"header__dots\">dotdot</a>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\"\n      ><img class=\"header__logo\" src=\"assets/images/DFLogo.png\"\n    /></a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings >\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/floppy-disk-solid.svg\" />\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/star-solid.svg\" />\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    </button>\n    <button class=\"header__transparentButton\">\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n    </button>\n  </div>\n</div>\n"
         },
         {
             "name": "HomeviewComponent",
@@ -1177,7 +1512,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 90%;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "./item.component.scss"
                 }
             ],
@@ -1186,7 +1521,7 @@
         },
         {
             "name": "ItemFlipchartComponent",
-            "id": "component-ItemFlipchartComponent-819965ebbc168340aae495955b0db7637e6032096c9738e1e146140249c5b3eaebe98e3adaa8f2fa1d228ffb39448e7c21a281892ec8f60564d111d36ba72db2",
+            "id": "component-ItemFlipchartComponent-834d590e16305bbcc10ae714dac4698ea369682e7bac7bc299203783d8d1bd7bf1abc89c34a510e1e9869d72e82a6844d84b38924b2661fc03a6652dd32859f1",
             "file": "src/app/components/item/item-flipchart/item-flipchart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1202,17 +1537,122 @@
                 "./item-flipchart.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "propertiesClass": [],
+            "inputsClass": [
+                {
+                    "name": "counter",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "submitCanceled",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "submitItem",
+                    "defaultValue": "new EventEmitter<{\n    description: string;\n    color: string;\n  }>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "activeColor",
+                    "defaultValue": "'shift-blue'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 17
+                },
+                {
+                    "name": "colorRadio",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef<HTMLInputElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'shiftBlue'"
+                        }
+                    ]
+                },
+                {
+                    "name": "itemInput",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ElementRef<HTMLInputElement>",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "'textInput'"
+                        }
+                    ]
+                }
+            ],
             "methodsClass": [
                 {
-                    "name": "ngOnInit",
+                    "name": "CancelSubmit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 11,
+                    "line": 43,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "changeColor",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "SubmitItem",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1224,12 +1664,71 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item-flipchart',\n  templateUrl: './item-flipchart.component.html',\n  styleUrls: ['../item.component.scss'],\n})\nexport class ItemFlipchartComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-item-flipchart',\n  templateUrl: './item-flipchart.component.html',\n  styleUrls: ['../item.component.scss'],\n})\nexport class ItemFlipchartComponent {\n  activeColor: string = 'shift-blue';\n  @Output() submitCanceled = new EventEmitter();\n  @Output() submitItem = new EventEmitter<{\n    description: string;\n    color: string;\n  }>();\n  @Input() counter: number;\n\n  @ViewChild('textInput') itemInput!: ElementRef<HTMLInputElement>;\n  @ViewChild('shiftBlue') colorRadio!: ElementRef<HTMLInputElement>;\n\n  constructor() {}\n\n  changeColor(e: Event) {\n    this.activeColor = (e.currentTarget as HTMLInputElement).id;\n  }\n\n  SubmitItem() {\n    if (this.itemInput.nativeElement.value != '') {\n      this.submitItem.emit({\n        description: this.itemInput.nativeElement.value,\n        color: this.activeColor,\n      });\n    }\n  }\n\n  CancelSubmit() {\n    this.itemInput.nativeElement.value = '';\n    this.colorRadio.nativeElement.checked = true;\n    this.submitCanceled.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 235px;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 16px;\r\n  padding: 15px;\r\n}\r\n\r\n/*.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}*/\r\n\r\n.item-input-wrapper {\r\n  background-color: white;\r\n  border-radius: 8px;\r\n  padding: 0px 5px;\r\n  margin-bottom: 5%;\r\n}\r\n\r\n.submit-cancel-buttons {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n#item-input {\r\n  resize: none;\r\n  height: auto;\r\n  border: none;\r\n  height: 38px;\r\n  width: 90%;\r\n  margin-left: 5px;\r\n}\r\n\r\n#item-input:focus {\r\n  outline: none;\r\n}\r\n\r\n#submitbtn {\r\n  float: right;\r\n}\r\n\r\n.radio-color-picker {\r\n  display: none;\r\n\r\n  &:checked + .color-picker-lable {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n    @each $name, $value in c.$shift-colors {\r\n      .#{$name} {\r\n        border: 2px solid darken($value, 25%);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n#random {\r\n  display: none;\r\n\r\n  &:checked + label[for=\"random\"] {\r\n    border: 2px solid c.$dark-grey;\r\n    border-radius: 100%;\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n}\r\n\r\nlabel[for=\"random\"] {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n  }\r\n}\r\n\r\n.color-picker-lable {\r\n  display: inline-block;\r\n  width: 25px;\r\n  height: 25px;\r\n  margin-right: 10px;\r\n  cursor: pointer;\r\n  &:hover {\r\n    span {\r\n      transform: scale(1.25);\r\n    }\r\n  }\r\n  span {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    border-radius: 100%;\r\n    transition: transform 0.2s ease-in-out;\r\n    @each $name, $value in c.$shift-colors {\r\n      &.#{$name} {\r\n        background: $value;\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n.bottom-wrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.color-picker-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n}\r\n",
                     "styleUrl": "../item.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 26
+            },
+            "templateData": "<div class=\"item-box\">\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">{{ counter }}.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" #textInput />\n  </div>\n\n  <div class=\"bottom-wrapper\">\n    <button\n      id=\"cancelbtn\"\n      class=\"submit-cancel-buttons\"\n      (click)=\"CancelSubmit()\"\n    >\n      n\n    </button>\n\n    <div class=\"color-picker-wrapper\">\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-blue\"\n        class=\"radio-color-picker\"\n        #shiftBlue\n        checked\n        (change)=\"changeColor($event)\"\n      />\n      <label for=\"shift-blue\" class=\"color-picker-lable\"\n        ><span class=\"shift-blue\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-turquoise\"\n        class=\"radio-color-picker\"\n        (change)=\"changeColor($event)\"\n      />\n      <label for=\"shift-turquoise\" class=\"color-picker-lable\"\n        ><span class=\"shift-turquoise\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-orange\"\n        class=\"radio-color-picker\"\n        (change)=\"changeColor($event)\"\n      />\n      <label for=\"shift-orange\" class=\"color-picker-lable\"\n        ><span class=\"shift-orange\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-yellow\"\n        class=\"radio-color-picker\"\n        (change)=\"changeColor($event)\"\n      />\n      <label for=\"shift-yellow\" class=\"color-picker-lable\"\n        ><span class=\"shift-yellow\"></span\n      ></label>\n\n      <!--<input type=\"radio\" id=\"random\" name=\"color\" />\n      <label for=\"random\"><span class=\"random\"></span>z</label>-->\n    </div>\n\n    <button id=\"submitbtn\" class=\"submit-cancel-buttons\" (click)=\"SubmitItem()\">\n      y\n    </button>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "ItemMenuComponent",
+            "id": "component-ItemMenuComponent-c8dee2a3fe4a05f7031616f0cf255eff532f8080e067df937a0a2f11d235b6af8da587804c37df268850a7ae70bdf85c54787475c98e0c822ac58715c8142c2f",
+            "file": "src/app/components/item-menu/item-menu.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-item-menu",
+            "styleUrls": [
+                "./item-menu.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./item-menu.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item-menu',\n  templateUrl: './item-menu.component.html',\n  styleUrls: ['./item-menu.component.scss']\n})\nexport class ItemMenuComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.menu-wrapper {\r\n  background-color: c.$dark-grey;\r\n  color: white;\r\n  width: 238px;\r\n  height: 302px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  justify-content: space-around;\r\n}\r\n\r\n.icons {\r\n  width: 27px;\r\n  height: 32px;\r\n  margin-right: 15px;\r\n  margin-left: 5%;\r\n}\r\n\r\n.row-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-size: 15px;\r\n  font-weight: 500px;\r\n  line-height: 22px;\r\n  align-items: center;\r\n  cursor: pointer;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\nhr {\r\n  margin: 3px;\r\n  width: 90%;\r\n  align-self: center;\r\n}\r\n",
+                    "styleUrl": "./item-menu.component.scss"
                 }
             ],
             "stylesData": "",
@@ -1244,7 +1743,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\">\n  <div class=\"item-input-wrapper\">\n    <label for=\"item-input\">11.</label>\n    <input type=\"text\" id=\"item-input\" name=\"item-input\" />\n  </div>\n\n  <div class=\"bottom-wrapper\">\n    <button id=\"cancelbtn\" class=\"submit-cancel-buttons\">n</button>\n\n    <div class=\"color-picker-wrapper\">\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-blue\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-blue\" class=\"color-picker-lable\"\n        ><span class=\"shift-blue\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-turquoise\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-turquoise\" class=\"color-picker-lable\"\n        ><span class=\"shift-turquoise\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-orange\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-orange\" class=\"color-picker-lable\"\n        ><span class=\"shift-orange\"></span\n      ></label>\n\n      <input\n        type=\"radio\"\n        name=\"color\"\n        id=\"shift-yellow\"\n        class=\"radio-color-picker\"\n      />\n      <label for=\"shift-yellow\" class=\"color-picker-lable\"\n        ><span class=\"shift-yellow\"></span\n      ></label>\n\n      <!--<input type=\"radio\" id=\"random\" name=\"color\" />\n      <label for=\"random\"><span class=\"random\"></span>z</label>-->\n    </div>\n\n    <button id=\"submitbtn\" class=\"submit-cancel-buttons\">y</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"menu-wrapper\">\n  <div>\n    <button>c</button><button>c</button><button>c</button><button>c</button>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Bearbeiten</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Übertragen</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Löschen</p>\n  </div>\n</div>\n"
         },
         {
             "name": "LoginComponent",
@@ -1438,17 +1937,21 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-691b8b21fb2806fe9d3988de053335c480dbdbb8d9cdb17da5e16159ac16c2c97c8f2c44ac32370d7d63f96121b7746edcf0afc0ebddd8a4b00bc4ae68d82322",
+            "id": "module-AppModule-fb099e86370670e9ae6ce3d726de96390096363224a2a5fef08f42a98bfea96b2391f5e521b0e5e2a320183037b1a130237e8645b574ff7442bf174437bb78b9",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\nimport { StoreModule } from '@ngrx/store';\nimport { CounterService } from './state/counter/counter.service';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n  ],\n  providers: [CounterService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "CounterService"
+                        }
+                    ]
                 },
                 {
                     "type": "declarations",
@@ -1561,13 +2064,13 @@
         },
         {
             "name": "ComponentsModule",
-            "id": "module-ComponentsModule-7afe22e91d88cda40d54b5b1a16b73b10aee23b7f8fd852b495e5ee1b9dead0d803948a77d68538d7eff15ea364c0ba393ca3707157bf3f269eb1291d17bd4d6",
+            "id": "module-ComponentsModule-9e8f68584baf56b39b1c1b83c575945fc8414d12c6c56ce82f6f53b3dc9ea3d46544830aee4d1488765e9e8a2fd626f10e903395f44decec9e7af9a33c32fd63",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/components.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\nimport { ItemMenuComponent } from './item-menu/item-menu.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n    ItemMenuComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -1593,6 +2096,9 @@
                         },
                         {
                             "name": "ItemFlipchartComponent"
+                        },
+                        {
+                            "name": "ItemMenuComponent"
                         }
                     ]
                 },
@@ -1800,6 +2306,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/item-menu/item-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/item/item-flipchart/item-flipchart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -1810,21 +2326,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "Flipchart",
@@ -1988,7 +2504,39 @@
         ],
         "functions": [],
         "typealiases": [],
-        "enumerations": [],
+        "enumerations": [
+            {
+                "name": "chartCaption",
+                "childs": [
+                    {
+                        "name": "p",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "i",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "b",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "l",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/types/Item.ts"
+            }
+        ],
         "groupedVariables": {
             "src/test.ts": [
                 {
@@ -2047,6 +2595,18 @@
                     "defaultValue": "() => ({})"
                 }
             ],
+            "src/app/components/item-menu/item-menu.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/item-menu/item-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
             "src/app/components/item/item-flipchart/item-flipchart.stories.ts": [
                 {
                     "name": "Default",
@@ -2059,18 +2619,6 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -2081,6 +2629,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ],
             "src/app/components/add-button/add-Button.stories.ts": [
@@ -2243,7 +2803,41 @@
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
+        "groupedEnumerations": {
+            "src/types/Item.ts": [
+                {
+                    "name": "chartCaption",
+                    "childs": [
+                        {
+                            "name": "p",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "i",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "b",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "l",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/types/Item.ts"
+                }
+            ]
+        },
         "groupedTypeAliases": {}
     },
     "routes": {
@@ -2334,7 +2928,7 @@
         ]
     },
     "coverage": {
-        "count": 2,
+        "count": 1,
         "status": "low",
         "files": [
             {
@@ -2343,7 +2937,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -2401,7 +2995,7 @@
                 "linktype": "component",
                 "name": "AddedItemComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -2420,7 +3014,7 @@
                 "linktype": "component",
                 "name": "ChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -2443,12 +3037,31 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/item-menu/item-menu.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ItemMenuComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/item-menu/item-menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/item/item-flipchart/item-flipchart.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "ItemFlipchartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -2532,6 +3145,24 @@
                 "name": "AuthenticationService",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.reducer.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ItemState",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/counter/counter.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "CounterService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -2718,6 +3349,15 @@
                 "name": "require",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/types/Item.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Item",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
                 "status": "low"
             }
         ]

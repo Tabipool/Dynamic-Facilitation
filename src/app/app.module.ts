@@ -11,6 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { CounterService } from './state/counter/counter.service';
+import { ChartStateService } from './state/chart-states/chart-states.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -23,7 +24,7 @@ import { CounterService } from './state/counter/counter.service';
     ComponentsModule,
     DragDropModule,
   ],
-  providers: [CounterService],
+  providers: [CounterService, ChartStateService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

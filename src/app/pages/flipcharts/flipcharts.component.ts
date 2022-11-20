@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartStateService } from 'app/state/chart-states/chart-states.service';
 
 @Component({
   selector: 'app-flipcharts',
@@ -13,7 +14,7 @@ export class FlipchartsComponent implements OnInit {
 
   addingItem: boolean = false;
 
-  constructor() {}
+  constructor(public _chartStateService: ChartStateService) {}
 
   ToggleInput() {
     this.addingItem = !this.addingItem;
