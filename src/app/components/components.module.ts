@@ -8,6 +8,8 @@ import { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.com
 import { AddedItemComponent } from './added-item/added-item.component';
 import { ChartComponent } from './chart/chart.component';
 import { ItemMenuComponent } from './item-menu/item-menu.component';
+import { HomeviewButtonComponent } from './homeview-button/homeview-button.component';
+import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ItemMenuComponent } from './item-menu/item-menu.component';
     AddedItemComponent,
     ChartComponent,
     ItemMenuComponent,
+    HomeviewButtonComponent,
+    HomeviewMeetingComponent,
   ],
   imports: [CommonModule, DragDropModule],
   exports: [
@@ -27,6 +31,7 @@ import { ItemMenuComponent } from './item-menu/item-menu.component';
     AddedItemComponent,
     ItemFlipchartComponent,
     ChartComponent,
+    HomeviewButtonComponent,
   ],
 })
 export class ComponentsModule {}

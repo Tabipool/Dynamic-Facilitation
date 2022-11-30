@@ -1,0 +1,18 @@
+@use "styles/colors" as c;
+
+.button {
+  background-color: c.$turquoise;
+  color: white;
+  height: 86px;
+  width: 514px;
+  border: none;
+  font-size: 26px;
+  line-height: 31px;
+  border-radius: 15px;
+  text-align: left;
+
+  &__icons {
+    width: 27.6px;
+    height: 24.6px;
+  }
+}

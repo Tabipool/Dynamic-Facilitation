@@ -29,6 +29,8 @@ export class ItemFlipchartComponent {
 
   changeColor(e: Event) {
     this.activeColor = (e.currentTarget as HTMLInputElement).id;
+
+    //if random then execute get random color()
   }
 
   SubmitItem() {

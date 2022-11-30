@@ -58,16 +58,28 @@
   background-color: transparent;
 }
 
-.shift-turquoise {
-  background-color: map-get(c.$shift-colors, shift-turquoise);
+.shift-lightBlue {
+  background-color: map-get(c.$shift-colors, shift-lightBlue);
 }
 
 .shift-blue {
   background-color: map-get(c.$shift-colors, shift-blue);
 }
 
+.shift-turquoise {
+  background-color: map-get(c.$shift-colors, shift-turquoise);
+}
+
+.shift-lightgreen {
+  background-color: map-get(c.$shift-colors, shift-lightgreen);
+}
+
 .shift-yellow {
   background-color: map-get(c.$shift-colors, shift-yellow);
+}
+
+.shift-lightorange {
+  background-color: map-get(c.$shift-colors, shift-lightorange);
 }
 
 .shift-orange {

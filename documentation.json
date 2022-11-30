@@ -181,6 +181,73 @@
             "type": "injectable"
         },
         {
+            "name": "ChartStateService",
+            "id": "injectable-ChartStateService-40f68894583ac63a575257f90fe143eaac10fc107c09d3a4e0e49db0fde9ffb6564be657bfac9c56a15c2316cf9c1447ac3786721b725967a20f315b0d9a7f11",
+            "file": "src/app/state/chart-states/chart-states.service.ts",
+            "properties": [
+                {
+                    "name": "bookmark",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ofCourse",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "ToggleBookmarkChart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 8,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ToggleOfCourseChart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport class ChartStateService {\r\n  public bookmark = false;\r\n  public ofCourse = false;\r\n\r\n  public ToggleBookmarkChart() {\r\n    this.bookmark = !this.bookmark;\r\n  }\r\n\r\n  public ToggleOfCourseChart() {\r\n    this.ofCourse = !this.ofCourse;\r\n  }\r\n}\r\n",
+            "type": "injectable"
+        },
+        {
             "name": "CounterService",
             "id": "injectable-CounterService-7cbcef43d99a7345af8fd9da3f8f9952b195cfedc0375b8b2ab0b3486023b245ce7d29aa4f1f2941ef023f7a60ef795207d678180d5a76271131023ba92a9c28",
             "file": "src/app/state/counter/counter.service.ts",
@@ -491,7 +558,7 @@
         },
         {
             "name": "AddedItemComponent",
-            "id": "component-AddedItemComponent-9cec7cb8f73ccbdbaf8b41b0511efdaf3a23aa1b6c7dc77b579b7e0b3c4177671d9a5da26d3d6499ad4a87b2628a276516b19b50448122f6993cb69b69fa6a39",
+            "id": "component-AddedItemComponent-add1c836167e14e749a421df51bdbcb50e1e027409a80f0aedc6674276de89343a0b14b28e66ca6b1bc8078f010bd3f3f3f2d519ef5bd0971dfaa212d59fb66b",
             "file": "src/app/components/added-item/added-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -566,6 +633,16 @@
                     "line": 18,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "OpenMenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": ""
                 }
             ],
             "deprecated": false,
@@ -575,11 +652,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { style } from '@angular/animations';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from 'types/Item';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n\n  color: string = this.newItem.color;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n}\n",
+            "sourceCode": "import { style } from '@angular/animations';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from 'types/Item';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n\n  color: string = this.newItem.color;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n\n  OpenMenu() {\n    console.log('hello');\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n:root {\r\n  $color: \"shift-blue\";\r\n}\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-weight: 300;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n  font-family: \"Serenity\", sans-serif;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  //background-color: map-get(c.$shift-colors, $color);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n\r\n.menu {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n.shift-turquoise {\r\n  background-color: map-get(c.$shift-colors, shift-turquoise);\r\n}\r\n\r\n.shift-blue {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n}\r\n\r\n.shift-yellow {\r\n  background-color: map-get(c.$shift-colors, shift-yellow);\r\n}\r\n\r\n.shift-orange {\r\n  background-color: map-get(c.$shift-colors, shift-orange);\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n:root {\r\n  $color: \"shift-blue\";\r\n}\r\n\r\n.item-box {\r\n  background-color: c.$item-background;\r\n  width: 100%;\r\n  border-radius: 0px 16px 16px 0px;\r\n  padding: 15px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-weight: 300;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n  font-family: \"Serenity\", sans-serif;\r\n}\r\n\r\n.item-box:active {\r\n  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\r\n    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\r\n}\r\n\r\n.shift-color {\r\n  //background-color: map-get(c.$shift-colors, $color);\r\n  height: auto;\r\n  width: 10px;\r\n  align-items: flex-start;\r\n  margin-top: -15px;\r\n  margin-bottom: -15px;\r\n  margin-left: -15px;\r\n  margin-right: 10px;\r\n}\r\n\r\n.right-wrapper {\r\n  width: 100%;\r\n  padding-top: 10px;\r\n}\r\n\r\n.counting-label {\r\n  float: left;\r\n  margin-right: 5px;\r\n  height: 100%;\r\n}\r\n\r\n.icon-wrapper {\r\n  display: flex;\r\n  justify-content: flex-end;\r\n}\r\n\r\n.item-text {\r\n  width: 100%;\r\n}\r\n\r\n.menu {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\n.shift-lightBlue {\r\n  background-color: map-get(c.$shift-colors, shift-lightBlue);\r\n}\r\n\r\n.shift-blue {\r\n  background-color: map-get(c.$shift-colors, shift-blue);\r\n}\r\n\r\n.shift-turquoise {\r\n  background-color: map-get(c.$shift-colors, shift-turquoise);\r\n}\r\n\r\n.shift-lightgreen {\r\n  background-color: map-get(c.$shift-colors, shift-lightgreen);\r\n}\r\n\r\n.shift-yellow {\r\n  background-color: map-get(c.$shift-colors, shift-yellow);\r\n}\r\n\r\n.shift-lightorange {\r\n  background-color: map-get(c.$shift-colors, shift-lightorange);\r\n}\r\n\r\n.shift-orange {\r\n  background-color: map-get(c.$shift-colors, shift-orange);\r\n}\r\n",
                     "styleUrl": "./added-item.component.scss"
                 }
             ],
@@ -595,7 +672,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\"><button class=\"menu\">dot</button></div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\">\n      <button class=\"menu\" (click)=\"OpenMenu()\">dot</button>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
@@ -891,7 +968,7 @@
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-cdb857c09903c5b3c1d19e52f67e74f937275be1a80b2dfeeb4bfd325f24cd5a9668bca479f3a936efd479756116e7ece9b8cc9deb75b72a2441a263c79fabd1",
+            "id": "component-ChartComponent-ba167136d7ec48fdd8e35a7ac5dfa6c598a0fadd736b1064f697d0053c98dab3f0388eadf9cbb2a6cb17354395fff6d6aa6287d2b2ccbaa2e20c24f5e20634ba",
             "file": "src/app/components/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1020,7 +1097,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n\n    this.items.push(newItem);\n\n    //console.log(this.counterService.getValue());\n    console.log(item);\n    console.log(newItem);\n    console.log(this.items);\n    //this.newItem.type =\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n\n    this.items.push(newItem);\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1062,7 +1139,7 @@
         },
         {
             "name": "FlipchartsComponent",
-            "id": "component-FlipchartsComponent-389c4f8a709dd9c46718566a7299bc8ef5e722c32cdecc1b9a1d0e28786a5b6d985a50308b10662cb2ce6772abb0590938a09fe78a87c8c9ebb304cb8bbedc86",
+            "id": "component-FlipchartsComponent-5ebe7dcfb5c6b6b99c191e6aadbedc1c6d664ed7355b682b7a8cee99194abfdd4522c3c308afb4558ffb644bdd64109985276a1369fef04c4d6b2b907a2eb186",
             "file": "src/app/pages/flipcharts/flipcharts.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1082,6 +1159,18 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "_chartStateService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ChartStateService",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
                     "name": "addingItem",
                     "defaultValue": "false",
                     "deprecated": false,
@@ -1089,7 +1178,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 15
                 },
                 {
                     "name": "info_data",
@@ -1099,7 +1188,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 11
                 },
                 {
                     "name": "problem",
@@ -1109,7 +1198,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 10
                 },
                 {
                     "name": "solutions",
@@ -1119,7 +1208,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
                 },
                 {
                     "name": "thoughts",
@@ -1129,7 +1218,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 12
                 }
             ],
             "methodsClass": [
@@ -1139,7 +1228,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 22,
+                    "line": 23,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1149,7 +1238,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1161,7 +1250,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  addingItem: boolean = false;\n\n  constructor() {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ChartStateService } from 'app/state/chart-states/chart-states.service';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  addingItem: boolean = false;\n\n  constructor(public _chartStateService: ChartStateService) {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1175,13 +1264,31 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 14
+                "args": [
+                    {
+                        "name": "_chartStateService",
+                        "type": "ChartStateService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 15,
+                "jsdoctags": [
+                    {
+                        "name": "_chartStateService",
+                        "type": "ChartStateService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n\n    <div class=\"chartview__openCharts chartview__charts\">\n      <p>OfCourses</p>\n    </div>\n\n    <div class=\"chartview__openCharts chartview__charts\">\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n\n    <div\n      *ngIf=\"_chartStateService.ofCourse\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>OfCourses</p>\n    </div>\n\n    <div\n      *ngIf=\"_chartStateService.bookmark\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -1258,7 +1365,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-f23280361fb8e71e7ee0ffbabaddde103194cbf0254c048c2263ba5d65904affaed43306d87e684b115403bbf0d909bdfd9b025f566c532589d5052ef0a7f735-1",
+            "id": "component-HeaderComponent-4e82f34c338835f952628541577abce198a5384c45de2bbcdbef81f127de118836383efe067297ea1ddd96d644617f7914aefc78568262df77d4ac2d779c3933-1",
             "file": "src/app/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1279,13 +1386,26 @@
                     "name": "flipchart",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 29,
                     "type": "boolean | undefined",
                     "decorators": []
                 }
             ],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "_chartStateService",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ChartStateService",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "goToHomeview",
@@ -1293,7 +1413,27 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 13,
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ToggleBookmarkChart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "ToggleOfCourseChart",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 21,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1305,7 +1445,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { AuthenticationService } from 'app/service/authentication/authentication.service';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent {\n  constructor(private router: Router) {}\n\n  goToHomeview() {\n    this.router.navigate(['/home']);\n  }\n\n  @Input() flipchart: boolean | undefined;\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { AuthenticationService } from 'app/service/authentication/authentication.service';\nimport { ChartStateService } from 'app/state/chart-states/chart-states.service';\n\n@Component({\n  selector: 'app-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss'],\n})\nexport class HeaderComponent {\n  constructor(\n    private router: Router,\n    public _chartStateService: ChartStateService\n  ) {}\n\n  goToHomeview() {\n    this.router.navigate(['/home']);\n  }\n\n  ToggleOfCourseChart() {\n    this._chartStateService.ToggleOfCourseChart();\n  }\n\n  ToggleBookmarkChart() {\n    this._chartStateService.ToggleBookmarkChart();\n  }\n\n  @Input() flipchart: boolean | undefined;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1325,13 +1465,28 @@
                         "type": "Router",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "_chartStateService",
+                        "type": "ChartStateService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 10,
+                "line": 11,
                 "jsdoctags": [
                     {
                         "name": "router",
                         "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "_chartStateService",
+                        "type": "ChartStateService",
                         "deprecated": false,
                         "deprecationMessage": "",
                         "tagName": {
@@ -1343,7 +1498,79 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\"\n      ><img class=\"header__logo\" src=\"assets/images/DFLogo.png\"\n    /></a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings >\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/floppy-disk-solid.svg\" />\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/star-solid.svg\" />\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    </button>\n    <button class=\"header__transparentButton\">\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n    </button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\"\n      ><img class=\"header__logo\" src=\"assets/images/DFLogo.png\"\n    /></a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings >\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/floppy-disk-solid.svg\" />\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleOfCourseChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/star-solid.svg\" />\n    </button>\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleBookmarkChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    </button>\n    <button class=\"header__transparentButton\">\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n    </button>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "HomeviewButtonComponent",
+            "id": "component-HomeviewButtonComponent-4730fb0f924c4e2d1f7c30b4ed9979c3136653c0d252ab4b96804cbde87c140553623f299fb27de3b8d215ee902f41d99a37854107378eeaa585a8c68f5bb6bc",
+            "file": "src/app/components/homeview-button/homeview-button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-homeview-button",
+            "styleUrls": [
+                "./homeview-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./homeview-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "buttontitle",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-homeview-button',\n  templateUrl: './homeview-button.component.html',\n  styleUrls: ['./homeview-button.component.scss'],\n})\nexport class HomeviewButtonComponent implements OnInit {\n  constructor() {}\n\n  @Input()\n  buttontitle: string = '';\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.button {\r\n  background-color: c.$turquoise;\r\n  color: white;\r\n  height: 86px;\r\n  width: 514px;\r\n  border: none;\r\n  font-size: 26px;\r\n  line-height: 31px;\r\n  border-radius: 15px;\r\n  text-align: left;\r\n\r\n  &__icons {\r\n    width: 27.6px;\r\n    height: 24.6px;\r\n  }\r\n}\r\n",
+                    "styleUrl": "./homeview-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<button class=\"button\">\n  <img class=\"button__icons\" src=\"assets/icons/floppy-disk-solid.svg\" /> Neue\n  Dynamic Facilitation Session\n</button>\n"
         },
         {
             "name": "HomeviewComponent",
@@ -1405,7 +1632,69 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>homeview works!</p>\n"
+            "templateData": "<app-homeview-button> </app-homeview-button>\n"
+        },
+        {
+            "name": "HomeviewMeetingComponent",
+            "id": "component-HomeviewMeetingComponent-f3e1469c7eb581bf2a5a49d1a332f07c356fd2da2d357acc112204168c7253c4dd70fd2f4c0bb960475f35b77628ac5defaa35d67f6c78e39c451c6c231f6de8",
+            "file": "src/app/components/homeview-meeting/homeview-meeting.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-homeview-meeting",
+            "styleUrls": [
+                "./homeview-meeting.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./homeview-meeting.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-homeview-meeting',\n  templateUrl: './homeview-meeting.component.html',\n  styleUrls: ['./homeview-meeting.component.scss']\n})\nexport class HomeviewMeetingComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./homeview-meeting.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>homeview-meeting works!</p>\n"
         },
         {
             "name": "IssuecollectorComponent",
@@ -1521,7 +1810,7 @@
         },
         {
             "name": "ItemFlipchartComponent",
-            "id": "component-ItemFlipchartComponent-834d590e16305bbcc10ae714dac4698ea369682e7bac7bc299203783d8d1bd7bf1abc89c34a510e1e9869d72e82a6844d84b38924b2661fc03a6652dd32859f1",
+            "id": "component-ItemFlipchartComponent-244e4f5c39643f6861074df40ad28e0493d4a738930bc51830537439d9c62c5e4ae380e63da22fe7380484ffc1db8e93d9bc52e404444f47ea91e4b5ca161812",
             "file": "src/app/components/item/item-flipchart/item-flipchart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1614,7 +1903,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 45,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1652,7 +1941,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1664,7 +1953,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-item-flipchart',\n  templateUrl: './item-flipchart.component.html',\n  styleUrls: ['../item.component.scss'],\n})\nexport class ItemFlipchartComponent {\n  activeColor: string = 'shift-blue';\n  @Output() submitCanceled = new EventEmitter();\n  @Output() submitItem = new EventEmitter<{\n    description: string;\n    color: string;\n  }>();\n  @Input() counter: number;\n\n  @ViewChild('textInput') itemInput!: ElementRef<HTMLInputElement>;\n  @ViewChild('shiftBlue') colorRadio!: ElementRef<HTMLInputElement>;\n\n  constructor() {}\n\n  changeColor(e: Event) {\n    this.activeColor = (e.currentTarget as HTMLInputElement).id;\n  }\n\n  SubmitItem() {\n    if (this.itemInput.nativeElement.value != '') {\n      this.submitItem.emit({\n        description: this.itemInput.nativeElement.value,\n        color: this.activeColor,\n      });\n    }\n  }\n\n  CancelSubmit() {\n    this.itemInput.nativeElement.value = '';\n    this.colorRadio.nativeElement.checked = true;\n    this.submitCanceled.emit();\n  }\n}\n",
+            "sourceCode": "import {\n  Component,\n  ElementRef,\n  EventEmitter,\n  Input,\n  OnInit,\n  Output,\n  ViewChild,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-item-flipchart',\n  templateUrl: './item-flipchart.component.html',\n  styleUrls: ['../item.component.scss'],\n})\nexport class ItemFlipchartComponent {\n  activeColor: string = 'shift-blue';\n  @Output() submitCanceled = new EventEmitter();\n  @Output() submitItem = new EventEmitter<{\n    description: string;\n    color: string;\n  }>();\n  @Input() counter: number;\n\n  @ViewChild('textInput') itemInput!: ElementRef<HTMLInputElement>;\n  @ViewChild('shiftBlue') colorRadio!: ElementRef<HTMLInputElement>;\n\n  constructor() {}\n\n  changeColor(e: Event) {\n    this.activeColor = (e.currentTarget as HTMLInputElement).id;\n\n    //if random then execute get random color()\n  }\n\n  SubmitItem() {\n    if (this.itemInput.nativeElement.value != '') {\n      this.submitItem.emit({\n        description: this.itemInput.nativeElement.value,\n        color: this.activeColor,\n      });\n    }\n  }\n\n  CancelSubmit() {\n    this.itemInput.nativeElement.value = '';\n    this.colorRadio.nativeElement.checked = true;\n    this.submitCanceled.emit();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1727,7 +2016,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.menu-wrapper {\r\n  background-color: c.$dark-grey;\r\n  color: white;\r\n  width: 238px;\r\n  height: 302px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  justify-content: space-around;\r\n}\r\n\r\n.icons {\r\n  width: 27px;\r\n  height: 32px;\r\n  margin-right: 15px;\r\n  margin-left: 5%;\r\n}\r\n\r\n.row-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-size: 15px;\r\n  font-weight: 500px;\r\n  line-height: 22px;\r\n  align-items: center;\r\n  cursor: pointer;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\nhr {\r\n  margin: 3px;\r\n  width: 90%;\r\n  align-self: center;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.menu-wrapper {\r\n  background-color: c.$dark-grey;\r\n  color: white;\r\n  width: 238px;\r\n  height: 302px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  justify-content: space-around;\r\n  overflow: hidden;\r\n  align-items: center;\r\n}\r\n\r\n.icons {\r\n  width: 27px;\r\n  height: 32px;\r\n  margin-right: 15px;\r\n  margin-left: 5%;\r\n}\r\n\r\n.row-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  font-size: 15px;\r\n  line-height: 22px;\r\n  align-items: center;\r\n  cursor: pointer;\r\n  padding: 5px;\r\n  width: 95%;\r\n  border-radius: 5px;\r\n}\r\n\r\n.row-wrapper:hover {\r\n  background-color: darken(c.$dark-grey, 5%);\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n\r\nhr {\r\n  margin: 0px;\r\n  width: 90%;\r\n  align-self: center;\r\n}\r\n",
                     "styleUrl": "./item-menu.component.scss"
                 }
             ],
@@ -1937,17 +2226,20 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-fb099e86370670e9ae6ce3d726de96390096363224a2a5fef08f42a98bfea96b2391f5e521b0e5e2a320183037b1a130237e8645b574ff7442bf174437bb78b9",
+            "id": "module-AppModule-baec9025b85303fd0328bbfb95bdff20c01a5ddb2aa8287f1f15de6fa2d19688c15adf1a77d8a223420c09d565b71a002998456ade197a6e17f856410b8fc3ae",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\nimport { StoreModule } from '@ngrx/store';\nimport { CounterService } from './state/counter/counter.service';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n  ],\n  providers: [CounterService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\nimport { StoreModule } from '@ngrx/store';\nimport { CounterService } from './state/counter/counter.service';\nimport { ChartStateService } from './state/chart-states/chart-states.service';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n  ],\n  providers: [CounterService, ChartStateService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
                     "elements": [
+                        {
+                            "name": "ChartStateService"
+                        },
                         {
                             "name": "CounterService"
                         }
@@ -2064,13 +2356,13 @@
         },
         {
             "name": "ComponentsModule",
-            "id": "module-ComponentsModule-9e8f68584baf56b39b1c1b83c575945fc8414d12c6c56ce82f6f53b3dc9ea3d46544830aee4d1488765e9e8a2fd626f10e903395f44decec9e7af9a33c32fd63",
+            "id": "module-ComponentsModule-6b0f62b5d73467c373026a1a7a02456d5d3643f4deaf81089aba587bf84ab70cf71aed6f6bb2b61c1cd10409dec8b9ed34510ffc600a7318bfad1755c5ac8dd5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/components.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\nimport { ItemMenuComponent } from './item-menu/item-menu.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n    ItemMenuComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\nimport { ItemMenuComponent } from './item-menu/item-menu.component';\nimport { HomeviewButtonComponent } from './homeview-button/homeview-button.component';\nimport { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n    ItemMenuComponent,\n    HomeviewButtonComponent,\n    HomeviewMeetingComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n    HomeviewButtonComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2090,6 +2382,12 @@
                         },
                         {
                             "name": "HeaderComponent"
+                        },
+                        {
+                            "name": "HomeviewButtonComponent"
+                        },
+                        {
+                            "name": "HomeviewMeetingComponent"
                         },
                         {
                             "name": "ItemComponent"
@@ -2120,6 +2418,9 @@
                         },
                         {
                             "name": "HeaderComponent"
+                        },
+                        {
+                            "name": "HomeviewButtonComponent"
                         },
                         {
                             "name": "ItemComponent"
@@ -2181,13 +2482,13 @@
         },
         {
             "name": "HomeviewModule",
-            "id": "module-HomeviewModule-d7de0f4c364ed2e9eabaa50ef6faf5d508791c39ab498efcc300d6b12726340a30ef5273306512a117ebe3ad4d5f6dc1511726e374b9ff85f66bbc4904631969",
+            "id": "module-HomeviewModule-04c23db2b9086a573b94688d1c24cfdd1add6ec17e07dba47ebdd62d2069e9f5c4ee622463dd30028919736eac720bdde3f65dd8aa51e41dc2074ab58334a32c",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/pages/homeview/homeview.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HomeviewComponent } from './homeview.component';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [{ path: '', component: HomeviewComponent }];\n\n@NgModule({\n  declarations: [HomeviewComponent],\n  imports: [CommonModule, RouterModule.forChild(routes)],\n})\nexport class HomeviewModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HomeviewComponent } from './homeview.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { ComponentsModule } from 'app/components/components.module';\n\nconst routes: Routes = [{ path: '', component: HomeviewComponent }];\n\n@NgModule({\n  declarations: [HomeviewComponent],\n  imports: [ComponentsModule, CommonModule, RouterModule.forChild(routes)],\n})\nexport class HomeviewModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2296,7 +2597,17 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/item/item.stories.ts",
+                "file": "src/app/components/homeview-button/homeview-button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2316,6 +2627,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/item/item.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/item/item-flipchart/item-flipchart.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2326,21 +2647,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
             },
             {
                 "name": "Flipchart",
@@ -2583,12 +2904,24 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/app/components/item/item.stories.ts": [
+            "src/app/components/homeview-button/homeview-button.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/item/item.stories.ts",
+                    "file": "src/app/components/homeview-button/homeview-button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
+            "src/app/components/homeview-meeting/homeview-meeting.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -2607,6 +2940,18 @@
                     "defaultValue": "() => ({})"
                 }
             ],
+            "src/app/components/item/item.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/item/item.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
             "src/app/components/item/item-flipchart/item-flipchart.stories.ts": [
                 {
                     "name": "Default",
@@ -2619,18 +2964,6 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
-            ],
             "src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -2641,6 +2974,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
                 }
             ],
             "src/app/components/add-button/add-Button.stories.ts": [
@@ -2860,20 +3205,7 @@
                         "children": [
                             {
                                 "kind": "module",
-                                "children": [
-                                    {
-                                        "name": "routes",
-                                        "filename": "src/app/pages/homeview/homeview.module.ts",
-                                        "module": "HomeviewModule",
-                                        "children": [
-                                            {
-                                                "path": "",
-                                                "component": "HomeviewComponent"
-                                            }
-                                        ],
-                                        "kind": "module"
-                                    }
-                                ],
+                                "children": [],
                                 "module": "HomeviewModule"
                             }
                         ]
@@ -2884,7 +3216,20 @@
                         "children": [
                             {
                                 "kind": "module",
-                                "children": [],
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/pages/flipcharts/flipcharts.module.ts",
+                                        "module": "FlipchartsModule",
+                                        "children": [
+                                            {
+                                                "path": "",
+                                                "component": "FlipchartsComponent"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
                                 "module": "FlipchartsModule"
                             }
                         ]
@@ -2995,7 +3340,7 @@
                 "linktype": "component",
                 "name": "AddedItemComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -3033,7 +3378,45 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/homeview-button/homeview-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeviewButtonComponent",
+                "coveragePercent": 0,
                 "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/homeview-button/homeview-button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/homeview-meeting/homeview-meeting.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HomeviewMeetingComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
@@ -3108,7 +3491,7 @@
                 "linktype": "component",
                 "name": "FlipchartsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -3154,6 +3537,15 @@
                 "name": "ItemState",
                 "coveragePercent": 0,
                 "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/chart-states/chart-states.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ChartStateService",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
