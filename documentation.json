@@ -320,12 +320,12 @@
     "classes": [
         {
             "name": "Item",
-            "id": "class-Item-afb0d2a4f916379c60d6d592426df9bf12f7bee569632e876c3800f4e0e2c05bcf13bdc8ab882d0e45ef2f9872b4ad120f3bc7785332c20e6c38e0c0293dcbdd",
+            "id": "class-Item-580292eab300b69b212d132fb01dfb1383841c37280fedaf7a2ecee896e2691d5b4118e163474b196c3485f47b9db87a418acdba063832ee291d6eda8cc73b57",
             "file": "src/types/Item.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "enum chartCaption {\r\n  p,\r\n  i,\r\n  b,\r\n  l,\r\n}\r\n\r\nexport class Item {\r\n  number: number;\r\n  description: string;\r\n  color: string;\r\n  type: chartCaption;\r\n  bookmark: boolean = false;\r\n  ofCourse: boolean = false;\r\n}\r\n",
+            "sourceCode": "import { chartType } from './chartType';\r\n\r\nexport class Item {\r\n  number: number;\r\n  description: string;\r\n  color: string;\r\n  type: chartType;\r\n  bookmark: boolean = false;\r\n  ofCourse: boolean = false;\r\n}\r\n",
             "properties": [
                 {
                     "name": "bookmark",
@@ -335,7 +335,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 8
                 },
                 {
                     "name": "color",
@@ -344,7 +344,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 6
                 },
                 {
                     "name": "description",
@@ -353,7 +353,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 5
                 },
                 {
                     "name": "number",
@@ -362,7 +362,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 9
+                    "line": 4
                 },
                 {
                     "name": "ofCourse",
@@ -372,16 +372,16 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 9
                 },
                 {
                     "name": "type",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "chartCaption",
+                    "type": "chartType",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 7
                 }
             ],
             "methods": [],
@@ -968,7 +968,7 @@
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-ba167136d7ec48fdd8e35a7ac5dfa6c598a0fadd736b1064f697d0053c98dab3f0388eadf9cbb2a6cb17354395fff6d6aa6287d2b2ccbaa2e20c24f5e20634ba",
+            "id": "component-ChartComponent-6223ede3e5a9c5b8934f056eb2131241f95bc3de1834fbe72505bdaa30b03c2de58433ad26469ba545a208ff485c90ef352726759f1f14c7c2e8472ca3161e98",
             "file": "src/app/components/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -986,11 +986,19 @@
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "chartsType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "chartType",
+                    "decorators": []
+                },
+                {
                     "name": "title",
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 }
@@ -1004,7 +1012,7 @@
                     "type": "CounterService",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 17,
                     "modifierKind": [
                         123
                     ]
@@ -1017,7 +1025,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 18
                 },
                 {
                     "name": "items",
@@ -1027,7 +1035,7 @@
                     "type": "Item[]",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 }
             ],
             "methodsClass": [
@@ -1037,7 +1045,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 34,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1054,7 +1062,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -1075,7 +1083,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 32,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1085,7 +1093,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 24,
+                    "line": 28,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1097,7 +1105,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n\n    this.items.push(newItem);\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\nimport { chartType } from '../../../types/chartType';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  @Input()\n  chartsType: chartType;\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n    newItem.type = this.chartsType;\n\n    this.items.push(newItem);\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1119,7 +1127,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 15,
+                "line": 16,
                 "jsdoctags": [
                     {
                         "name": "_counterService",
@@ -1139,7 +1147,7 @@
         },
         {
             "name": "FlipchartsComponent",
-            "id": "component-FlipchartsComponent-5ebe7dcfb5c6b6b99c191e6aadbedc1c6d664ed7355b682b7a8cee99194abfdd4522c3c308afb4558ffb644bdd64109985276a1369fef04c4d6b2b907a2eb186",
+            "id": "component-FlipchartsComponent-fef20a15227b39345d00414067b0c221c834aa32d6c9c10448b2f7d93b1253c9cf87f337cb2483a819a885db06c24a62d785a500b23d196a9ad27337ba77ad31",
             "file": "src/app/pages/flipcharts/flipcharts.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1165,7 +1173,7 @@
                     "type": "ChartStateService",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 20,
                     "modifierKind": [
                         123
                     ]
@@ -1178,7 +1186,7 @@
                     "type": "boolean",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 16
                 },
                 {
                     "name": "info_data",
@@ -1188,7 +1196,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 12
                 },
                 {
                     "name": "problem",
@@ -1198,7 +1206,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 10
+                    "line": 11
                 },
                 {
                     "name": "solutions",
@@ -1208,7 +1216,7 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
                 },
                 {
                     "name": "thoughts",
@@ -1218,7 +1226,17 @@
                     "type": "any[]",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 13
+                },
+                {
+                    "name": "typeOfChart",
+                    "defaultValue": "chartType",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
                 }
             ],
             "methodsClass": [
@@ -1228,7 +1246,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 23,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -1238,7 +1256,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19,
+                    "line": 22,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1250,7 +1268,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ChartStateService } from 'app/state/chart-states/chart-states.service';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  addingItem: boolean = false;\n\n  constructor(public _chartStateService: ChartStateService) {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ChartStateService } from 'app/state/chart-states/chart-states.service';\nimport { chartType } from '../../../types/chartType';\n\n@Component({\n  selector: 'app-flipcharts',\n  templateUrl: './flipcharts.component.html',\n  styleUrls: ['./flipcharts.component.scss'],\n})\nexport class FlipchartsComponent implements OnInit {\n  problem: any[] = [];\n  info_data: any[] = [];\n  thoughts: any[] = [];\n  solutions: any[] = [];\n\n  addingItem: boolean = false;\n\n  typeOfChart: typeof chartType = chartType;\n\n  constructor(public _chartStateService: ChartStateService) {}\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1272,7 +1290,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 15,
+                "line": 18,
                 "jsdoctags": [
                     {
                         "name": "_chartStateService",
@@ -1288,7 +1306,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart class=\"chartview__charts\" title=\"Problemstellung\"></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n    ></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Bedenken\"></app-chart>\n    <app-chart class=\"chartview__charts\" title=\"Lösungen\"></app-chart>\n\n    <div\n      *ngIf=\"_chartStateService.ofCourse\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>OfCourses</p>\n    </div>\n\n    <div\n      *ngIf=\"_chartStateService.bookmark\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Problemstellung\"\n      [chartsType]=\"typeOfChart.p\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n      [chartsType]=\"typeOfChart.i\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Bedenken\"\n      [chartsType]=\"typeOfChart.b\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Lösungen\"\n      [chartsType]=\"typeOfChart.l\"\n    ></app-chart>\n\n    <div\n      *ngIf=\"_chartStateService.ofCourse\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>OfCourses</p>\n    </div>\n\n    <div\n      *ngIf=\"_chartStateService.bookmark\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -1678,7 +1696,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".wrapper {\r\n  width: 407px;\r\n  height: 202px;\r\n  background-color: white;\r\n  border-radius: 15px;\r\n  padding: 24px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: space-between;\r\n\r\n  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.18);\r\n\r\n  &__upper {\r\n    font-weight: 600;\r\n    font-size: 24px;\r\n    line-height: 31px;\r\n  }\r\n\r\n  &__lower {\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    justify-content: space-between;\r\n    align-content: center;\r\n  }\r\n}\r\n\r\nbutton {\r\n  border: none;\r\n  background-color: transparent;\r\n}\r\n\r\np {\r\n  margin: 0;\r\n}\r\n",
                     "styleUrl": "./homeview-meeting.component.scss"
                 }
             ],
@@ -1694,7 +1712,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>homeview-meeting works!</p>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div class=\"wrapper__upper\">Titel der 3. Dynamic Facilitation Sitzung</div>\n  <div class=\"wrapper__lower\">\n    <p>24. Mai 2022</p>\n    <button>dotdot</button>\n  </div>\n</div>\n"
         },
         {
             "name": "IssuecollectorComponent",
@@ -2607,7 +2625,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                "file": "src/app/components/item/item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2627,7 +2645,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/item/item.stories.ts",
+                "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2827,7 +2845,7 @@
         "typealiases": [],
         "enumerations": [
             {
-                "name": "chartCaption",
+                "name": "chartType",
                 "childs": [
                     {
                         "name": "p",
@@ -2855,7 +2873,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
-                "file": "src/types/Item.ts"
+                "file": "src/types/chartType.ts"
             }
         ],
         "groupedVariables": {
@@ -2916,12 +2934,12 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/app/components/homeview-meeting/homeview-meeting.stories.ts": [
+            "src/app/components/item/item.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                    "file": "src/app/components/item/item.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -2940,12 +2958,12 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/app/components/item/item.stories.ts": [
+            "src/app/components/homeview-meeting/homeview-meeting.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/item/item.stories.ts",
+                    "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3149,9 +3167,9 @@
         },
         "groupedFunctions": {},
         "groupedEnumerations": {
-            "src/types/Item.ts": [
+            "src/types/chartType.ts": [
                 {
-                    "name": "chartCaption",
+                    "name": "chartType",
                     "childs": [
                         {
                             "name": "p",
@@ -3179,7 +3197,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
-                    "file": "src/types/Item.ts"
+                    "file": "src/types/chartType.ts"
                 }
             ]
         },
@@ -3359,7 +3377,7 @@
                 "linktype": "component",
                 "name": "ChartComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {
@@ -3491,7 +3509,7 @@
                 "linktype": "component",
                 "name": "FlipchartsComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/10",
+                "coverageCount": "0/11",
                 "status": "low"
             },
             {

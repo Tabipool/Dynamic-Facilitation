@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartStateService } from 'app/state/chart-states/chart-states.service';
+import { chartType } from '../../../types/chartType';
 
 @Component({
   selector: 'app-flipcharts',
@@ -13,6 +14,8 @@ export class FlipchartsComponent implements OnInit {
   solutions: any[] = [];
 
   addingItem: boolean = false;
+
+  typeOfChart: typeof chartType = chartType;
 
   constructor(public _chartStateService: ChartStateService) {}
 

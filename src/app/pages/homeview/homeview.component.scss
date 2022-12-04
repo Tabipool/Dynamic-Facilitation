@@ -3,3 +3,48 @@
 body {
   background-color: c.$main-background;
 }
+
+.homeviewWrapper {
+  padding: 20px;
+  padding-top: 2%;
+  overflow: hidden;
+}
+
+.collapsible {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: c.$dark-grey;
+  margin-top: 2%;
+  &__icons {
+    width: 25px;
+    height: 13px;
+    margin-right: 20px;
+  }
+}
+
+.wrapper {
+  margin-left: 50px;
+  display: flex;
+  margin-bottom: 2%;
+  flex-wrap: wrap;
+}
+
+hr {
+  margin-left: -20px;
+  margin-right: -20px;
+  size: 10px;
+}
+
+app-homeview-button {
+  margin-right: 2%;
+}
+
+app-homeview-meeting {
+  margin-right: 2%;
+  margin-top: 2%;
+}

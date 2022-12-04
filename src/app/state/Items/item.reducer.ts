@@ -1,9 +1,12 @@
-import { Item } from 'types/Item';
+import { createReducer } from '@ngrx/store';
+import { actions } from './item.actions';
+/*import { Item } from '../Items/Item.states';
 
-export interface ItemState {
-  items: Item[];
-  problems: Item[];
-  infos: Item[];
-  concerns: Item[];
-  solutions: Item[];
-}
+export const ;
+
+const itemReducer = createReducer(
+  items,
+  on(actions.addItemAction, (state, { item }) => {
+    return [...state, item];
+  })
+);*/

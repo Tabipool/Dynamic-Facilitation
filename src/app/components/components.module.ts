@@ -32,6 +32,7 @@ import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.co
     ItemFlipchartComponent,
     ChartComponent,
     HomeviewButtonComponent,
+    HomeviewMeetingComponent,
   ],
 })
 export class ComponentsModule {}

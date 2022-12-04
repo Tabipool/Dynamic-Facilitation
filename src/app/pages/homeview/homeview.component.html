@@ -1,1 +1,34 @@
-<app-homeview-button> </app-homeview-button>
+<div class="homeviewWrapper">
+  <button class="collapsible">
+    <img class="collapsible__icons" src="assets/icons/bookmark-solid.svg" />
+    Erstellen
+  </button>
+  <div class="wrapper create">
+    <app-homeview-button buttontitle="Neuer Issue Collector">
+    </app-homeview-button>
+
+    <app-homeview-button
+      buttontitle="Neue Dynamic Facilitation Session"
+      (click)="newSession()"
+    >
+    </app-homeview-button>
+  </div>
+  <hr />
+  <button class="collapsible">
+    <img class="collapsible__icons" src="assets/icons/bookmark-solid.svg" />
+    Dynamic Facilitations
+  </button>
+  <div class="wrapper meetings">
+    <app-homeview-meeting></app-homeview-meeting>
+    <app-homeview-meeting></app-homeview-meeting>
+    <app-homeview-meeting></app-homeview-meeting>
+    <app-homeview-meeting></app-homeview-meeting>
+    <app-homeview-meeting></app-homeview-meeting>
+  </div>
+  <hr />
+  <button class="collapsible">
+    <img class="collapsible__icons" src="assets/icons/bookmark-solid.svg" />
+    Moderatoren
+  </button>
+  <div class="wrapper moderators"></div>
+</div>

@@ -1,12 +1,25 @@
 <div class="wrapper">
   <div cdkDropListGroup class="chartview">
-    <app-chart class="chartview__charts" title="Problemstellung"></app-chart>
+    <app-chart
+      class="chartview__charts"
+      title="Problemstellung"
+      [chartsType]="typeOfChart.p"
+    ></app-chart>
     <app-chart
       class="chartview__charts"
       title="Info, Data, Sichtweisen"
+      [chartsType]="typeOfChart.i"
     ></app-chart>
-    <app-chart class="chartview__charts" title="Bedenken"></app-chart>
-    <app-chart class="chartview__charts" title="Lösungen"></app-chart>
+    <app-chart
+      class="chartview__charts"
+      title="Bedenken"
+      [chartsType]="typeOfChart.b"
+    ></app-chart>
+    <app-chart
+      class="chartview__charts"
+      title="Lösungen"
+      [chartsType]="typeOfChart.l"
+    ></app-chart>
 
     <div
       *ngIf="_chartStateService.ofCourse"

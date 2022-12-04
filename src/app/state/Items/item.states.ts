@@ -1,15 +1,10 @@
-enum chartCaption {
-  p,
-  i,
-  b,
-  l,
-}
+import { chartType } from '../../../types/chartType';
 
 export class Item {
   number: number;
   description: string;
   color: string;
-  type: chartCaption;
+  type: chartType;
   bookmark: boolean = false;
   ofCourse: boolean = false;
 }

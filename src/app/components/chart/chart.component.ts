@@ -4,8 +4,9 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Item } from 'types/Item';
+import { Item } from '../../state/Items/Item.states';
 import { CounterService } from '../../state/counter/counter.service';
+import { chartType } from '../../../types/chartType';
 
 @Component({
   selector: 'app-chart',
@@ -20,6 +21,9 @@ export class ChartComponent implements OnInit {
 
   @Input()
   title: string = '';
+
+  @Input()
+  chartsType: chartType;
 
   ToggleInput() {
     this.addingItem = !this.addingItem;
@@ -37,6 +41,7 @@ export class ChartComponent implements OnInit {
     newItem.number = this._counterService.getValue();
     newItem.description = item.description;
     newItem.color = item.color;
+    newItem.type = this.chartsType;
 
     this.items.push(newItem);
 

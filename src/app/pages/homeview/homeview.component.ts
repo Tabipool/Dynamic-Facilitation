@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homeview',
   templateUrl: './homeview.component.html',
-  styleUrls: ['./homeview.component.scss']
+  styleUrls: ['./homeview.component.scss'],
 })
 export class HomeviewComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit(): void {
+  newSession() {
+    this.router.navigate(['/flipcharts']);
   }
-
 }
