@@ -85,86 +85,91 @@ StatusCode: 204 NoContext
 StatusCode: 200 OK
 ```
 
-**GET api/meetings/idmeeting** Returns a list of a meeting (with all items)
+**GET api/meetings/idmeeting** Returns a a meeting (with all items)
 
 ```json
-[
-  {
-    "idmeeting": 0,
-    "title": "string",
-    "description": "string",
-    "items": [
-      {
-        "number": 1,
-        "description": "string",
-        "color": "string",
-        "type": "enum(p,i,b,l)",
-        "bookmark": false,
-        "ofcourse": false
-      }
-    ]
-  }
-]
+{
+  "idmeeting": 0,
+  "title": "string",
+  "description": "string",
+  "items": [
+    {
+      "number": 1,
+      "description": "string",
+      "color": "string",
+      "type": "enum(p,i,b,l)",
+      "bookmark": false,
+      "ofcourse": false
+    }
+  ]
+}
 ```
 
 ```diff
 StatusCode: 200 OK
 ```
 
-**POST api/meetings/** Saves a new meeting (with all items)
+**POST api/meetings/** Saves a new meeting
 
 ```json
-[
-  {
-    "title": "string",
-    "description": "string",
-    "items": [
-      {
-        "number": 1,
-        "description": "string",
-        "color": "string",
-        "type": "enum(p,i,b,l)",
-        "bookmark": false,
-        "ofcourse": false
-      }
-    ],
-    "savedate": "datetime"
-  }
-]
+{
+  "title": "string",
+  "description": "string"
+}
 ```
 
 ```diff
 StatusCode: 201 Created
 ```
 
-**PUT api/meetings/idmeeting** Updates given meeting (with all items)
+**POST api/meetings/idmeeting/items/** Saves added item
 
 ```json
-[
-  {
-    "idmeeting": 0,
-    "title": "string",
-    "description": "string",
-    "items": [
-      {
-        "number": 1,
-        "description": "string",
-        "color": "string",
-        "type": "enum(p,i,b,l)",
-        "bookmark": false,
-        "ofcourse": false
-      }
-    ],
-    "savedate": "datetime"
-  }
-]
+{
+  "number": 1,
+  "description": "string",
+  "color": "string",
+  "type": "enum(p,i,b,l)",
+  "bookmark": false,
+  "ofcourse": false
+}
+```
+
+**PUT api/meetings/idmeeting** Updates given meeting
+
+```json
+{
+  "idmeeting": 0,
+  "title": "string",
+  "description": "string",
+  "savedate": "datetime"
+}
 ```
 
 ```diff
 StatusCode: 200 OK
 ```
 
+**PUT api/meetings/idmeeting/items/number** Updates given Item (number is unique for meeting)
+
+```json
+{
+  "number": 1,
+  "description": "string",
+  "color": "string",
+  "type": "enum(p,i,b,l)",
+  "bookmark": false,
+  "ofcourse": false
+}
+```
+
 **DELETE api/meetings/idmeeting** Deletes given meeting (with all items)
+
+```diff
+StatusCode: 204 NoContext
+```
+
+**DELETE api/meetings/idmeeting/items/number** Deletes given item
 
 ```diff
 StatusCode: 204 NoContext
