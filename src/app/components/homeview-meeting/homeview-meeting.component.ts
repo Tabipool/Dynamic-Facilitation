@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Meeting } from 'app/state/meetings/meetings.states';
+import { MeetingHome } from 'app/state/meetings/meetings.states';
 
 @Component({
   selector: 'app-homeview-meeting',
@@ -8,7 +8,7 @@ import { Meeting } from 'app/state/meetings/meetings.states';
 })
 export class HomeviewMeetingComponent implements OnInit {
   @Input()
-  meeting: Meeting;
+  meeting: MeetingHome;
 
   constructor() {}
 

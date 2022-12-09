@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
-import { Meeting } from 'app/state/meetings/meetings.states';
+import { MeetingHome } from 'app/state/meetings/meetings.states';
 
 @Component({
   selector: 'app-homeview',
@@ -14,7 +14,7 @@ export class HomeviewComponent implements OnInit {
     private restService: RESTAPIServiceService
   ) {}
 
-  public meetings: Meeting[];
+  public meetings: MeetingHome[];
 
   ngOnInit() {
     this.restService.getMeetingsByModerator(1).subscribe(

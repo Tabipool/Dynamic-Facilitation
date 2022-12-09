@@ -1,6 +1,6 @@
 export enum chartType {
   'p',
-  'i',
-  'b',
-  'l',
+  'd',
+  'c',
+  's',
 }
