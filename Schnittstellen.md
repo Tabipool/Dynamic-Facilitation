@@ -68,7 +68,7 @@ StatusCode: 204 NoContext
 
 # Meeting
 
-**GET api/meetings?fk_moderator** Returns a list of all meetings of one moderator
+**GET api/moderator/idmoderator/meetings** Returns a list of all meetings of one moderator
 
 ```json
 [
