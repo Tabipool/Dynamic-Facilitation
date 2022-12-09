@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { CounterService } from './state/counter/counter.service';
 import { ChartStateService } from './state/chart-states/chart-states.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -23,6 +24,7 @@ import { ChartStateService } from './state/chart-states/chart-states.service';
     FormsModule,
     ComponentsModule,
     DragDropModule,
+    HttpClientModule,
   ],
   providers: [CounterService, ChartStateService],
   bootstrap: [AppComponent],

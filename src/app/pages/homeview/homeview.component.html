@@ -19,11 +19,10 @@
     Dynamic Facilitations
   </button>
   <div class="wrapper meetings">
-    <app-homeview-meeting></app-homeview-meeting>
-    <app-homeview-meeting></app-homeview-meeting>
-    <app-homeview-meeting></app-homeview-meeting>
-    <app-homeview-meeting></app-homeview-meeting>
-    <app-homeview-meeting></app-homeview-meeting>
+    <app-homeview-meeting
+      *ngFor="let data of meetings"
+      [meeting]="data"
+    ></app-homeview-meeting>
   </div>
   <hr />
   <button class="collapsible">
