@@ -42,7 +42,7 @@ StatusCode: 200 OK
 StatusCode: 201 Created
 ```
 
-**PUT api/moderators/IDmoderator** Updates given moderator
+**PUT api/moderators/{IDmoderator}** Updates given moderator
 
 ```json
 {
@@ -58,7 +58,7 @@ StatusCode: 201 Created
 StatusCode: 200 OK
 ```
 
-**DELETE api/moderators/idmoderator** Deletes the given moderator (with all meetings)
+**DELETE api/moderators/{idmoderator}** Deletes the given moderator (with all meetings)
 
 ```diff
 StatusCode: 204 NoContext
@@ -68,7 +68,7 @@ StatusCode: 204 NoContext
 
 # Meeting
 
-**GET api/moderator/idmoderator/meetings** Returns a list of all meetings of one moderator
+**GET api/moderator/{idmoderator}/meetings** Returns a list of all meetings of one moderator
 
 ```json
 [
@@ -85,7 +85,7 @@ StatusCode: 204 NoContext
 StatusCode: 200 OK
 ```
 
-**GET api/meetings/idmeeting** Returns a a meeting (with all items)
+**GET api/meetings/{idmeeting}** Returns a a meeting (with all items)
 
 ```json
 {
@@ -122,7 +122,7 @@ StatusCode: 200 OK
 StatusCode: 201 Created
 ```
 
-**POST api/meetings/idmeeting/items/** Saves added item
+**POST api/meetings/{idmeeting}/items/** Saves added item
 
 ```json
 {
@@ -135,7 +135,7 @@ StatusCode: 201 Created
 }
 ```
 
-**PUT api/meetings/idmeeting** Updates given meeting
+**PUT api/meetings/{idmeeting}** Updates given meeting
 
 ```json
 {
@@ -150,7 +150,7 @@ StatusCode: 201 Created
 StatusCode: 200 OK
 ```
 
-**PUT api/meetings/idmeeting/items/number** Updates given Item (number is unique for meeting)
+**PUT api/meetings/{idmeeting}/items/{number}** Updates given Item (number is unique for meeting)
 
 ```json
 {
@@ -163,13 +163,13 @@ StatusCode: 200 OK
 }
 ```
 
-**DELETE api/meetings/idmeeting** Deletes given meeting (with all items)
+**DELETE api/meetings/{idmeeting}** Deletes given meeting (with all items)
 
 ```diff
 StatusCode: 204 NoContext
 ```
 
-**DELETE api/meetings/idmeeting/items/number** Deletes given item
+**DELETE api/meetings/{idmeeting}/items/{number}** Deletes given item
 
 ```diff
 StatusCode: 204 NoContext
