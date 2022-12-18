@@ -8,29 +8,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RESTAPIServiceService {
-  public baseUrl = 'http://dynamicfacilitation.online';
+  public baseUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) {}
 
   //Meetings
 
-  getMeetingsByModerator(idmoderator: number): Observable<MeetingHome[]> {
-    return this.http.get<MeetingHome[]>(
-      '${baseUrl}/moderator/${idmoderator}/meetings'
+  getMeetingsByModerator(idmoderator: number): Observable<any> {
+    idmoderator = 3;
+    return this.http.get<any>(
+      this.baseUrl + '/moderators/' + idmoderator + '/meetings'
       //https://dynamicfacilitation.online/moderator/3/meetings
     );
   }
 
-  getMeetingById(idmeeting: number): Observable<MeetingFull> {
+  getMeetingById(idmeeting: number): Observable<any> {
     //Wie macht man das mit den Items?
-    return this.http.get<MeetingFull>('${baseUrl}/meetings/${idmeeting}');
+    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting);
   }
 
-  postMeeting(meeting: object): Observable<object> {
-    return this.http.post<object>('${baseUrl}/meetings', meeting);
+  postMeeting(meeting: object): Observable<any> {
+    return this.http.post<any>(this.baseUrl + '/meetings', meeting);
   }
 
-  postItem(item: Item, idmeeting: number): Observable<Item> {
-    return this.http.post<Item>('${baseUrl}/meetings/${idmeeting}/items', item);
+  postItem(item: Item, idmeeting: number): Observable<any> {
+    return this.http.post<any>(
+      this.baseUrl + '/meetings/' + idmeeting + '/items',
+      item
+    );
   }
 }

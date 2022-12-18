@@ -2,7 +2,9 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-add-button',
-  template: ` <button type="button" [ngClass]="classes">+</button>`,
+  template: ` <button type="button" [ngClass]="classes">
+    <img class="plusIcon" src="assets/icons/plusturkey.svg" />
+  </button>`,
   styleUrls: ['./add-button.component.scss'],
 })
 export class AddButtonComponent {

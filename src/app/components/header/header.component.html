@@ -4,10 +4,11 @@
       ><img class="header__logo" src="assets/images/DFLogo.png"
     /></a>
     <button *ngIf="flipchart" class="header__title">
-      Titel des Meetings >
+      Titel des Meetings
+      <img class="header__title__dropdown" src="assets/icons/v.svg" />
     </button>
     <button *ngIf="flipchart" class="header__transparentButton">
-      <img class="header__icons" src="assets/icons/floppy-disk-solid.svg" />
+      <img class="header__icons" src="assets/icons/save.svg" />
     </button>
   </div>
   <div class="header__right">
@@ -16,19 +17,17 @@
       (click)="ToggleOfCourseChart()"
       class="header__transparentButton"
     >
-      <img class="header__icons" src="assets/icons/star-solid.svg" />
+      <img class="header__icons" src="assets/icons/star.svg" />
     </button>
     <button
       *ngIf="flipchart"
       (click)="ToggleBookmarkChart()"
       class="header__transparentButton"
     >
-      <img class="header__icons" src="assets/icons/bookmark-solid.svg" />
+      <img class="header__icons" src="assets/icons/bookmark.svg" />
     </button>
     <button class="header__transparentButton">
-      <img class="header__dots" src="assets/icons/circle-solid.svg" />
-      <img class="header__dots" src="assets/icons/circle-solid.svg" />
-      <img class="header__dots" src="assets/icons/circle-solid.svg" />
+      <img class="header__dots" src="assets/icons/ellispsen.svg" />
     </button>
   </div>
 </div>

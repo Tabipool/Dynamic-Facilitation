@@ -20,6 +20,12 @@
     font-size: 26px;
     line-height: 31px;
     margin: 0 2%;
+
+    &__dropdown {
+      margin-left: 20px;
+
+      width: 25px;
+    }
   }
 
   &__right {
@@ -44,8 +50,7 @@
     margin-right: 1%;
   }
   &__dots {
-    width: 10.5px;
-    height: 10.5px;
+    width: 42px;
     margin: 1px;
   }
   &__icons {
