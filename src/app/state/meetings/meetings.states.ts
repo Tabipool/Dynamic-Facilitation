@@ -1,4 +1,4 @@
-import { Item } from '../Items/Item.states';
+import { Item } from '../Items/item.states';
 
 export class MeetingHome {
   id: number;

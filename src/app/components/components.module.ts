@@ -10,6 +10,8 @@ import { ChartComponent } from './chart/chart.component';
 import { ItemMenuComponent } from './item-menu/item-menu.component';
 import { HomeviewButtonComponent } from './homeview-button/homeview-button.component';
 import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';
+import { ModeratorDetailedComponent } from './moderator-detailed/moderator-detailed.component';
+import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homeview.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.co
     ItemMenuComponent,
     HomeviewButtonComponent,
     HomeviewMeetingComponent,
+    ModeratorDetailedComponent,
+    ModeratorHomeviewComponent,
   ],
   imports: [CommonModule, DragDropModule],
   exports: [
@@ -33,6 +37,7 @@ import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.co
     ChartComponent,
     HomeviewButtonComponent,
     HomeviewMeetingComponent,
+    ItemMenuComponent,
   ],
 })
 export class ComponentsModule {}

@@ -4,7 +4,7 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { Item } from '../../state/Items/Item.states';
+import { Item } from '../../state/Items/item.states';
 import { CounterService } from '../../state/counter/counter.service';
 import { chartType } from '../../../types/chartType';
 

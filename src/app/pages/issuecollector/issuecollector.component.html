@@ -1,1 +1,11 @@
-<p>issuecollector works!</p>
+<div class="wrapper">
+  <div class="upperWrapper">
+    <h1 class="title">Issues we want to tackle</h1>
+
+    <button class="voteButton" [disabled]="disabledVote">
+      Thema auswählen
+    </button>
+  </div>
+
+  <app-add-button [flipchart]="false" class="addButton"></app-add-button>
+</div>

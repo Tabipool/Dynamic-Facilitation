@@ -1,5 +1,45 @@
 @use "styles/colors" as c;
 
-body {
+.wrapper {
   background-color: c.$main-background;
+  padding: 3%;
+}
+
+.upperWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  width: 448px;
+  height: 39px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 2%;
+}
+
+.voteButton {
+  border: 2px solid c.$turquoise;
+  background-color: transparent;
+  border-radius: 5px;
+  border-width: 2px;
+  //filter: drop-shadow(1px 1px 0px #00aaa0);
+  width: 190px;
+  height: 44px;
+  color: c.$turquoise;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.voteButton:disabled {
+  border-color: #8fd6d4;
+  color: #8fd6d4;
+}
+
+.addButton {
+  margin: 8%;
 }

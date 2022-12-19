@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { Item } from '../../state/Items/Item.states';
+import { Item } from '../../state/Items/item.states';
+import { ItemMenuComponent } from '../item-menu/item-menu.component';
 
 @Component({
   selector: 'app-added-item',
@@ -10,6 +11,7 @@ import { Item } from '../../state/Items/Item.states';
 export class AddedItemComponent implements OnInit {
   @Input() newItem: Item = new Item();
   @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;
+  @ViewChild(ItemMenuComponent) menu: ItemMenuComponent;
 
   editItem: boolean = false;
 
@@ -27,7 +29,7 @@ export class AddedItemComponent implements OnInit {
     console.log(this.newItem.color);
   }
 
-  OpenMenu() {
-    console.log('hello');
+  OpenMenu(e: any) {
+    this.menu.open(e);
   }
 }

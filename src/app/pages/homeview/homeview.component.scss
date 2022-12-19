@@ -21,6 +21,7 @@ body {
   color: c.$dark-grey;
   background-color: transparent;
   margin-top: 2%;
+
   &__icons {
     width: 25px;
     height: 13px;
@@ -43,6 +44,7 @@ hr {
 
 app-homeview-button {
   margin-right: 2%;
+  margin-top: 1%;
 }
 
 app-homeview-meeting {

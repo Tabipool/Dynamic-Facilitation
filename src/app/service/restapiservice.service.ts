@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Item } from '../state/Items/Item.states';
+import { Item } from '../state/Items/item.states';
 import { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';
 import { Observable } from 'rxjs';
 
