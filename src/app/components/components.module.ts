@@ -7,7 +7,6 @@ import { AddButtonComponent } from './add-button/add-button.component';
 import { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';
 import { AddedItemComponent } from './added-item/added-item.component';
 import { ChartComponent } from './chart/chart.component';
-import { ItemMenuComponent } from './item-menu/item-menu.component';
 import { HomeviewButtonComponent } from './homeview-button/homeview-button.component';
 import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';
 import { ModeratorDetailedComponent } from './moderator-detailed/moderator-detailed.component';
@@ -21,7 +20,6 @@ import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homev
     ItemFlipchartComponent,
     AddedItemComponent,
     ChartComponent,
-    ItemMenuComponent,
     HomeviewButtonComponent,
     HomeviewMeetingComponent,
     ModeratorDetailedComponent,
@@ -37,7 +35,7 @@ import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homev
     ChartComponent,
     HomeviewButtonComponent,
     HomeviewMeetingComponent,
-    ItemMenuComponent,
+    ModeratorHomeviewComponent,
   ],
 })
 export class ComponentsModule {}

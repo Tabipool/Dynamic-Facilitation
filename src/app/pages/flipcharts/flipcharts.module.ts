@@ -4,6 +4,7 @@ import { FlipchartsComponent } from './flipcharts.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ComponentsModule } from 'app/components/components.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ItemMenuComponent } from '../../components/item-menu/item-menu.component';
 
 const routes: Routes = [{ path: '', component: FlipchartsComponent }];
 
@@ -15,5 +16,6 @@ const routes: Routes = [{ path: '', component: FlipchartsComponent }];
     RouterModule.forChild(routes),
     DragDropModule,
   ],
+  entryComponents: [ItemMenuComponent],
 })
 export class FlipchartsModule {}

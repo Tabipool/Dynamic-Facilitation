@@ -42,6 +42,34 @@ hr {
   size: 10px;
 }
 
+.moderatorAdd {
+  margin-right: 3%;
+  margin-top: 2%;
+  &__plus {
+    text-align: center;
+    width: 171px;
+    height: 171px;
+    border-radius: 100%;
+    background-color: map-get(c.$shift-colors, shift-yellow);
+    color: white;
+    padding: auto;
+    font-size: 77pt;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 31px;
+    margin: 0;
+    text-align: center;
+    margin: 5px;
+  }
+}
+
+.moderatorAdd:hover {
+  cursor: pointer;
+}
+
 app-homeview-button {
   margin-right: 2%;
   margin-top: 1%;
@@ -49,5 +77,10 @@ app-homeview-button {
 
 app-homeview-meeting {
   margin-right: 2%;
+  margin-top: 2%;
+}
+
+app-moderator-homeview {
+  margin-right: 3%;
   margin-top: 2%;
 }

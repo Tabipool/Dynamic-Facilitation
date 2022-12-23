@@ -1,0 +1,30 @@
+@use "styles/colors" as c;
+
+.detailed-wrapper {
+  background-color: c.$dark-grey;
+  color: white;
+  width: 243px;
+  height: 460px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  justify-content: space-around;
+  overflow: hidden;
+  padding: 10px 15px 60px;
+}
+
+.iconButtons {
+  &__detailed-icons {
+    width: 23px;
+    height: 23px;
+  }
+}
+
+.inputFields {
+  border: none;
+  border-radius: 5px;
+}
+
+label {
+  text-align: left;
+}

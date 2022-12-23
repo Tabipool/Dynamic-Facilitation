@@ -1,1 +1,36 @@
-<p>moderator-detailed works!</p>
+<div class="detailed-wrapper">
+  <label for="username">Benutzername:</label>
+  <input type="text" name="username" #username class="inputFields" required />
+  <label for="firstname">Vorname:</label>
+  <input type="text" name="firstname" #firstname class="inputFields" required />
+  <label for="lastname">Nachname:</label>
+  <input type="text" name="lastname" #lastname class="inputFields" required />
+  <label for="password">Passwort festlegen:</label>
+  <input
+    type="password"
+    name="password"
+    #password
+    class="inputFields"
+    required
+  />
+  <label for="checkpw">Passwort bestätigen:</label>
+  <input type="password" name="checkpw" #checkpw class="inputFields" required />
+  <div class="iconButtons">
+    <button>
+      <img class="iconButtons__detailed-icons" src="assets/icons/x.svg" />
+    </button>
+    <button
+      (click)="
+        addNewModerator(
+          username.value,
+          firstname.value,
+          lastname.value,
+          password.value,
+          checkpw.value
+        )
+      "
+    >
+      <img class="iconButtons__detailed-icons" src="assets/icons/check.svg" />
+    </button>
+  </div>
+</div>

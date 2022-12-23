@@ -10,6 +10,7 @@ import { ComponentsModule } from './components/components.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { CounterService } from './state/counter/counter.service';
 import { ChartStateService } from './state/chart-states/chart-states.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComponentsModule,
     DragDropModule,
     HttpClientModule,
+    OverlayModule,
   ],
   providers: [CounterService, ChartStateService],
   bootstrap: [AppComponent],

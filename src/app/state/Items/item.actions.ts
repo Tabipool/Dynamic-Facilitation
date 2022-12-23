@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Item } from '../Items/Item.states';
+import { Item } from '../Items/item.states';
 
 const addItemAction = createAction('[Item] Add', props<{ item: Item }>());
 const updateItemAction = createAction('[Item] Update', props<{ item: Item }>());

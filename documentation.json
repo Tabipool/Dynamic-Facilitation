@@ -2,65 +2,6 @@
     "pipes": [],
     "interfaces": [
         {
-            "name": "ItemState",
-            "id": "interface-ItemState-7c5d80ec837b3c0772d37e4e58c9b52e60b7f1e6cbe142565ed689acce9b88646b327ace6161a4c7c1d37e07881a7ffe5e89e2ea2ce27ab338a1e2b909b03e78",
-            "file": "src/app/state/Items/item.reducer.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "import { Item } from 'types/Item';\r\n\r\nexport interface ItemState {\r\n  items: Item[];\r\n  problems: Item[];\r\n  infos: Item[];\r\n  concerns: Item[];\r\n  solutions: Item[];\r\n}\r\n",
-            "properties": [
-                {
-                    "name": "concerns",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Item[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 7
-                },
-                {
-                    "name": "infos",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Item[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 6
-                },
-                {
-                    "name": "items",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Item[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 4
-                },
-                {
-                    "name": "problems",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Item[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 5
-                },
-                {
-                    "name": "solutions",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Item[]",
-                    "optional": false,
-                    "description": "",
-                    "line": 8
-                }
-            ],
-            "indexSignatures": [],
-            "kind": 165,
-            "methods": []
-        },
-        {
             "name": "User",
             "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
             "file": "src/stories/User.ts",
@@ -182,7 +123,7 @@
         },
         {
             "name": "ChartStateService",
-            "id": "injectable-ChartStateService-40f68894583ac63a575257f90fe143eaac10fc107c09d3a4e0e49db0fde9ffb6564be657bfac9c56a15c2316cf9c1447ac3786721b725967a20f315b0d9a7f11",
+            "id": "injectable-ChartStateService-d28c4a35df99c6f639217be4448ec043fdc3273d2f0618b377021e0d25be005aed367f6c96203d0244e8d108f84161f81aa84125cd18fb310a159317a007dd8b",
             "file": "src/app/state/chart-states/chart-states.service.ts",
             "properties": [
                 {
@@ -197,6 +138,16 @@
                     "modifierKind": [
                         123
                     ]
+                },
+                {
+                    "name": "color",
+                    "defaultValue": "'lightblue'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
                 },
                 {
                     "name": "ofCourse",
@@ -214,12 +165,43 @@
             ],
             "methods": [
                 {
+                    "name": "ChangeActiveColor",
+                    "args": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "color",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "ToggleBookmarkChart",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 8,
+                    "line": 9,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -232,7 +214,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 13,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "modifierKind": [
@@ -244,7 +226,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport class ChartStateService {\r\n  public bookmark = false;\r\n  public ofCourse = false;\r\n\r\n  public ToggleBookmarkChart() {\r\n    this.bookmark = !this.bookmark;\r\n  }\r\n\r\n  public ToggleOfCourseChart() {\r\n    this.ofCourse = !this.ofCourse;\r\n  }\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport class ChartStateService {\r\n  public bookmark = false;\r\n  public ofCourse = false;\r\n  color: string = 'lightblue';\r\n\r\n  public ToggleBookmarkChart() {\r\n    this.bookmark = !this.bookmark;\r\n  }\r\n\r\n  public ToggleOfCourseChart() {\r\n    this.ofCourse = !this.ofCourse;\r\n  }\r\n\r\n  public ChangeActiveColor(color: string) {}\r\n}\r\n",
             "type": "injectable"
         },
         {
@@ -313,6 +295,187 @@
             "rawdescription": "\n",
             "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable()\r\nexport class CounterService {\r\n  public counter = 1;\r\n\r\n  public increase() {\r\n    this.counter++;\r\n  }\r\n\r\n  public decrease() {\r\n    this.counter--;\r\n  }\r\n\r\n  public getValue(): number {\r\n    return this.counter;\r\n  }\r\n}\r\n",
             "type": "injectable"
+        },
+        {
+            "name": "RESTAPIServiceService",
+            "id": "injectable-RESTAPIServiceService-2bf1fa2e471e0518b1c01dd5871309e5cd3d54cd2a05066949679e127bd420131d49fbaea1039c5b3d583f0d0977153a6fc5f6e880b5af2f898fa6a46443f7e8",
+            "file": "src/app/service/restapiservice.service.ts",
+            "properties": [
+                {
+                    "name": "baseUrl",
+                    "defaultValue": "'http://localhost:8000'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
+            "methods": [
+                {
+                    "name": "getMeetingById",
+                    "args": [
+                        {
+                            "name": "idmeeting",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "idmeeting",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getMeetingsByModerator",
+                    "args": [
+                        {
+                            "name": "idmoderator",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "idmoderator",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "postItem",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "Item",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "idmeeting",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "Item",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "idmeeting",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "postMeeting",
+                    "args": [
+                        {
+                            "name": "meeting",
+                            "type": "object",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "meeting",
+                            "type": "object",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { Item } from '../state/Items/item.states';\nimport { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class RESTAPIServiceService {\n  public baseUrl = 'http://localhost:8000';\n\n  constructor(private http: HttpClient) {}\n\n  //Meetings\n\n  getMeetingsByModerator(idmoderator: number): Observable<any> {\n    idmoderator = 3;\n    return this.http.get<any>(\n      this.baseUrl + '/moderators/' + idmoderator + '/meetings'\n      //https://dynamicfacilitation.online/moderator/3/meetings\n    );\n  }\n\n  getMeetingById(idmeeting: number): Observable<any> {\n    //Wie macht man das mit den Items?\n    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting);\n  }\n\n  postMeeting(meeting: object): Observable<any> {\n    return this.http.post<any>(this.baseUrl + '/meetings', meeting);\n  }\n\n  postItem(item: Item, idmeeting: number): Observable<any> {\n    return this.http.post<any>(\n      this.baseUrl + '/meetings/' + idmeeting + '/items',\n      item\n    );\n  }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "http",
+                        "type": "HttpClient",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "injectable"
         }
     ],
     "guards": [],
@@ -320,12 +483,12 @@
     "classes": [
         {
             "name": "Item",
-            "id": "class-Item-580292eab300b69b212d132fb01dfb1383841c37280fedaf7a2ecee896e2691d5b4118e163474b196c3485f47b9db87a418acdba063832ee291d6eda8cc73b57",
-            "file": "src/types/Item.ts",
+            "id": "class-Item-de98c79172e35997544c23dacc3430da448b9aadfa81f97db40446701c86fcde22ce320364baaac48ad7648e0eac93efcea306ca08a4353872d8ec49e3fbf0bc",
+            "file": "src/app/state/Items/item.states.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "import { chartType } from './chartType';\r\n\r\nexport class Item {\r\n  number: number;\r\n  description: string;\r\n  color: string;\r\n  type: chartType;\r\n  bookmark: boolean = false;\r\n  ofCourse: boolean = false;\r\n}\r\n",
+            "sourceCode": "import { chartType } from '../../../types/chartType';\r\n\r\nexport class Item {\r\n  number: number;\r\n  description: string;\r\n  color: string;\r\n  type: chartType;\r\n  bookmark: boolean = false;\r\n  ofCourse: boolean = false;\r\n}\r\n",
             "properties": [
                 {
                     "name": "bookmark",
@@ -382,6 +545,174 @@
                     "optional": false,
                     "description": "",
                     "line": 7
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "MeetingFull",
+            "id": "class-MeetingFull-b17d5a7cccb5fa7b870bdc1f72593cb331c86a98837234f995e970d743e0ca93358a221667205637cca4a6017fe99d60544b7a8ec0b26e3b79d6b23f047680e0",
+            "file": "src/app/state/meetings/meetings.states.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Item } from '../Items/item.states';\r\n\r\nexport class MeetingHome {\r\n  id: number;\r\n  title: string;\r\n  description: string;\r\n  savedate: Date;\r\n}\r\n\r\nexport class MeetingFull {\r\n  id: number;\r\n  title: string;\r\n  description: string;\r\n  items: Item[];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "items",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Item[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "MeetingHome",
+            "id": "class-MeetingHome-b17d5a7cccb5fa7b870bdc1f72593cb331c86a98837234f995e970d743e0ca93358a221667205637cca4a6017fe99d60544b7a8ec0b26e3b79d6b23f047680e0",
+            "file": "src/app/state/meetings/meetings.states.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "import { Item } from '../Items/item.states';\r\n\r\nexport class MeetingHome {\r\n  id: number;\r\n  title: string;\r\n  description: string;\r\n  savedate: Date;\r\n}\r\n\r\nexport class MeetingFull {\r\n  id: number;\r\n  title: string;\r\n  description: string;\r\n  items: Item[];\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "description",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "savedate",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                }
+            ],
+            "methods": [],
+            "indexSignatures": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "hostBindings": [],
+            "hostListeners": []
+        },
+        {
+            "name": "Moderator",
+            "id": "class-Moderator-ab5c4cecef17bf04b09f0aac2285c87ab97f531abc1767442def3a441d82e5e8f5ece69d60f007ec393799759bc872bd9897b4f14d0723c8309e01e3473a69d1",
+            "file": "src/app/state/moderator/moderator.states.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "class",
+            "sourceCode": "export class Moderator {\r\n  id: number;\r\n  username: string;\r\n  name: string;\r\n  lastname: string;\r\n  picturePath: URL;\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "lastname",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "name",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "picturePath",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "URL",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "username",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
                 }
             ],
             "methods": [],
@@ -499,7 +830,7 @@
     "components": [
         {
             "name": "AddButtonComponent",
-            "id": "component-AddButtonComponent-4acdf9f08cb8dfd03319b546d556d604adf8a30c2e7de1fdd4be4d20d234740e1ae9cd80051d33a0aff070213b1b207a1fede9881317e825afc5971e708423aa",
+            "id": "component-AddButtonComponent-8fc6617d9460ab030d0df6c535b96f7b609345e83451d208f183511b3074427c99eb636d1bfd6173b648dea036c0598648caccfa7c7469a6e96de7b37cf387ea",
             "file": "src/app/components/add-button/add-button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -511,7 +842,7 @@
                 "./add-button.component.scss"
             ],
             "styles": [],
-            "template": "<button type=\"button\" [ngClass]=\"classes\">+</button>",
+            "template": "<button type=\"button\" [ngClass]=\"classes\">   <img class=\"plusIcon\" src=\"assets/icons/plusturkey.svg\" />\n </button>",
             "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
@@ -520,7 +851,7 @@
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 10,
+                    "line": 12,
                     "type": "boolean",
                     "decorators": []
                 }
@@ -535,11 +866,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" [ngClass]=\"classes\">+</button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n\n  /*onClick() {\n    if (this.flipchart) {\n    } else {\n    }\n  }*/\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-add-button',\n  template: ` <button type=\"button\" [ngClass]=\"classes\">\n    <img class=\"plusIcon\" src=\"assets/icons/plusturkey.svg\" />\n  </button>`,\n  styleUrls: ['./add-button.component.scss'],\n})\nexport class AddButtonComponent {\n  @Input()\n  flipchart = true;\n\n  public get classes(): string[] {\n    const mode = this.flipchart\n      ? 'add-button__flipchart'\n      : 'add-button__issues';\n\n    return ['add-button', mode];\n  }\n\n  /*onClick() {\n    if (this.flipchart) {\n    } else {\n    }\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c.$turquoise;\r\n  height: 35px;\r\n  width: 35px;\r\n  font-size: 30px;\r\n  display: inline-flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n\r\n  &__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  &__issues {\r\n    background-color: white;\r\n    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.add-button {\r\n  border: none;\r\n  border-radius: 100%;\r\n  color: c.$turquoise;\r\n  height: 35px;\r\n  width: 35px;\r\n  font-size: 30px;\r\n  display: inline-flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n\r\n  &__flipchart {\r\n    background-color: c.$item-background;\r\n  }\r\n  &__issues {\r\n    background-color: white;\r\n    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);\r\n  }\r\n}\r\n\r\n.plusIcon {\r\n  width: 20px;\r\n}\r\n",
                     "styleUrl": "./add-button.component.scss"
                 }
             ],
@@ -551,14 +882,14 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 12
+                        "line": 14
                     }
                 }
             }
         },
         {
             "name": "AddedItemComponent",
-            "id": "component-AddedItemComponent-add1c836167e14e749a421df51bdbcb50e1e027409a80f0aedc6674276de89343a0b14b28e66ca6b1bc8078f010bd3f3f3f2d519ef5bd0971dfaa212d59fb66b",
+            "id": "component-AddedItemComponent-68909af8f5219ee3b05d5514534359335808441c0dee0549fb67c39c946962ca175cd8e10eac8e6a4056cab7164c2b6508d2281b77bd733ffe2cf2915856afd9",
             "file": "src/app/components/added-item/added-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -580,7 +911,7 @@
                     "defaultValue": "new Item()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 11,
+                    "line": 14,
                     "type": "Item",
                     "decorators": []
                 }
@@ -595,7 +926,32 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 20
+                },
+                {
+                    "name": "editItem",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
+                },
+                {
+                    "name": "menu",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ItemMenuComponent",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "ItemMenuComponent"
+                        }
+                    ]
                 },
                 {
                     "name": "shiftColor",
@@ -604,7 +960,7 @@
                     "type": "ElementRef<HTMLDivElement>",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 15,
                     "decorators": [
                         {
                             "name": "ViewChild",
@@ -620,7 +976,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 20,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -630,19 +986,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 24,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
                     "name": "OpenMenu",
-                    "args": [],
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 34,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -652,7 +1026,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { style } from '@angular/animations';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from 'types/Item';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n\n  color: string = this.newItem.color;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n\n  OpenMenu() {\n    console.log('hello');\n  }\n}\n",
+            "sourceCode": "import { style } from '@angular/animations';\nimport { Overlay } from '@angular/cdk/overlay';\nimport { ComponentPortal } from '@angular/cdk/portal';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from '../../state/Items/item.states';\nimport { ItemMenuComponent } from '../item-menu/item-menu.component';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n  @ViewChild(ItemMenuComponent) menu: ItemMenuComponent;\n\n  editItem: boolean = false;\n\n  color: string = this.newItem.color;\n\n  constructor(private overlay: Overlay) {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n\n  OpenMenu(e: any) {\n    const target = document.querySelector('.menu') as HTMLElement;\n    const overlayRef = this.overlay.create({\n      hasBackdrop: true,\n      backdropClass: 'cdk-overlay-transparent-backdrop',\n      panelClass: 'mat-elevation-z8',\n      positionStrategy: this.overlay\n        .position()\n        .flexibleConnectedTo(target)\n        .withPositions([\n          {\n            originX: 'center',\n            originY: 'top',\n            overlayX: 'start',\n            overlayY: 'top',\n            offsetX: 50,\n          },\n        ]),\n    });\n    const menuOverlay = new ComponentPortal(ItemMenuComponent);\n    const componentRef = overlayRef.attach(menuOverlay);\n    overlayRef.backdropClick().subscribe(() => overlayRef.detach());\n    console.log(target);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -666,13 +1040,31 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 14
+                "args": [
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 20,
+                "jsdoctags": [
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\">\n      <button class=\"menu\" (click)=\"OpenMenu()\">dot</button>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\">\n      <button class=\"menu\" (click)=\"OpenMenu($event)\">dot</button>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
@@ -968,7 +1360,7 @@
         },
         {
             "name": "ChartComponent",
-            "id": "component-ChartComponent-6223ede3e5a9c5b8934f056eb2131241f95bc3de1834fbe72505bdaa30b03c2de58433ad26469ba545a208ff485c90ef352726759f1f14c7c2e8472ca3161e98",
+            "id": "component-ChartComponent-db286105a00772cf041aa5760b21a0db1a626c9920205e964259324bd13762888e42567456d14fb533ac9418433f3bf4f4ad72109f5f89d5ca9bea4528ce91dc",
             "file": "src/app/components/chart/chart.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1105,7 +1497,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from 'types/Item';\nimport { CounterService } from '../../state/counter/counter.service';\nimport { chartType } from '../../../types/chartType';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  @Input()\n  chartsType: chartType;\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n    newItem.type = this.chartsType;\n\n    this.items.push(newItem);\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport {\n  CdkDragDrop,\n  moveItemInArray,\n  transferArrayItem,\n} from '@angular/cdk/drag-drop';\nimport { Item } from '../../state/Items/item.states';\nimport { CounterService } from '../../state/counter/counter.service';\nimport { chartType } from '../../../types/chartType';\n\n@Component({\n  selector: 'app-chart',\n  templateUrl: './chart.component.html',\n  styleUrls: ['./chart.component.scss'],\n})\nexport class ChartComponent implements OnInit {\n  constructor(public _counterService: CounterService) {}\n  addingItem: boolean = false;\n\n  items: Item[] = [];\n\n  @Input()\n  title: string = '';\n\n  @Input()\n  chartsType: chartType;\n\n  ToggleInput() {\n    this.addingItem = !this.addingItem;\n  }\n\n  ngOnInit() {}\n\n  cancelSubmit() {\n    this.addingItem = false;\n  }\n\n  itemSubmit(item: { description: string; color: string }) {\n    let newItem = new Item();\n    this.addingItem = false;\n    newItem.number = this._counterService.getValue();\n    newItem.description = item.description;\n    newItem.color = item.color;\n    newItem.type = this.chartsType;\n\n    this.items.push(newItem);\n\n    this._counterService.increase();\n  }\n\n  /*drop(event: CdkDragDrop<string[]>) {\n    if (event.previousContainer === event.container) {\n      moveItemInArray(\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        event.container.data,\n        event.previousIndex,\n        event.currentIndex\n      );\n    }\n\n    console.log(this.addingItem);\n  }*/\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1306,7 +1698,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Problemstellung\"\n      [chartsType]=\"typeOfChart.p\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n      [chartsType]=\"typeOfChart.i\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Bedenken\"\n      [chartsType]=\"typeOfChart.b\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Lösungen\"\n      [chartsType]=\"typeOfChart.l\"\n    ></app-chart>\n\n    <div\n      *ngIf=\"_chartStateService.ofCourse\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>OfCourses</p>\n    </div>\n\n    <div\n      *ngIf=\"_chartStateService.bookmark\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div cdkDropListGroup class=\"chartview\">\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Problemstellung\"\n      [chartsType]=\"typeOfChart.p\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Info, Data, Sichtweisen\"\n      [chartsType]=\"typeOfChart.d\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Bedenken\"\n      [chartsType]=\"typeOfChart.c\"\n    ></app-chart>\n    <app-chart\n      class=\"chartview__charts\"\n      title=\"Lösungen\"\n      [chartsType]=\"typeOfChart.s\"\n    ></app-chart>\n\n    <div\n      *ngIf=\"_chartStateService.ofCourse\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>OfCourses</p>\n    </div>\n\n    <div\n      *ngIf=\"_chartStateService.bookmark\"\n      class=\"chartview__openCharts chartview__charts\"\n    >\n      <p>Bookmarks</p>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "HeaderComponent",
@@ -1467,7 +1859,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$dark-grey;\r\n  padding-left: 1%;\r\n  height: 60px;\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$dark-grey;\r\n    background-color: c.$main-background;\r\n    font-style: normal;\r\n    font-weight: 600;\r\n    font-size: 26px;\r\n    line-height: 31px;\r\n    margin: 0 2%;\r\n  }\r\n\r\n  &__right {\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    display: flex;\r\n    width: 100%;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n  }\r\n  &__transparentButton {\r\n    border: none;\r\n    background-color: transparent;\r\n    margin-right: 1%;\r\n  }\r\n  &__dots {\r\n    width: 10.5px;\r\n    height: 10.5px;\r\n    margin: 1px;\r\n  }\r\n  &__icons {\r\n    height: 31px;\r\n    width: 32.09px;\r\n    color: c.$dark-grey;\r\n  }\r\n  &__logo {\r\n    width: 75px;\r\n    height: 50px;\r\n    margin: 7px;\r\n  }\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n.header {\r\n  background-color: c.$header-background;\r\n  color: c.$dark-grey;\r\n  padding-left: 1%;\r\n  height: 60px;\r\n  overflow: hidden;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n\r\n  &__title {\r\n    height: 100%;\r\n    width: 306px;\r\n    border: none;\r\n    color: c.$dark-grey;\r\n    background-color: c.$main-background;\r\n    font-style: normal;\r\n    font-weight: 600;\r\n    font-size: 26px;\r\n    line-height: 31px;\r\n    margin: 0 2%;\r\n\r\n    &__dropdown {\r\n      margin-left: 20px;\r\n\r\n      width: 25px;\r\n    }\r\n  }\r\n\r\n  &__right {\r\n    display: flex;\r\n    flex-direction: row;\r\n    width: 100%;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    margin: 0.6%;\r\n  }\r\n\r\n  &__left {\r\n    display: flex;\r\n    width: 100%;\r\n    flex-direction: row;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n  }\r\n  &__transparentButton {\r\n    border: none;\r\n    background-color: transparent;\r\n    margin-right: 1%;\r\n  }\r\n  &__dots {\r\n    width: 42px;\r\n    margin: 1px;\r\n  }\r\n  &__icons {\r\n    height: 31px;\r\n    width: 32.09px;\r\n    color: c.$dark-grey;\r\n  }\r\n  &__logo {\r\n    width: 75px;\r\n    height: 50px;\r\n    margin: 7px;\r\n  }\r\n  &__logo:hover {\r\n    cursor: pointer;\r\n  }\r\n}\r\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
@@ -1516,7 +1908,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\"\n      ><img class=\"header__logo\" src=\"assets/images/DFLogo.png\"\n    /></a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings >\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/floppy-disk-solid.svg\" />\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleOfCourseChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/star-solid.svg\" />\n    </button>\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleBookmarkChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    </button>\n    <button class=\"header__transparentButton\">\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n      <img class=\"header__dots\" src=\"assets/icons/circle-solid.svg\" />\n    </button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"header\">\n  <div class=\"header__left\">\n    <a (click)=\"goToHomeview()\"\n      ><img class=\"header__logo\" src=\"assets/images/DFLogo.png\"\n    /></a>\n    <button *ngIf=\"flipchart\" class=\"header__title\">\n      Titel des Meetings\n      <img class=\"header__title__dropdown\" src=\"assets/icons/v.svg\" />\n    </button>\n    <button *ngIf=\"flipchart\" class=\"header__transparentButton\">\n      <img class=\"header__icons\" src=\"assets/icons/save.svg\" />\n    </button>\n  </div>\n  <div class=\"header__right\">\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleOfCourseChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/star.svg\" />\n    </button>\n    <button\n      *ngIf=\"flipchart\"\n      (click)=\"ToggleBookmarkChart()\"\n      class=\"header__transparentButton\"\n    >\n      <img class=\"header__icons\" src=\"assets/icons/bookmark.svg\" />\n    </button>\n    <button class=\"header__transparentButton\">\n      <img class=\"header__dots\" src=\"assets/icons/ellispsen.svg\" />\n    </button>\n  </div>\n</div>\n"
         },
         {
             "name": "HomeviewButtonComponent",
@@ -1588,11 +1980,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<button class=\"button\">\n  <img class=\"button__icons\" src=\"assets/icons/floppy-disk-solid.svg\" /> Neue\n  Dynamic Facilitation Session\n</button>\n"
+            "templateData": "<button class=\"button\">\n  <img class=\"button__icons\" src=\"assets/icons/v.svg\" />\n  {{ buttontitle }}\n</button>\n"
         },
         {
             "name": "HomeviewComponent",
-            "id": "component-HomeviewComponent-2829bd7b6ed146de8cc69806b06708a26abb9fe15817f19bd3af5f63f7a65b7a37e50f4d9c89a5b436fd9aa282393e56ccd5a807230630f73743ad9d818cc1b9",
+            "id": "component-HomeviewComponent-6abdbee191dc0787ca2a01091c2a98fbfe99348cf3bac934958ea361ec43cad6316db58afe462661d9c65f25c8901e0961c4ae1115d1b68e4559806b4efbbf57",
             "file": "src/app/pages/homeview/homeview.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1610,15 +2002,38 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "meetings",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "MeetingHome[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "modifierKind": [
+                        123
+                    ]
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "newSession",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 19,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1630,11 +2045,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-homeview',\n  templateUrl: './homeview.component.html',\n  styleUrls: ['./homeview.component.scss']\n})\nexport class HomeviewComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { RESTAPIServiceService } from 'app/service/restapiservice.service';\nimport { MeetingHome } from 'app/state/meetings/meetings.states';\n\n@Component({\n  selector: 'app-homeview',\n  templateUrl: './homeview.component.html',\n  styleUrls: ['./homeview.component.scss'],\n})\nexport class HomeviewComponent implements OnInit {\n  constructor(\n    private router: Router,\n    private restService: RESTAPIServiceService\n  ) {}\n\n  public meetings: MeetingHome[];\n\n  ngOnInit() {\n    this.restService.getMeetingsByModerator(1).subscribe(\n      (data) => {\n        this.meetings = data;\n      },\n      (error) => console.log(error)\n    );\n  }\n\n  newSession() {\n    this.router.navigate(['/flipcharts']);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.homeviewWrapper {\r\n  padding: 20px;\r\n  padding-top: 2%;\r\n  overflow: hidden;\r\n}\r\n\r\n.collapsible {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  border: none;\r\n  font-weight: 700;\r\n  font-size: 30px;\r\n  line-height: 36px;\r\n  color: c.$dark-grey;\r\n  background-color: transparent;\r\n  margin-top: 2%;\r\n\r\n  &__icons {\r\n    width: 25px;\r\n    height: 13px;\r\n    margin-right: 20px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  margin-left: 50px;\r\n  display: flex;\r\n  margin-bottom: 2%;\r\n  flex-wrap: wrap;\r\n}\r\n\r\nhr {\r\n  margin-left: -20px;\r\n  margin-right: -20px;\r\n  size: 10px;\r\n}\r\n\r\napp-homeview-button {\r\n  margin-right: 2%;\r\n  margin-top: 1%;\r\n}\r\n\r\napp-homeview-meeting {\r\n  margin-right: 2%;\r\n  margin-top: 2%;\r\n}\r\n\r\napp-moderator-homeview {\r\n  margin-right: 3%;\r\n  margin-top: 2%;\r\n}\r\n",
                     "styleUrl": "./homeview.component.scss"
                 }
             ],
@@ -1644,17 +2059,50 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 8
+                "args": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "restService",
+                        "type": "RESTAPIServiceService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "router",
+                        "type": "Router",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "restService",
+                        "type": "RESTAPIServiceService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<app-homeview-button> </app-homeview-button>\n"
+            "templateData": "<div class=\"homeviewWrapper\">\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Erstellen\n  </button>\n  <div class=\"wrapper create\">\n    <app-homeview-button buttontitle=\"Neuer Issue Collector\">\n    </app-homeview-button>\n\n    <app-homeview-button\n      buttontitle=\"Neue Dynamic Facilitation Session\"\n      (click)=\"newSession()\"\n    >\n    </app-homeview-button>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Dynamic Facilitations\n  </button>\n  <div class=\"wrapper meetings\">\n    <app-homeview-meeting\n      *ngFor=\"let data of meetings\"\n      [meeting]=\"data\"\n    ></app-homeview-meeting>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Moderatoren\n  </button>\n  <div class=\"wrapper moderators\">\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n  </div>\n</div>\n"
         },
         {
             "name": "HomeviewMeetingComponent",
-            "id": "component-HomeviewMeetingComponent-f3e1469c7eb581bf2a5a49d1a332f07c356fd2da2d357acc112204168c7253c4dd70fd2f4c0bb960475f35b77628ac5defaa35d67f6c78e39c451c6c231f6de8",
+            "id": "component-HomeviewMeetingComponent-9c084cbdae53f5dfd1ffe291b09dfab00e513e4da33224abce67b0582be7bdb36c2eb3fd3a10799e7793b075038fc504921f5f6c19ca9266e7e7bfe5debef936",
             "file": "src/app/components/homeview-meeting/homeview-meeting.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1670,7 +2118,16 @@
                 "./homeview-meeting.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "meeting",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "MeetingHome",
+                    "decorators": []
+                }
+            ],
             "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [
@@ -1680,7 +2137,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 15,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1692,7 +2149,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-homeview-meeting',\n  templateUrl: './homeview-meeting.component.html',\n  styleUrls: ['./homeview-meeting.component.scss']\n})\nexport class HomeviewMeetingComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { MeetingHome } from 'app/state/meetings/meetings.states';\n\n@Component({\n  selector: 'app-homeview-meeting',\n  templateUrl: './homeview-meeting.component.html',\n  styleUrls: ['./homeview-meeting.component.scss'],\n})\nexport class HomeviewMeetingComponent implements OnInit {\n  @Input()\n  meeting: MeetingHome;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1707,16 +2164,16 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 8
+                "line": 11
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <div class=\"wrapper__upper\">Titel der 3. Dynamic Facilitation Sitzung</div>\n  <div class=\"wrapper__lower\">\n    <p>24. Mai 2022</p>\n    <button>dotdot</button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div class=\"wrapper__upper\">{{ meeting.title }}</div>\n  <div class=\"wrapper__lower\">\n    <p>{{ meeting.savedate }}</p>\n    <button>dotdot</button>\n  </div>\n</div>\n"
         },
         {
             "name": "IssuecollectorComponent",
-            "id": "component-IssuecollectorComponent-bc6348284e06540ee3381c105205125bb9542732852ea9a43972999a7806a2bc761b0e0924ea5bfa37740a979f10809c13e4ca1330bd187eaf156837bf88fb5d",
+            "id": "component-IssuecollectorComponent-f187a2b5a36a8fdae9a0fc1b0dde73a2d77d55045b127958d990432d60beca3f1e98d6bbddbe053a8d4853ca2d28a4681a61848a12d0d9cffcfc6ba940951bae",
             "file": "src/app/pages/issuecollector/issuecollector.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1734,7 +2191,18 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "disabledVote",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
             "methodsClass": [
                 {
                     "name": "ngOnInit",
@@ -1742,7 +2210,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 11,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -1754,11 +2222,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-issuecollector',\n  templateUrl: './issuecollector.component.html',\n  styleUrls: ['./issuecollector.component.scss']\n})\nexport class IssuecollectorComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-issuecollector',\n  templateUrl: './issuecollector.component.html',\n  styleUrls: ['./issuecollector.component.scss'],\n})\nexport class IssuecollectorComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  disabledVote: boolean = true;\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.wrapper {\r\n  background-color: c.$main-background;\r\n  padding: 3%;\r\n}\r\n\r\n.upperWrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n}\r\n\r\n.title {\r\n  width: 448px;\r\n  height: 39px;\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 30px;\r\n  line-height: 36px;\r\n  margin-bottom: 2%;\r\n}\r\n\r\n.voteButton {\r\n  border: 2px solid c.$turquoise;\r\n  background-color: transparent;\r\n  border-radius: 5px;\r\n  border-width: 2px;\r\n  //filter: drop-shadow(1px 1px 0px #00aaa0);\r\n  width: 190px;\r\n  height: 44px;\r\n  color: c.$turquoise;\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 24px;\r\n}\r\n\r\n.voteButton:disabled {\r\n  border-color: #8fd6d4;\r\n  color: #8fd6d4;\r\n}\r\n\r\n.addButton {\r\n  margin: 8%;\r\n}\r\n",
                     "styleUrl": "./issuecollector.component.scss"
                 }
             ],
@@ -1774,7 +2242,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>issuecollector works!</p>\n"
+            "templateData": "<div class=\"wrapper\">\n  <div class=\"upperWrapper\">\n    <h1 class=\"title\">Issues we want to tackle</h1>\n\n    <button class=\"voteButton\" [disabled]=\"disabledVote\">\n      Thema auswählen\n    </button>\n  </div>\n\n  <app-add-button [flipchart]=\"false\" class=\"addButton\"></app-add-button>\n</div>\n"
         },
         {
             "name": "ItemComponent",
@@ -1992,7 +2460,7 @@
         },
         {
             "name": "ItemMenuComponent",
-            "id": "component-ItemMenuComponent-c8dee2a3fe4a05f7031616f0cf255eff532f8080e067df937a0a2f11d235b6af8da587804c37df268850a7ae70bdf85c54787475c98e0c822ac58715c8142c2f",
+            "id": "component-ItemMenuComponent-c21f576fdd4b97ab4474ef91b9e32620d14d05b86fb8791526c90b7131eb5e4d778a64b3eee4bb077af7054ab492453d08b2f34329ae04d1007357967f0d0815",
             "file": "src/app/components/item-menu/item-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2013,12 +2481,32 @@
             "propertiesClass": [],
             "methodsClass": [
                 {
+                    "name": "close",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "deleteItem",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 13,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 11,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2030,7 +2518,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item-menu',\n  templateUrl: './item-menu.component.html',\n  styleUrls: ['./item-menu.component.scss']\n})\nexport class ItemMenuComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { Component, HostBinding, HostListener, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-item-menu',\n  templateUrl: './item-menu.component.html',\n  styleUrls: ['./item-menu.component.scss'],\n})\nexport class ItemMenuComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n\n  deleteItem() {\n    this.close();\n    console.log('löschen');\n  }\n\n  close() {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2050,7 +2538,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"menu-wrapper\">\n  <div>\n    <button>c</button><button>c</button><button>c</button><button>c</button>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Bearbeiten</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Übertragen</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark-solid.svg\" />\n    <p>Löschen</p>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"menu-wrapper\">\n  <div>\n    <button>c</button><button>c</button><button>c</button><button>c</button>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark.svg\" />\n    <p>Als Bookmark <br />markieren</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark.svg\" />\n    <p>Bearbeiten</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\">\n    <img class=\"icons\" src=\"assets/icons/bookmark.svg\" />\n    <p>Übertragen</p>\n  </div>\n  <hr />\n  <div class=\"row-wrapper\" (click)=\"deleteItem()\">\n    <img class=\"icons\" src=\"assets/icons/bookmark.svg\" />\n    <p>Löschen</p>\n  </div>\n</div>\n"
         },
         {
             "name": "LoginComponent",
@@ -2161,6 +2649,139 @@
             "templateData": "<div class=\"login-wrapper\">\n  <div class=\"card-body\">\n    <form (ngSubmit)=\"onSubmit(signInForm)\" #signInForm=\"ngForm\">\n      <div class=\"form-floating\">\n        <input\n          type=\"text\"\n          name=\"username\"\n          class=\"form-control\"\n          id=\"floatingInput\"\n          placeholder=\"Benutzername\"\n          required\n          ngModel\n        />\n        <label for=\"floatingInput\">Benutzername</label>\n      </div>\n      <div class=\"form-floating\">\n        <input\n          type=\"password\"\n          name=\"password\"\n          class=\"form-control\"\n          id=\"floatingPassword\"\n          placeholder=\"Password\"\n          required\n          ngModel\n        />\n        <label for=\"floatingPassword\">Password</label>\n      </div>\n      <button class=\"submitButton\" type=\"submit\">Anmelden</button>\n    </form>\n  </div>\n</div>\n"
         },
         {
+            "name": "ModeratorDetailedComponent",
+            "id": "component-ModeratorDetailedComponent-c0ab8b5bffe1c569cad5f6c9fb2512419cfc634a646c85cb9041852c4655e5e32bc727bbb180d3e4d670f99698bc158efa0bbc0dfcb7638e256461329691648f",
+            "file": "src/app/components/moderator-detailed/moderator-detailed.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-moderator-detailed",
+            "styleUrls": [
+                "./moderator-detailed.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./moderator-detailed.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-moderator-detailed',\n  templateUrl: './moderator-detailed.component.html',\n  styleUrls: ['./moderator-detailed.component.scss']\n})\nexport class ModeratorDetailedComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@use \"styles/colors\" as c;\r\n\r\n.detailed-wrapper {\r\n  background-color: c.$dark-grey;\r\n  color: white;\r\n  width: 243px;\r\n  height: 460px;\r\n  display: flex;\r\n  flex-direction: column;\r\n  border-radius: 10px;\r\n  justify-content: space-around;\r\n  overflow: hidden;\r\n  padding: 10px 15px 60px;\r\n}\r\n\r\n.iconButtons {\r\n  &__detailed-icons {\r\n    width: 23px;\r\n    height: 23px;\r\n  }\r\n}\r\n\r\n.inputFields {\r\n  border: none;\r\n  border-radius: 5px;\r\n}\r\n\r\nlabel {\r\n  text-align: left;\r\n}\r\n",
+                    "styleUrl": "./moderator-detailed.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"detailed-wrapper\">\n  <label for=\"username\">Benutzername:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Vorname:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Nachname:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Passwort festlegen:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Passwort bestätigen:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <div class=\"iconButtons\">\n    <button>\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/x.svg\" />\n    </button>\n    <button>\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/check.svg\" />\n    </button>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "ModeratorHomeviewComponent",
+            "id": "component-ModeratorHomeviewComponent-588dacba4085f676e24a9b355588efe61fdc85abccdc2bacc6cf787a3769bf145692765d6b9052f67abfcf4d126f40348bcf51a8211fae690c77cf610c274de3",
+            "file": "src/app/components/moderator-homeview/moderator-homeview.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-moderator-homeview",
+            "styleUrls": [
+                "./moderator-homeview.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./moderator-homeview.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "moderator",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "Moderator",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Component({\n  selector: 'app-moderator-homeview',\n  templateUrl: './moderator-homeview.component.html',\n  styleUrls: ['./moderator-homeview.component.scss'],\n})\nexport class ModeratorHomeviewComponent implements OnInit {\n  @Input() moderator: Moderator;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".wrapper {\r\n  display: inline-block;\r\n  text-align: center;\r\n}\r\n\r\n.profilePicture {\r\n  width: 171px;\r\n  height: 171px;\r\n  border-radius: 100%;\r\n}\r\n\r\n.nameWrapper {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 39px;\r\n  align-items: center;\r\n}\r\n\r\n.icon {\r\n  height: 13px;\r\n  width: 25px;\r\n}\r\n\r\np {\r\n  font-weight: 600;\r\n  font-size: 22px;\r\n  line-height: 31px;\r\n  margin: 0;\r\n  text-align: center;\r\n  margin: 5px;\r\n}\r\n",
+                    "styleUrl": "./moderator-homeview.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"wrapper\">\n  <img\n    class=\"profilePicture\"\n    src=\"https://cdn.pixabay.com/photo/2022/11/07/10/13/christmas-7576056_960_720.jpg\"\n  />\n  <div class=\"nameWrapper\">\n    <p>Max</p>\n    <p>Mustermann</p>\n    <img class=\"icon\" src=\"assets/icons/v.svg\" />\n  </div>\n</div>\n"
+        },
+        {
             "name": "PageComponent",
             "id": "component-PageComponent-7126d8c2607c946741c651482413b43feb72b2d63cac9d3ac173fde206a5e635eb4cdbf7ca7ac9327c7d4d05cf7ef619144c34c11609ad677081d0ee4e855064",
             "file": "src/stories/page.component.ts",
@@ -2244,13 +2865,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-baec9025b85303fd0328bbfb95bdff20c01a5ddb2aa8287f1f15de6fa2d19688c15adf1a77d8a223420c09d565b71a002998456ade197a6e17f856410b8fc3ae",
+            "id": "module-AppModule-3116b7396f553d9ae6c63303c404a535f39459f3cf9f67f35c962b95d5d36b2a344bf8420ea2c65efb3852c0374f9221417b7b69577717fc640ca2f38c887fe5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\nimport { StoreModule } from '@ngrx/store';\nimport { CounterService } from './state/counter/counter.service';\nimport { ChartStateService } from './state/chart-states/chart-states.service';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n  ],\n  providers: [CounterService, ChartStateService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { AppRoutingModule } from './app-routing.module';\nimport { LoginComponent } from './pages/login/login.component';\nimport { FormsModule } from '@angular/forms';\nimport { ComponentsModule } from './components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { CommonModule } from '@angular/common';\nimport { StoreModule } from '@ngrx/store';\nimport { OverlayModule } from '@angular/cdk/overlay';\nimport { CounterService } from './state/counter/counter.service';\nimport { ChartStateService } from './state/chart-states/chart-states.service';\nimport { HttpClientModule } from '@angular/common/http';\n\n@NgModule({\n  declarations: [AppComponent, LoginComponent],\n  imports: [\n    BrowserModule,\n    BrowserAnimationsModule,\n    CommonModule,\n    AppRoutingModule,\n    FormsModule,\n    ComponentsModule,\n    DragDropModule,\n    HttpClientModule,\n    OverlayModule,\n  ],\n  providers: [CounterService, ChartStateService],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2374,13 +2995,13 @@
         },
         {
             "name": "ComponentsModule",
-            "id": "module-ComponentsModule-6b0f62b5d73467c373026a1a7a02456d5d3643f4deaf81089aba587bf84ab70cf71aed6f6bb2b61c1cd10409dec8b9ed34510ffc600a7318bfad1755c5ac8dd5",
+            "id": "module-ComponentsModule-33f63ed2166dc10f94b6963e6aec1cd33b2e775cba5d4657775060a36df3f49b52b8145e4e81f77cbede20f5e2b721b0ce2089f7051fe214df4e73bc154bbcc0",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/components/components.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\nimport { ItemMenuComponent } from './item-menu/item-menu.component';\nimport { HomeviewButtonComponent } from './homeview-button/homeview-button.component';\nimport { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n    ItemMenuComponent,\n    HomeviewButtonComponent,\n    HomeviewMeetingComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n    HomeviewButtonComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HeaderComponent } from './header';\nimport { ItemComponent } from './item/item.component';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { AddButtonComponent } from './add-button/add-button.component';\nimport { ItemFlipchartComponent } from './item/item-flipchart/item-flipchart.component';\nimport { AddedItemComponent } from './added-item/added-item.component';\nimport { ChartComponent } from './chart/chart.component';\nimport { HomeviewButtonComponent } from './homeview-button/homeview-button.component';\nimport { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';\nimport { ModeratorDetailedComponent } from './moderator-detailed/moderator-detailed.component';\nimport { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homeview.component';\n\n@NgModule({\n  declarations: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    ItemFlipchartComponent,\n    AddedItemComponent,\n    ChartComponent,\n    HomeviewButtonComponent,\n    HomeviewMeetingComponent,\n    ModeratorDetailedComponent,\n    ModeratorHomeviewComponent,\n  ],\n  imports: [CommonModule, DragDropModule],\n  exports: [\n    ItemComponent,\n    HeaderComponent,\n    AddButtonComponent,\n    AddedItemComponent,\n    ItemFlipchartComponent,\n    ChartComponent,\n    HomeviewButtonComponent,\n    HomeviewMeetingComponent,\n    ModeratorHomeviewComponent,\n  ],\n})\nexport class ComponentsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2414,7 +3035,10 @@
                             "name": "ItemFlipchartComponent"
                         },
                         {
-                            "name": "ItemMenuComponent"
+                            "name": "ModeratorDetailedComponent"
+                        },
+                        {
+                            "name": "ModeratorHomeviewComponent"
                         }
                     ]
                 },
@@ -2441,10 +3065,16 @@
                             "name": "HomeviewButtonComponent"
                         },
                         {
+                            "name": "HomeviewMeetingComponent"
+                        },
+                        {
                             "name": "ItemComponent"
                         },
                         {
                             "name": "ItemFlipchartComponent"
+                        },
+                        {
+                            "name": "ModeratorHomeviewComponent"
                         }
                     ]
                 },
@@ -2460,13 +3090,13 @@
         },
         {
             "name": "FlipchartsModule",
-            "id": "module-FlipchartsModule-a00b693bee224f0c44930e1a7109d5c475acdeaacf7a33669fbf518e03f77cfd9a79fb145c3c2519f221753288440695bfd4f686526a553744820ae9fa32c69b",
+            "id": "module-FlipchartsModule-158ed0d9c6922908bf3b213a4695f212f2103ebbab94de6b94cffdcfcbcad4b34f08eada62c972ac304204cf6d67bc060b8ecfde27d701f1596ae0ce046f03e0",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/pages/flipcharts/flipcharts.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FlipchartsComponent } from './flipcharts.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { ComponentsModule } from 'app/components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\n\nconst routes: Routes = [{ path: '', component: FlipchartsComponent }];\n\n@NgModule({\n  declarations: [FlipchartsComponent],\n  imports: [\n    CommonModule,\n    ComponentsModule,\n    RouterModule.forChild(routes),\n    DragDropModule,\n  ],\n})\nexport class FlipchartsModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FlipchartsComponent } from './flipcharts.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { ComponentsModule } from 'app/components/components.module';\nimport { DragDropModule } from '@angular/cdk/drag-drop';\nimport { ItemMenuComponent } from '../../components/item-menu/item-menu.component';\n\nconst routes: Routes = [{ path: '', component: FlipchartsComponent }];\n\n@NgModule({\n  declarations: [FlipchartsComponent],\n  imports: [\n    CommonModule,\n    ComponentsModule,\n    RouterModule.forChild(routes),\n    DragDropModule,\n  ],\n  entryComponents: [ItemMenuComponent],\n})\nexport class FlipchartsModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2500,17 +3130,21 @@
         },
         {
             "name": "HomeviewModule",
-            "id": "module-HomeviewModule-04c23db2b9086a573b94688d1c24cfdd1add6ec17e07dba47ebdd62d2069e9f5c4ee622463dd30028919736eac720bdde3f65dd8aa51e41dc2074ab58334a32c",
+            "id": "module-HomeviewModule-056ee2c9d8208ac91435599e8494bd46682ade32c6139e3dacc14ae4689ee51c33e1068ae272c23def45647a3b063d38cd7252fb163efd4cc51221c236c26596",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/pages/homeview/homeview.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HomeviewComponent } from './homeview.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { ComponentsModule } from 'app/components/components.module';\n\nconst routes: Routes = [{ path: '', component: HomeviewComponent }];\n\n@NgModule({\n  declarations: [HomeviewComponent],\n  imports: [ComponentsModule, CommonModule, RouterModule.forChild(routes)],\n})\nexport class HomeviewModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { HomeviewComponent } from './homeview.component';\nimport { RouterModule, Routes } from '@angular/router';\nimport { ComponentsModule } from 'app/components/components.module';\nimport { RESTAPIServiceService } from 'app/service/restapiservice.service';\n\nconst routes: Routes = [{ path: '', component: HomeviewComponent }];\n\n@NgModule({\n  declarations: [HomeviewComponent],\n  imports: [ComponentsModule, CommonModule, RouterModule.forChild(routes)],\n  providers: [RESTAPIServiceService],\n})\nexport class HomeviewModule {}\n",
             "children": [
                 {
                     "type": "providers",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "RESTAPIServiceService"
+                        }
+                    ]
                 },
                 {
                     "type": "declarations",
@@ -2540,13 +3174,13 @@
         },
         {
             "name": "IssuecollectorModule",
-            "id": "module-IssuecollectorModule-5ff0fdc0ee22363047ac509b5e77984a8af37a83c598234bc1b911aa6b34d9f48fee99ed8f6e7c1022a304eb9c6a5d868ba25dcf8d91acfc299f13f1fadc5074",
+            "id": "module-IssuecollectorModule-c3174f49ce1b1e558182df439239566ee86330c5d019d1b109e9a428b6d98c359087f7a8760e570ad0a5b9b142cace023ff952eb03bea3e64e064fd0be41f156",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/pages/issuecollector/issuecollector.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { IssuecollectorComponent } from './issuecollector.component';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [{ path: '', component: IssuecollectorComponent }];\n\n@NgModule({\n  declarations: [IssuecollectorComponent],\n  imports: [CommonModule, RouterModule.forChild(routes)],\n})\nexport class IssuecollectorModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { IssuecollectorComponent } from './issuecollector.component';\nimport { ComponentsModule } from 'app/components/components.module';\nimport { RouterModule, Routes } from '@angular/router';\n\nconst routes: Routes = [{ path: '', component: IssuecollectorComponent }];\n\n@NgModule({\n  declarations: [IssuecollectorComponent],\n  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes)],\n})\nexport class IssuecollectorModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -2581,6 +3215,86 @@
     ],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "actions",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  addItemAction,\r\n  updateItemAction,\r\n  deleteItemAction,\r\n  addProblemAction,\r\n  updateProblemAction,\r\n  deleteProblemAction,\r\n  addInfoAction,\r\n  updateInfoAction,\r\n  deleteInfoAction,\r\n  addConcernAction,\r\n  updateConcernAction,\r\n  deleteConcernAction,\r\n  addSolutionAction,\r\n  updateSolutionAction,\r\n  deleteSolutionAction,\r\n  addOfCourseAction,\r\n  updateOfCourseAction,\r\n  deleteOfCourseAction,\r\n  addBookmarkAction,\r\n  updateBookmarkAction,\r\n  deleteBookmarkAction,\r\n}"
+            },
+            {
+                "name": "addBookmarkAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Bookmark] Add',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "addConcernAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Concern] Add', props<{ item: Item }>())"
+            },
+            {
+                "name": "addInfoAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Info] Add', props<{ item: Item }>())"
+            },
+            {
+                "name": "addItemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Item] Add', props<{ item: Item }>())"
+            },
+            {
+                "name": "addOfCourseAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[OfCourse] Add',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "addProblemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Problem] Add', props<{ item: Item }>())"
+            },
+            {
+                "name": "addSolutionAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Solution] Add',\r\n  props<{ item: Item }>()\r\n)"
+            },
             {
                 "name": "context",
                 "ctype": "miscellaneous",
@@ -2625,6 +3339,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/app/components/item/item.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -2645,7 +3369,17 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                "file": "src/app/components/moderator-detailed/modertor-detailed.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({})"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/moderator-homeview/modertor-homeview.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -2660,6 +3394,76 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "() => ({})"
+            },
+            {
+                "name": "deleteBookmarkAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Bookmark] Delete',\r\n  props<{ id: string }>()\r\n)"
+            },
+            {
+                "name": "deleteConcernAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Concern] Delete',\r\n  props<{ id: string }>()\r\n)"
+            },
+            {
+                "name": "deleteInfoAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Info] Delete', props<{ id: string }>())"
+            },
+            {
+                "name": "deleteItemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Item] Delete', props<{ id: string }>())"
+            },
+            {
+                "name": "deleteOfCourseAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[OfCourse] Delete',\r\n  props<{ id: string }>()\r\n)"
+            },
+            {
+                "name": "deleteProblemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Problem] Delete',\r\n  props<{ id: string }>()\r\n)"
+            },
+            {
+                "name": "deleteSolutionAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Solution] Delete',\r\n  props<{ id: string }>()\r\n)"
             },
             {
                 "name": "environment",
@@ -2839,6 +3643,76 @@
                 "deprecationMessage": "",
                 "type": "Story<AddButtonComponent>",
                 "defaultValue": "(args: AddButtonComponent) => ({\r\n  props: args,\r\n})"
+            },
+            {
+                "name": "updateBookmarkAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Bookmark] Update',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "updateConcernAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Concern] Update',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "updateInfoAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Info] Update', props<{ item: Item }>())"
+            },
+            {
+                "name": "updateItemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction('[Item] Update', props<{ item: Item }>())"
+            },
+            {
+                "name": "updateOfCourseAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[OfCourse] Update',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "updateProblemAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Problem] Update',\r\n  props<{ item: Item }>()\r\n)"
+            },
+            {
+                "name": "updateSolutionAction",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/state/Items/item.actions.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "createAction(\r\n  '[Solution] Update',\r\n  props<{ item: Item }>()\r\n)"
             }
         ],
         "functions": [],
@@ -2853,17 +3727,17 @@
                         "deprecationMessage": ""
                     },
                     {
-                        "name": "i",
+                        "name": "d",
                         "deprecated": false,
                         "deprecationMessage": ""
                     },
                     {
-                        "name": "b",
+                        "name": "c",
                         "deprecated": false,
                         "deprecationMessage": ""
                     },
                     {
-                        "name": "l",
+                        "name": "s",
                         "deprecated": false,
                         "deprecationMessage": ""
                     }
@@ -2877,6 +3751,228 @@
             }
         ],
         "groupedVariables": {
+            "src/app/state/Items/item.actions.ts": [
+                {
+                    "name": "actions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  addItemAction,\r\n  updateItemAction,\r\n  deleteItemAction,\r\n  addProblemAction,\r\n  updateProblemAction,\r\n  deleteProblemAction,\r\n  addInfoAction,\r\n  updateInfoAction,\r\n  deleteInfoAction,\r\n  addConcernAction,\r\n  updateConcernAction,\r\n  deleteConcernAction,\r\n  addSolutionAction,\r\n  updateSolutionAction,\r\n  deleteSolutionAction,\r\n  addOfCourseAction,\r\n  updateOfCourseAction,\r\n  deleteOfCourseAction,\r\n  addBookmarkAction,\r\n  updateBookmarkAction,\r\n  deleteBookmarkAction,\r\n}"
+                },
+                {
+                    "name": "addBookmarkAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Bookmark] Add',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "addConcernAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Concern] Add', props<{ item: Item }>())"
+                },
+                {
+                    "name": "addInfoAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Info] Add', props<{ item: Item }>())"
+                },
+                {
+                    "name": "addItemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Item] Add', props<{ item: Item }>())"
+                },
+                {
+                    "name": "addOfCourseAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[OfCourse] Add',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "addProblemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Problem] Add', props<{ item: Item }>())"
+                },
+                {
+                    "name": "addSolutionAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Solution] Add',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "deleteBookmarkAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Bookmark] Delete',\r\n  props<{ id: string }>()\r\n)"
+                },
+                {
+                    "name": "deleteConcernAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Concern] Delete',\r\n  props<{ id: string }>()\r\n)"
+                },
+                {
+                    "name": "deleteInfoAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Info] Delete', props<{ id: string }>())"
+                },
+                {
+                    "name": "deleteItemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Item] Delete', props<{ id: string }>())"
+                },
+                {
+                    "name": "deleteOfCourseAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[OfCourse] Delete',\r\n  props<{ id: string }>()\r\n)"
+                },
+                {
+                    "name": "deleteProblemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Problem] Delete',\r\n  props<{ id: string }>()\r\n)"
+                },
+                {
+                    "name": "deleteSolutionAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Solution] Delete',\r\n  props<{ id: string }>()\r\n)"
+                },
+                {
+                    "name": "updateBookmarkAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Bookmark] Update',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "updateConcernAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Concern] Update',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "updateInfoAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Info] Update', props<{ item: Item }>())"
+                },
+                {
+                    "name": "updateItemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction('[Item] Update', props<{ item: Item }>())"
+                },
+                {
+                    "name": "updateOfCourseAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[OfCourse] Update',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "updateProblemAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Problem] Update',\r\n  props<{ item: Item }>()\r\n)"
+                },
+                {
+                    "name": "updateSolutionAction",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/state/Items/item.actions.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "createAction(\r\n  '[Solution] Update',\r\n  props<{ item: Item }>()\r\n)"
+                }
+            ],
             "src/test.ts": [
                 {
                     "name": "context",
@@ -2934,6 +4030,18 @@
                     "defaultValue": "() => ({})"
                 }
             ],
+            "src/app/components/homeview-meeting/homeview-meeting.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
             "src/app/components/item/item.stories.ts": [
                 {
                     "name": "Default",
@@ -2958,12 +4066,24 @@
                     "defaultValue": "() => ({})"
                 }
             ],
-            "src/app/components/homeview-meeting/homeview-meeting.stories.ts": [
+            "src/app/components/moderator-detailed/modertor-detailed.stories.ts": [
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/app/components/homeview-meeting/homeview-meeting.stories.ts",
+                    "file": "src/app/components/moderator-detailed/modertor-detailed.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({})"
+                }
+            ],
+            "src/app/components/moderator-homeview/modertor-homeview.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/moderator-homeview/modertor-homeview.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -3177,17 +4297,17 @@
                             "deprecationMessage": ""
                         },
                         {
-                            "name": "i",
+                            "name": "d",
                             "deprecated": false,
                             "deprecationMessage": ""
                         },
                         {
-                            "name": "b",
+                            "name": "c",
                             "deprecated": false,
                             "deprecationMessage": ""
                         },
                         {
-                            "name": "l",
+                            "name": "s",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -3223,7 +4343,20 @@
                         "children": [
                             {
                                 "kind": "module",
-                                "children": [],
+                                "children": [
+                                    {
+                                        "name": "routes",
+                                        "filename": "src/app/pages/homeview/homeview.module.ts",
+                                        "module": "HomeviewModule",
+                                        "children": [
+                                            {
+                                                "path": "",
+                                                "component": "HomeviewComponent"
+                                            }
+                                        ],
+                                        "kind": "module"
+                                    }
+                                ],
                                 "module": "HomeviewModule"
                             }
                         ]
@@ -3258,20 +4391,7 @@
                         "children": [
                             {
                                 "kind": "module",
-                                "children": [
-                                    {
-                                        "name": "routes",
-                                        "filename": "src/app/pages/issuecollector/issuecollector.module.ts",
-                                        "module": "IssuecollectorModule",
-                                        "children": [
-                                            {
-                                                "path": "",
-                                                "component": "IssuecollectorComponent"
-                                            }
-                                        ],
-                                        "kind": "module"
-                                    }
-                                ],
+                                "children": [],
                                 "module": "IssuecollectorModule"
                             }
                         ]
@@ -3358,7 +4478,7 @@
                 "linktype": "component",
                 "name": "AddedItemComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/8",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -3424,7 +4544,7 @@
                 "linktype": "component",
                 "name": "HomeviewMeetingComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -3443,7 +4563,7 @@
                 "linktype": "component",
                 "name": "ItemMenuComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3495,6 +4615,44 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/moderator-detailed/moderator-detailed.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModeratorDetailedComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/moderator-detailed/modertor-detailed.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/moderator-homeview/moderator-homeview.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModeratorHomeviewComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/moderator-homeview/modertor-homeview.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/components/signInData.ts",
                 "type": "class",
                 "linktype": "classe",
@@ -3518,7 +4676,7 @@
                 "linktype": "component",
                 "name": "HomeviewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -3527,7 +4685,7 @@
                 "linktype": "component",
                 "name": "IssuecollectorComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -3549,12 +4707,241 @@
                 "status": "low"
             },
             {
-                "filePath": "src/app/state/Items/item.reducer.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "ItemState",
+                "filePath": "src/app/service/restapiservice.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "RESTAPIServiceService",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "actions",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addBookmarkAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addConcernAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addInfoAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addItemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addOfCourseAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addProblemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "addSolutionAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteBookmarkAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteConcernAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteInfoAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteItemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteOfCourseAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteProblemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "deleteSolutionAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateBookmarkAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateConcernAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateInfoAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateItemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateOfCourseAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateProblemAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.actions.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "updateSolutionAction",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/Items/item.states.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Item",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -3563,7 +4950,7 @@
                 "linktype": "injectable",
                 "name": "ChartStateService",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -3573,6 +4960,33 @@
                 "name": "CounterService",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/meetings/meetings.states.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MeetingFull",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/meetings/meetings.states.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "MeetingHome",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/state/moderator/moderator.states.ts",
+                "type": "class",
+                "linktype": "classe",
+                "name": "Moderator",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -3759,15 +5173,6 @@
                 "name": "require",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/types/Item.ts",
-                "type": "class",
-                "linktype": "classe",
-                "name": "Item",
-                "coveragePercent": 0,
-                "coverageCount": "0/7",
                 "status": "low"
             }
         ]

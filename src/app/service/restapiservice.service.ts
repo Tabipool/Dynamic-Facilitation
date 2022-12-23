@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Item } from '../state/Items/item.states';
 import { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
+import { Moderator } from 'app/state/moderator/moderator.states';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +28,8 @@ export class RESTAPIServiceService {
     return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting);
   }
 
-  postMeeting(meeting: object): Observable<any> {
+  postMeeting(meeting: MeetingFull): Observable<any> {
+    //full?
     return this.http.post<any>(this.baseUrl + '/meetings', meeting);
   }
 
@@ -36,5 +38,21 @@ export class RESTAPIServiceService {
       this.baseUrl + '/meetings/' + idmeeting + '/items',
       item
     );
+  }
+
+  //Moderators
+
+  getModerators(): Observable<Moderator[]> {
+    //testen
+    return this.http.get<Moderator[]>(this.baseUrl + '/moderators');
+  }
+
+  postModerator(moderator: Moderator): Observable<Moderator> {
+    return this.http.post<Moderator>(this.baseUrl + '/moderators', moderator);
+    //.pipe(catchError(this.handleError));
+  }
+
+  deleteModerator(id: number): Observable<unknown> {
+    return this.http.delete(this.baseUrl + '/moderators/' + id);
   }
 }

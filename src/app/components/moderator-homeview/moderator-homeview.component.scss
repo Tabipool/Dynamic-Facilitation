@@ -1,0 +1,31 @@
+.wrapper {
+  display: inline-block;
+  text-align: center;
+}
+
+.profilePicture {
+  width: 171px;
+  height: 171px;
+  border-radius: 100%;
+}
+
+.nameWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 39px;
+  align-items: center;
+}
+
+.icon {
+  height: 13px;
+  width: 25px;
+}
+
+p {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 31px;
+  margin: 0;
+  text-align: center;
+  margin: 5px;
+}
