@@ -298,7 +298,7 @@
         },
         {
             "name": "RESTAPIServiceService",
-            "id": "injectable-RESTAPIServiceService-2bf1fa2e471e0518b1c01dd5871309e5cd3d54cd2a05066949679e127bd420131d49fbaea1039c5b3d583f0d0977153a6fc5f6e880b5af2f898fa6a46443f7e8",
+            "id": "injectable-RESTAPIServiceService-157054fcd0277118c17e8fd267156b3e63fec66c736c7b958b53ba4d17ffe0a5d50aa94fde3ecc5f0bb4292b91852068a4d411b56da8bc6467589abfc334444a",
             "file": "src/app/service/restapiservice.service.ts",
             "properties": [
                 {
@@ -309,13 +309,41 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 12,
                     "modifierKind": [
                         123
                     ]
                 }
             ],
             "methods": [
+                {
+                    "name": "deleteModerator",
+                    "args": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<>",
+                    "typeParameters": [],
+                    "line": 55,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "id",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "getMeetingById",
                     "args": [
@@ -329,7 +357,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 25,
+                    "line": 26,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -357,7 +385,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 18,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -371,6 +399,16 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "getModerators",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<Moderator[]>",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": ""
                 },
                 {
                     "name": "postItem",
@@ -391,7 +429,7 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -420,7 +458,7 @@
                     "args": [
                         {
                             "name": "meeting",
-                            "type": "object",
+                            "type": "MeetingFull",
                             "deprecated": false,
                             "deprecationMessage": ""
                         }
@@ -428,13 +466,41 @@
                     "optional": false,
                     "returnType": "Observable<any>",
                     "typeParameters": [],
-                    "line": 30,
+                    "line": 31,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
                             "name": "meeting",
-                            "type": "object",
+                            "type": "MeetingFull",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "postModerator",
+                    "args": [
+                        {
+                            "name": "moderator",
+                            "type": "Moderator",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "Observable<Moderator>",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "moderator",
+                            "type": "Moderator",
                             "deprecated": false,
                             "deprecationMessage": "",
                             "tagName": {
@@ -448,7 +514,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { Item } from '../state/Items/item.states';\nimport { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';\nimport { Observable } from 'rxjs';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class RESTAPIServiceService {\n  public baseUrl = 'http://localhost:8000';\n\n  constructor(private http: HttpClient) {}\n\n  //Meetings\n\n  getMeetingsByModerator(idmoderator: number): Observable<any> {\n    idmoderator = 3;\n    return this.http.get<any>(\n      this.baseUrl + '/moderators/' + idmoderator + '/meetings'\n      //https://dynamicfacilitation.online/moderator/3/meetings\n    );\n  }\n\n  getMeetingById(idmeeting: number): Observable<any> {\n    //Wie macht man das mit den Items?\n    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting);\n  }\n\n  postMeeting(meeting: object): Observable<any> {\n    return this.http.post<any>(this.baseUrl + '/meetings', meeting);\n  }\n\n  postItem(item: Item, idmeeting: number): Observable<any> {\n    return this.http.post<any>(\n      this.baseUrl + '/meetings/' + idmeeting + '/items',\n      item\n    );\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { HttpClient, HttpHeaders } from '@angular/common/http';\nimport { Item } from '../state/Items/item.states';\nimport { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';\nimport { catchError, Observable } from 'rxjs';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class RESTAPIServiceService {\n  public baseUrl = 'http://localhost:8000';\n\n  constructor(private http: HttpClient) {}\n\n  //Meetings\n\n  getMeetingsByModerator(idmoderator: number): Observable<any> {\n    idmoderator = 3;\n    return this.http.get<any>(\n      this.baseUrl + '/moderators/' + idmoderator + '/meetings'\n      //https://dynamicfacilitation.online/moderator/3/meetings\n    );\n  }\n\n  getMeetingById(idmeeting: number): Observable<any> {\n    //Wie macht man das mit den Items?\n    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting + '/');\n  }\n\n  postMeeting(meeting: MeetingFull): Observable<any> {\n    //full?\n    return this.http.post<any>(this.baseUrl + '/meetings/', meeting);\n  }\n\n  postItem(item: Item, idmeeting: number): Observable<any> {\n    return this.http.post<any>(\n      this.baseUrl + '/meetings/' + idmeeting + '/items/',\n      item\n    );\n  }\n\n  //Moderators\n\n  getModerators(): Observable<Moderator[]> {\n    //testen\n    return this.http.get<Moderator[]>(this.baseUrl + '/moderators/');\n  }\n\n  postModerator(moderator: Moderator): Observable<Moderator> {\n    return this.http.post<Moderator>(this.baseUrl + '/moderators/', moderator);\n    //.pipe(catchError(this.handleError));\n  }\n\n  deleteModerator(id: number): Observable<unknown> {\n    return this.http.delete(this.baseUrl + '/moderators/' + id);\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -462,7 +528,7 @@
                         "deprecationMessage": ""
                     }
                 ],
-                "line": 11,
+                "line": 12,
                 "jsdoctags": [
                     {
                         "name": "http",
@@ -662,12 +728,12 @@
         },
         {
             "name": "Moderator",
-            "id": "class-Moderator-ab5c4cecef17bf04b09f0aac2285c87ab97f531abc1767442def3a441d82e5e8f5ece69d60f007ec393799759bc872bd9897b4f14d0723c8309e01e3473a69d1",
+            "id": "class-Moderator-951d47e2da4b5e20c060c2e415ebc7c2a7286b7ccd2207ec9803e6577507af5f7e348ce150cb2f32921e7e99a383d6f74c9dcc027a731da37e0fa483a3e8b1b1",
             "file": "src/app/state/moderator/moderator.states.ts",
             "deprecated": false,
             "deprecationMessage": "",
             "type": "class",
-            "sourceCode": "export class Moderator {\r\n  id: number;\r\n  username: string;\r\n  name: string;\r\n  lastname: string;\r\n  picturePath: URL;\r\n}\r\n",
+            "sourceCode": "export class Moderator {\r\n  id: number;\r\n  username: string;\r\n  name: string;\r\n  lastname: string;\r\n  password: string;\r\n  picturePath: URL;\r\n}\r\n",
             "properties": [
                 {
                     "name": "id",
@@ -697,13 +763,22 @@
                     "line": 4
                 },
                 {
+                    "name": "password",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
                     "name": "picturePath",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "URL",
                     "optional": false,
                     "description": "",
-                    "line": 6
+                    "line": 7
                 },
                 {
                     "name": "username",
@@ -889,7 +964,7 @@
         },
         {
             "name": "AddedItemComponent",
-            "id": "component-AddedItemComponent-68909af8f5219ee3b05d5514534359335808441c0dee0549fb67c39c946962ca175cd8e10eac8e6a4056cab7164c2b6508d2281b77bd733ffe2cf2915856afd9",
+            "id": "component-AddedItemComponent-dd1335bafca1b6561d13d2cc561f06d63ddbaf4b91ed3c5b08c7fc16e5f5ec72b32d4a57cafcd0ba20fb67d5ebecf159d3a6bbf6411983afabc1f766d356589e",
             "file": "src/app/components/added-item/added-item.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -991,7 +1066,7 @@
                     "deprecationMessage": ""
                 },
                 {
-                    "name": "OpenMenu",
+                    "name": "openMenu",
                     "args": [
                         {
                             "name": "e",
@@ -1026,7 +1101,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { style } from '@angular/animations';\nimport { Overlay } from '@angular/cdk/overlay';\nimport { ComponentPortal } from '@angular/cdk/portal';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from '../../state/Items/item.states';\nimport { ItemMenuComponent } from '../item-menu/item-menu.component';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n  @ViewChild(ItemMenuComponent) menu: ItemMenuComponent;\n\n  editItem: boolean = false;\n\n  color: string = this.newItem.color;\n\n  constructor(private overlay: Overlay) {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n\n  OpenMenu(e: any) {\n    const target = document.querySelector('.menu') as HTMLElement;\n    const overlayRef = this.overlay.create({\n      hasBackdrop: true,\n      backdropClass: 'cdk-overlay-transparent-backdrop',\n      panelClass: 'mat-elevation-z8',\n      positionStrategy: this.overlay\n        .position()\n        .flexibleConnectedTo(target)\n        .withPositions([\n          {\n            originX: 'center',\n            originY: 'top',\n            overlayX: 'start',\n            overlayY: 'top',\n            offsetX: 50,\n          },\n        ]),\n    });\n    const menuOverlay = new ComponentPortal(ItemMenuComponent);\n    const componentRef = overlayRef.attach(menuOverlay);\n    overlayRef.backdropClick().subscribe(() => overlayRef.detach());\n    console.log(target);\n  }\n}\n",
+            "sourceCode": "import { style } from '@angular/animations';\nimport { Overlay } from '@angular/cdk/overlay';\nimport { ComponentPortal } from '@angular/cdk/portal';\nimport { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';\nimport { Item } from '../../state/Items/item.states';\nimport { ItemMenuComponent } from '../item-menu/item-menu.component';\n\n@Component({\n  selector: 'app-added-item',\n  templateUrl: './added-item.component.html',\n  styleUrls: ['./added-item.component.scss'],\n})\nexport class AddedItemComponent implements OnInit {\n  @Input() newItem: Item = new Item();\n  @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;\n  @ViewChild(ItemMenuComponent) menu: ItemMenuComponent;\n\n  editItem: boolean = false;\n\n  color: string = this.newItem.color;\n\n  constructor(private overlay: Overlay) {}\n\n  ngOnInit(): void {}\n\n  ngAfterViewInit() {\n    this.shiftColor.nativeElement.style.setProperty(\n      '$color',\n      this.newItem.color.toString()\n    );\n    console.log(this.newItem.color);\n  }\n\n  openMenu(e: any) {\n    const target = document.querySelector('.menu') as HTMLElement;\n    const overlayRef = this.overlay.create({\n      hasBackdrop: true,\n      backdropClass: 'cdk-overlay-transparent-backdrop',\n      panelClass: 'mat-elevation-z8',\n      positionStrategy: this.overlay\n        .position()\n        .flexibleConnectedTo(target)\n        .withPositions([\n          {\n            originX: 'center',\n            originY: 'top',\n            overlayX: 'start',\n            overlayY: 'top',\n            offsetX: 50,\n          },\n        ]),\n    });\n    const menuOverlay = new ComponentPortal(ItemMenuComponent);\n    const componentRef = overlayRef.attach(menuOverlay);\n    overlayRef.backdropClick().subscribe(() => overlayRef.detach());\n    console.log(target);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1064,7 +1139,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\">\n      <button class=\"menu\" (click)=\"OpenMenu($event)\">dot</button>\n    </div>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"item-box\" cdkDrag>\n  <div #coloredStripe [ngClass]=\"newItem.color\" class=\"shift-color\"></div>\n\n  <div class=\"right-wrapper\">\n    <div class=\"counting-label\">{{ newItem.number }}.</div>\n    <div class=\"item-text\">\n      {{ newItem.description }}\n    </div>\n    <div class=\"icon-wrapper\">\n      <button class=\"menu\" (click)=\"openMenu($event)\">dot</button>\n    </div>\n  </div>\n</div>\n"
         },
         {
             "name": "AppComponent",
@@ -1984,7 +2059,7 @@
         },
         {
             "name": "HomeviewComponent",
-            "id": "component-HomeviewComponent-6abdbee191dc0787ca2a01091c2a98fbfe99348cf3bac934958ea361ec43cad6316db58afe462661d9c65f25c8901e0961c4ae1115d1b68e4559806b4efbbf57",
+            "id": "component-HomeviewComponent-46ac9f624ee3e5208d31d670b4834685bed299539ca6620c625435037fb81a25448493affdb9aa17334e7179c113e8a094dedb45cc88a4f5ee28ec1c3730ba49",
             "file": "src/app/pages/homeview/homeview.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2010,7 +2085,19 @@
                     "type": "MeetingHome[]",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 22,
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "moderators",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Moderator[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
                     "modifierKind": [
                         123
                     ]
@@ -2023,7 +2110,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 41,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -2033,9 +2120,37 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 19,
+                    "line": 25,
                     "deprecated": false,
                     "deprecationMessage": ""
+                },
+                {
+                    "name": "openInput",
+                    "args": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "e",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -2045,11 +2160,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { RESTAPIServiceService } from 'app/service/restapiservice.service';\nimport { MeetingHome } from 'app/state/meetings/meetings.states';\n\n@Component({\n  selector: 'app-homeview',\n  templateUrl: './homeview.component.html',\n  styleUrls: ['./homeview.component.scss'],\n})\nexport class HomeviewComponent implements OnInit {\n  constructor(\n    private router: Router,\n    private restService: RESTAPIServiceService\n  ) {}\n\n  public meetings: MeetingHome[];\n\n  ngOnInit() {\n    this.restService.getMeetingsByModerator(1).subscribe(\n      (data) => {\n        this.meetings = data;\n      },\n      (error) => console.log(error)\n    );\n  }\n\n  newSession() {\n    this.router.navigate(['/flipcharts']);\n  }\n}\n",
+            "sourceCode": "import { Overlay } from '@angular/cdk/overlay';\nimport { ComponentPortal } from '@angular/cdk/portal';\nimport { Component, OnInit } from '@angular/core';\nimport { Router } from '@angular/router';\nimport { ModeratorDetailedComponent } from 'app/components/moderator-detailed/moderator-detailed.component';\nimport { RESTAPIServiceService } from 'app/service/restapiservice.service';\nimport { MeetingHome } from 'app/state/meetings/meetings.states';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Component({\n  selector: 'app-homeview',\n  templateUrl: './homeview.component.html',\n  styleUrls: ['./homeview.component.scss'],\n})\nexport class HomeviewComponent implements OnInit {\n  constructor(\n    private router: Router,\n    private restService: RESTAPIServiceService,\n    private overlay: Overlay\n  ) {}\n\n  public meetings: MeetingHome[];\n  public moderators: Moderator[];\n\n  ngOnInit() {\n    this.restService.getMeetingsByModerator(1).subscribe(\n      (data) => {\n        this.meetings = data;\n      },\n      (error) => console.log(error)\n    );\n\n    this.restService.getModerators().subscribe(\n      (data) => {\n        this.moderators = data;\n      },\n      (error) => console.log(error)\n    );\n  }\n\n  newSession() {\n    this.router.navigate(['/flipcharts']);\n  }\n\n  openInput(e: any) {\n    const target = document.querySelector('.moderatorAdd') as HTMLElement;\n    const overlayRef = this.overlay.create({\n      hasBackdrop: true,\n      backdropClass: 'cdk-overlay-transparent-backdrop',\n      panelClass: 'mat-elevation-z8',\n      positionStrategy: this.overlay\n        .position()\n        .flexibleConnectedTo(target)\n        .withPositions([\n          {\n            originX: 'center',\n            originY: 'top',\n            overlayX: 'start',\n            overlayY: 'top',\n            offsetX: 50,\n          },\n        ]),\n    });\n    const inputOverlay = new ComponentPortal(ModeratorDetailedComponent);\n    const componentRef = overlayRef.attach(inputOverlay);\n    overlayRef.backdropClick().subscribe(() => overlayRef.detach());\n    console.log(target);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.homeviewWrapper {\r\n  padding: 20px;\r\n  padding-top: 2%;\r\n  overflow: hidden;\r\n}\r\n\r\n.collapsible {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  border: none;\r\n  font-weight: 700;\r\n  font-size: 30px;\r\n  line-height: 36px;\r\n  color: c.$dark-grey;\r\n  background-color: transparent;\r\n  margin-top: 2%;\r\n\r\n  &__icons {\r\n    width: 25px;\r\n    height: 13px;\r\n    margin-right: 20px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  margin-left: 50px;\r\n  display: flex;\r\n  margin-bottom: 2%;\r\n  flex-wrap: wrap;\r\n}\r\n\r\nhr {\r\n  margin-left: -20px;\r\n  margin-right: -20px;\r\n  size: 10px;\r\n}\r\n\r\napp-homeview-button {\r\n  margin-right: 2%;\r\n  margin-top: 1%;\r\n}\r\n\r\napp-homeview-meeting {\r\n  margin-right: 2%;\r\n  margin-top: 2%;\r\n}\r\n\r\napp-moderator-homeview {\r\n  margin-right: 3%;\r\n  margin-top: 2%;\r\n}\r\n",
+                    "data": "@use \"styles/colors\" as c;\r\n\r\nbody {\r\n  background-color: c.$main-background;\r\n}\r\n\r\n.homeviewWrapper {\r\n  padding: 20px;\r\n  padding-top: 2%;\r\n  overflow: hidden;\r\n}\r\n\r\n.collapsible {\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-items: center;\r\n  border: none;\r\n  font-weight: 700;\r\n  font-size: 30px;\r\n  line-height: 36px;\r\n  color: c.$dark-grey;\r\n  background-color: transparent;\r\n  margin-top: 2%;\r\n\r\n  &__icons {\r\n    width: 25px;\r\n    height: 13px;\r\n    margin-right: 20px;\r\n  }\r\n}\r\n\r\n.wrapper {\r\n  margin-left: 50px;\r\n  display: flex;\r\n  margin-bottom: 2%;\r\n  flex-wrap: wrap;\r\n}\r\n\r\nhr {\r\n  margin-left: -20px;\r\n  margin-right: -20px;\r\n  size: 10px;\r\n}\r\n\r\n.moderatorAdd {\r\n  margin-right: 3%;\r\n  margin-top: 2%;\r\n  &__plus {\r\n    text-align: center;\r\n    width: 171px;\r\n    height: 171px;\r\n    border-radius: 100%;\r\n    background-color: map-get(c.$shift-colors, shift-yellow);\r\n    color: white;\r\n    padding: auto;\r\n    font-size: 77pt;\r\n  }\r\n\r\n  &__title {\r\n    font-weight: 600;\r\n    font-size: 22px;\r\n    line-height: 31px;\r\n    margin: 0;\r\n    text-align: center;\r\n    margin: 5px;\r\n  }\r\n}\r\n\r\n.moderatorAdd:hover {\r\n  cursor: pointer;\r\n}\r\n\r\napp-homeview-button {\r\n  margin-right: 2%;\r\n  margin-top: 1%;\r\n}\r\n\r\napp-homeview-meeting {\r\n  margin-right: 2%;\r\n  margin-top: 2%;\r\n}\r\n\r\napp-moderator-homeview {\r\n  margin-right: 3%;\r\n  margin-top: 2%;\r\n}\r\n",
                     "styleUrl": "./homeview.component.scss"
                 }
             ],
@@ -2071,9 +2186,15 @@
                         "type": "RESTAPIServiceService",
                         "deprecated": false,
                         "deprecationMessage": ""
+                    },
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": ""
                     }
                 ],
-                "line": 11,
+                "line": 15,
                 "jsdoctags": [
                     {
                         "name": "router",
@@ -2092,13 +2213,22 @@
                         "tagName": {
                             "text": "param"
                         }
+                    },
+                    {
+                        "name": "overlay",
+                        "type": "Overlay",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
                     }
                 ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"homeviewWrapper\">\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Erstellen\n  </button>\n  <div class=\"wrapper create\">\n    <app-homeview-button buttontitle=\"Neuer Issue Collector\">\n    </app-homeview-button>\n\n    <app-homeview-button\n      buttontitle=\"Neue Dynamic Facilitation Session\"\n      (click)=\"newSession()\"\n    >\n    </app-homeview-button>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Dynamic Facilitations\n  </button>\n  <div class=\"wrapper meetings\">\n    <app-homeview-meeting\n      *ngFor=\"let data of meetings\"\n      [meeting]=\"data\"\n    ></app-homeview-meeting>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Moderatoren\n  </button>\n  <div class=\"wrapper moderators\">\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n    <app-moderator-homeview></app-moderator-homeview>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"homeviewWrapper\">\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Erstellen\n  </button>\n  <div class=\"wrapper create\">\n    <app-homeview-button buttontitle=\"Neuer Issue Collector\">\n    </app-homeview-button>\n\n    <app-homeview-button\n      buttontitle=\"Neue Dynamic Facilitation Session\"\n      (click)=\"newSession()\"\n    >\n    </app-homeview-button>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Dynamic Facilitations\n  </button>\n  <div class=\"wrapper meetings\">\n    <app-homeview-meeting\n      *ngFor=\"let data of meetings\"\n      [meeting]=\"data\"\n    ></app-homeview-meeting>\n  </div>\n  <hr />\n  <button class=\"collapsible\">\n    <img class=\"collapsible__icons\" src=\"assets/icons/v.svg\" />\n    Moderatoren\n  </button>\n  <div class=\"wrapper moderators\">\n    <div class=\"moderatorAdd\" (click)=\"openInput($event)\">\n      <div class=\"moderatorAdd__plus\">+</div>\n      <p class=\"moderatorAdd__title\">Neuer Moderator</p>\n    </div>\n    <app-moderator-homeview\n      *ngFor=\"let data of moderators\"\n      [moderator]=\"data\"\n    ></app-moderator-homeview>\n  </div>\n</div>\n"
         },
         {
             "name": "HomeviewMeetingComponent",
@@ -2650,7 +2780,7 @@
         },
         {
             "name": "ModeratorDetailedComponent",
-            "id": "component-ModeratorDetailedComponent-c0ab8b5bffe1c569cad5f6c9fb2512419cfc634a646c85cb9041852c4655e5e32bc727bbb180d3e4d670f99698bc158efa0bbc0dfcb7638e256461329691648f",
+            "id": "component-ModeratorDetailedComponent-69b606662f20696b48d92dfc300ee9277f2f4de22abb45418d663409fb455642d886b7b9310e04f69edfe4147242cd219cab8f78b7c6120ff6b18c7b1fc17bd7",
             "file": "src/app/components/moderator-detailed/moderator-detailed.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2668,15 +2798,117 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "newModerator",
+                    "defaultValue": "new Moderator()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Moderator",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "modifierKind": [
+                        121
+                    ]
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "addNewModerator",
+                    "args": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "firstname",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "lastname",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "checkpw",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "firstname",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "lastname",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "checkpw",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "ngOnInit",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 12,
+                    "line": 14,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -2688,7 +2920,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-moderator-detailed',\n  templateUrl: './moderator-detailed.component.html',\n  styleUrls: ['./moderator-detailed.component.scss']\n})\nexport class ModeratorDetailedComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "sourceCode": "import { IfStmt } from '@angular/compiler';\nimport { Component, OnInit } from '@angular/core';\nimport { RESTAPIServiceService } from 'app/service/restapiservice.service';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Component({\n  selector: 'app-moderator-detailed',\n  templateUrl: './moderator-detailed.component.html',\n  styleUrls: ['./moderator-detailed.component.scss'],\n})\nexport class ModeratorDetailedComponent implements OnInit {\n  constructor(private restService: RESTAPIServiceService) {}\n\n  ngOnInit(): void {}\n\n  private newModerator: Moderator = new Moderator();\n\n  addNewModerator(\n    username: string,\n    firstname: string,\n    lastname: string,\n    password: string,\n    checkpw: string\n  ) {\n    if (\n      password == checkpw &&\n      username != '' &&\n      firstname != '' &&\n      lastname != '' &&\n      password != ''\n    ) {\n      this.newModerator.username = username;\n      this.newModerator.name = firstname;\n      this.newModerator.lastname = lastname;\n      this.newModerator.password = password;\n\n      this.restService\n        .postModerator(this.newModerator) //.subscribe(moderator => this.moderators.push(moderator))\n        .subscribe((error) => console.log(error));\n    } else {\n      alert('Die Passwörter stimmen nicht überein');\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2702,17 +2934,35 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 8
+                "args": [
+                    {
+                        "name": "restService",
+                        "type": "RESTAPIServiceService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 11,
+                "jsdoctags": [
+                    {
+                        "name": "restService",
+                        "type": "RESTAPIServiceService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"detailed-wrapper\">\n  <label for=\"username\">Benutzername:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Vorname:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Nachname:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Passwort festlegen:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <label for=\"username\">Passwort bestätigen:</label>\n  <input type=\"text\" name=\"username\" class=\"inputFields\" />\n  <div class=\"iconButtons\">\n    <button>\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/x.svg\" />\n    </button>\n    <button>\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/check.svg\" />\n    </button>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"detailed-wrapper\">\n  <label for=\"username\">Benutzername:</label>\n  <input type=\"text\" name=\"username\" #username class=\"inputFields\" required />\n  <label for=\"firstname\">Vorname:</label>\n  <input type=\"text\" name=\"firstname\" #firstname class=\"inputFields\" required />\n  <label for=\"lastname\">Nachname:</label>\n  <input type=\"text\" name=\"lastname\" #lastname class=\"inputFields\" required />\n  <label for=\"password\">Passwort festlegen:</label>\n  <input\n    type=\"password\"\n    name=\"password\"\n    #password\n    class=\"inputFields\"\n    required\n  />\n  <label for=\"checkpw\">Passwort bestätigen:</label>\n  <input type=\"password\" name=\"checkpw\" #checkpw class=\"inputFields\" required />\n  <div class=\"iconButtons\">\n    <button>\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/x.svg\" />\n    </button>\n    <button\n      (click)=\"\n        addNewModerator(\n          username.value,\n          firstname.value,\n          lastname.value,\n          password.value,\n          checkpw.value\n        )\n      \"\n    >\n      <img class=\"iconButtons__detailed-icons\" src=\"assets/icons/check.svg\" />\n    </button>\n  </div>\n</div>\n"
         },
         {
             "name": "ModeratorHomeviewComponent",
-            "id": "component-ModeratorHomeviewComponent-588dacba4085f676e24a9b355588efe61fdc85abccdc2bacc6cf787a3769bf145692765d6b9052f67abfcf4d126f40348bcf51a8211fae690c77cf610c274de3",
+            "id": "component-ModeratorHomeviewComponent-2eafd46dd068c4adfe32d90c720288ed25111c8d401816e1b6808ed632c8cc9f69dab935f8556019e629380b18b18eacdd17a4b7dc1d694c442ce04a8b1b2cb6",
             "file": "src/app/components/moderator-homeview/moderator-homeview.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2759,7 +3009,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Component({\n  selector: 'app-moderator-homeview',\n  templateUrl: './moderator-homeview.component.html',\n  styleUrls: ['./moderator-homeview.component.scss'],\n})\nexport class ModeratorHomeviewComponent implements OnInit {\n  @Input() moderator: Moderator;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { Moderator } from 'app/state/moderator/moderator.states';\n\n@Component({\n  selector: 'app-moderator-homeview',\n  templateUrl: './moderator-homeview.component.html',\n  styleUrls: ['./moderator-homeview.component.scss'],\n})\nexport class ModeratorHomeviewComponent implements OnInit {\n  @Input() moderator: Moderator;\n\n  constructor() {}\n\n  ngOnInit(): void {\n    document\n      .querySelector('.profilePicture')\n      ?.setAttribute('src', String(this.moderator.picturePath));\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2779,7 +3029,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div class=\"wrapper\">\n  <img\n    class=\"profilePicture\"\n    src=\"https://cdn.pixabay.com/photo/2022/11/07/10/13/christmas-7576056_960_720.jpg\"\n  />\n  <div class=\"nameWrapper\">\n    <p>Max</p>\n    <p>Mustermann</p>\n    <img class=\"icon\" src=\"assets/icons/v.svg\" />\n  </div>\n</div>\n"
+            "templateData": "<div class=\"wrapper\">\n  <img class=\"profilePicture\" src=\"\" />\n  <div class=\"nameWrapper\">\n    <p>{{ moderator.name }}</p>\n    <p>{{ moderator.lastname }}</p>\n    <img class=\"icon\" src=\"assets/icons/v.svg\" />\n  </div>\n</div>\n"
         },
         {
             "name": "PageComponent",
@@ -4620,7 +4870,7 @@
                 "linktype": "component",
                 "name": "ModeratorDetailedComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/5",
                 "status": "low"
             },
             {
@@ -4676,7 +4926,7 @@
                 "linktype": "component",
                 "name": "HomeviewComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/5",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {
@@ -4712,7 +4962,7 @@
                 "linktype": "injectable",
                 "name": "RESTAPIServiceService",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -4986,7 +5236,7 @@
                 "linktype": "classe",
                 "name": "Moderator",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

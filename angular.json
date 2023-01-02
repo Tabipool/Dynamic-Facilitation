@@ -70,10 +70,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Dynamic-Facilitation:build:production"
+              "browserTarget": "Dynamic-Facilitation:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "browserTarget": "Dynamic-Facilitation:build:development"
+              "browserTarget": "Dynamic-Facilitation:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

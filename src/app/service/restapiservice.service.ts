@@ -25,17 +25,17 @@ export class RESTAPIServiceService {
 
   getMeetingById(idmeeting: number): Observable<any> {
     //Wie macht man das mit den Items?
-    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting);
+    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting + '/');
   }
 
   postMeeting(meeting: MeetingFull): Observable<any> {
     //full?
-    return this.http.post<any>(this.baseUrl + '/meetings', meeting);
+    return this.http.post<any>(this.baseUrl + '/meetings/', meeting);
   }
 
   postItem(item: Item, idmeeting: number): Observable<any> {
     return this.http.post<any>(
-      this.baseUrl + '/meetings/' + idmeeting + '/items',
+      this.baseUrl + '/meetings/' + idmeeting + '/items/',
       item
     );
   }
@@ -44,11 +44,11 @@ export class RESTAPIServiceService {
 
   getModerators(): Observable<Moderator[]> {
     //testen
-    return this.http.get<Moderator[]>(this.baseUrl + '/moderators');
+    return this.http.get<Moderator[]>(this.baseUrl + '/moderators/');
   }
 
   postModerator(moderator: Moderator): Observable<Moderator> {
-    return this.http.post<Moderator>(this.baseUrl + '/moderators', moderator);
+    return this.http.post<Moderator>(this.baseUrl + '/moderators/', moderator);
     //.pipe(catchError(this.handleError));
   }
 
