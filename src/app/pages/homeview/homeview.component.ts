@@ -42,6 +42,10 @@ export class HomeviewComponent implements OnInit {
     this.router.navigate(['/flipcharts']);
   }
 
+  newIssue() {
+    this.router.navigate(['/issuecollector']);
+  }
+
   openInput(e: any) {
     const target = document.querySelector('.moderatorAdd') as HTMLElement;
     const overlayRef = this.overlay.create({

@@ -7,6 +7,11 @@ import {
 import { Item } from '../../state/Items/item.states';
 import { CounterService } from '../../state/counter/counter.service';
 import { chartType } from '../../../types/chartType';
+import { Store } from '@ngrx/store';
+import { State } from 'app/state';
+import { addItemAction } from '../../../app/state/Items/item.actions';
+import { Observable } from 'rxjs';
+import { ItemListService } from 'app/service/item-list.service';
 
 @Component({
   selector: 'app-chart',
@@ -14,10 +19,14 @@ import { chartType } from '../../../types/chartType';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
-  constructor(public _counterService: CounterService) {}
+  constructor(
+    public _counterService: CounterService,
+    private _itemListService: ItemListService,
+    private store: Store<State>
+  ) {}
   addingItem: boolean = false;
 
-  items: Item[] = [];
+  itemList: Observable<Item[]>;
 
   @Input()
   title: string = '';
@@ -29,7 +38,9 @@ export class ChartComponent implements OnInit {
     this.addingItem = !this.addingItem;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.itemList = this._itemListService.getItemList();
+  }
 
   cancelSubmit() {
     this.addingItem = false;
@@ -43,7 +54,7 @@ export class ChartComponent implements OnInit {
     newItem.color = item.color;
     newItem.type = this.chartsType;
 
-    this.items.push(newItem);
+    this.store.dispatch(addItemAction({ item: newItem }));
 
     this._counterService.increase();
   }

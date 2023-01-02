@@ -11,9 +11,5 @@ export class ModeratorHomeviewComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    document
-      .querySelector('.profilePicture')
-      ?.setAttribute('src', String(this.moderator.picturePath));
-  }
+  ngOnInit(): void {}
 }

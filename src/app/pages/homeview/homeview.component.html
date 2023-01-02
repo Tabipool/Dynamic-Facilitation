@@ -4,7 +4,10 @@
     Erstellen
   </button>
   <div class="wrapper create">
-    <app-homeview-button buttontitle="Neuer Issue Collector">
+    <app-homeview-button
+      buttontitle="Neuer Issue Collector"
+      (click)="newIssue()"
+    >
     </app-homeview-button>
 
     <app-homeview-button

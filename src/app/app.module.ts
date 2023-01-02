@@ -14,6 +14,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CounterService } from './state/counter/counter.service';
 import { ChartStateService } from './state/chart-states/chart-states.service';
 import { HttpClientModule } from '@angular/common/http';
+import { reducers, metaReducers } from './state';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -27,6 +28,13 @@ import { HttpClientModule } from '@angular/common/http';
     DragDropModule,
     HttpClientModule,
     OverlayModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      },
+    }),
   ],
   providers: [CounterService, ChartStateService],
   bootstrap: [AppComponent],

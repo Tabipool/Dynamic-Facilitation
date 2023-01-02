@@ -1,9 +1,18 @@
 import { createAction, props } from '@ngrx/store';
 import { Item } from '../Items/item.states';
 
-const addItemAction = createAction('[Item] Add', props<{ item: Item }>());
-const updateItemAction = createAction('[Item] Update', props<{ item: Item }>());
-const deleteItemAction = createAction('[Item] Delete', props<{ id: string }>());
+export const addItemAction = createAction(
+  '[Item] Add',
+  props<{ item: Item }>()
+);
+export const updateItemAction = createAction(
+  '[Item] Update',
+  props<{ item: Item }>()
+);
+export const deleteItemAction = createAction(
+  '[Item] Delete',
+  props<{ id: string }>()
+);
 
 const addProblemAction = createAction('[Problem] Add', props<{ item: Item }>());
 const updateProblemAction = createAction(
