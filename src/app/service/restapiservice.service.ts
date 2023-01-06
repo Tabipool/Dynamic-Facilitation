@@ -13,6 +13,14 @@ export class RESTAPIServiceService {
 
   constructor(private http: HttpClient) {}
 
+  login(username: string, password: string) {
+    return this.http.post('/login', { username, password });
+  }
+
+  logout() {
+    //delete
+  }
+
   //Meetings
 
   getMeetingsByModerator(idmoderator: number): Observable<any> {

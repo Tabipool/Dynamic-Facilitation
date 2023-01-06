@@ -12,6 +12,7 @@ import { State } from 'app/state';
 import { addItemAction } from '../../../app/state/Items/item.actions';
 import { Observable } from 'rxjs';
 import { ItemListService } from 'app/service/item-list.service';
+import { AuthenticationService } from 'app/service/authentication/authentication.service';
 
 @Component({
   selector: 'app-chart',
@@ -22,7 +23,8 @@ export class ChartComponent implements OnInit {
   constructor(
     public _counterService: CounterService,
     private _itemListService: ItemListService,
-    private store: Store<State>
+    private store: Store<State>,
+    public authenticationService: AuthenticationService
   ) {}
   addingItem: boolean = false;
 
@@ -55,6 +57,7 @@ export class ChartComponent implements OnInit {
     newItem.type = this.chartsType;
 
     this.store.dispatch(addItemAction({ item: newItem }));
+    console.log(newItem);
 
     this._counterService.increase();
   }

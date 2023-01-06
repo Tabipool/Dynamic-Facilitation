@@ -8,31 +8,51 @@
     <app-chart
       class="chartview__charts"
       title="Info, Data, Sichtweisen"
-      [chartsType]="typeOfChart.d"
+      [chartsType]="typeOfChart.i"
     ></app-chart>
     <app-chart
       class="chartview__charts"
       title="Bedenken"
-      [chartsType]="typeOfChart.c"
+      [chartsType]="typeOfChart.b"
     ></app-chart>
     <app-chart
       class="chartview__charts"
       title="Lösungen"
-      [chartsType]="typeOfChart.s"
+      [chartsType]="typeOfChart.l"
     ></app-chart>
 
     <div
-      *ngIf="_chartStateService.ofCourse"
+      [hidden]="!_chartStateService.ofCourse"
       class="chartview__openCharts chartview__charts"
     >
       <p>OfCourses</p>
+      <div class="dropList">
+        <ng-container *ngIf="itemList | async as Items">
+          <ng-container *ngFor="let item of Items">
+            <app-added-item
+              *ngIf="item.ofCourse"
+              [newItem]="item"
+            ></app-added-item>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
 
     <div
-      *ngIf="_chartStateService.bookmark"
+      [hidden]="!_chartStateService.bookmark"
       class="chartview__openCharts chartview__charts"
     >
       <p>Bookmarks</p>
+      <div class="dropList">
+        <ng-container *ngIf="itemList | async as Items">
+          <ng-container *ngFor="let item of Items">
+            <app-added-item
+              *ngIf="item.bookmark"
+              [newItem]="item"
+            ></app-added-item>
+          </ng-container>
+        </ng-container>
+      </div>
     </div>
   </div>
 </div>

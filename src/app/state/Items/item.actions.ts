@@ -14,7 +14,7 @@ export const deleteItemAction = createAction(
   props<{ id: string }>()
 );
 
-const addProblemAction = createAction('[Problem] Add', props<{ item: Item }>());
+/*const addProblemAction = createAction('[Problem] Add', props<{ item: Item }>());
 const updateProblemAction = createAction(
   '[Problem] Update',
   props<{ item: Item }>()
@@ -50,11 +50,13 @@ const deleteSolutionAction = createAction(
   '[Solution] Delete',
   props<{ id: string }>()
 );
+*/
 
 const addOfCourseAction = createAction(
   '[OfCourse] Add',
   props<{ item: Item }>()
 );
+/*
 const updateOfCourseAction = createAction(
   '[OfCourse] Update',
   props<{ item: Item }>()
@@ -64,10 +66,14 @@ const deleteOfCourseAction = createAction(
   props<{ id: string }>()
 );
 
+*/
+
 const addBookmarkAction = createAction(
   '[Bookmark] Add',
   props<{ item: Item }>()
 );
+
+/*
 const updateBookmarkAction = createAction(
   '[Bookmark] Update',
   props<{ item: Item }>()
@@ -76,12 +82,13 @@ const deleteBookmarkAction = createAction(
   '[Bookmark] Delete',
   props<{ id: string }>()
 );
+*/
 
 export const actions = {
   addItemAction,
   updateItemAction,
   deleteItemAction,
-  addProblemAction,
+  /*addProblemAction,
   updateProblemAction,
   deleteProblemAction,
   addInfoAction,
@@ -92,11 +99,11 @@ export const actions = {
   deleteConcernAction,
   addSolutionAction,
   updateSolutionAction,
-  deleteSolutionAction,
+  deleteSolutionAction,*/
   addOfCourseAction,
-  updateOfCourseAction,
-  deleteOfCourseAction,
+  /*updateOfCourseAction,
+  deleteOfCourseAction,*/
   addBookmarkAction,
-  updateBookmarkAction,
-  deleteBookmarkAction,
+  /*updateBookmarkAction,
+  deleteBookmarkAction,*/
 };

@@ -1,10 +1,14 @@
-<div class="item-box">
+<div class="issue-box">
   <div class="item-input-wrapper">
-    <label for="item-input">11.</label>
-    <input type="text" id="item-input" name="item-input" />
+    <label for="item-input">{{ counter }}</label>
+    <input type="text" id="item-input" name="item-input" #textInput />
   </div>
 
-  <button id="cancelbtn" class="submit-cancel-buttons">n</button>
+  <button id="cancelbtn" class="submit-cancel-buttons" (click)="CancelSubmit()">
+    n
+  </button>
 
-  <button id="submitbtn" class="submit-cancel-buttons">y</button>
+  <button id="submitbtn" class="submit-cancel-buttons" (click)="SubmitIssue()">
+    y
+  </button>
 </div>

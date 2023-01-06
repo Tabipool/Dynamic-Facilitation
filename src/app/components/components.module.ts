@@ -11,6 +11,7 @@ import { HomeviewButtonComponent } from './homeview-button/homeview-button.compo
 import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.component';
 import { ModeratorDetailedComponent } from './moderator-detailed/moderator-detailed.component';
 import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homeview.component';
+import { AddedIssueComponent } from './added-issue/added-issue.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homev
     HomeviewMeetingComponent,
     ModeratorDetailedComponent,
     ModeratorHomeviewComponent,
+    AddedIssueComponent,
   ],
   imports: [CommonModule, DragDropModule],
   exports: [
@@ -31,6 +33,7 @@ import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homev
     HeaderComponent,
     AddButtonComponent,
     AddedItemComponent,
+    AddedIssueComponent,
     ItemFlipchartComponent,
     ChartComponent,
     HomeviewButtonComponent,

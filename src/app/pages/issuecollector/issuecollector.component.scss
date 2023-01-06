@@ -3,6 +3,7 @@
 .wrapper {
   background-color: c.$main-background;
   padding: 3%;
+  height: (100vh-15vh);
 }
 
 .upperWrapper {
@@ -42,4 +43,17 @@
 
 .addButton {
   margin: 8%;
+}
+
+.issues-wrapper {
+  display: flex;
+  margin-top: 10px;
+  width: 0;
+  height: auto;
+  max-height: 95%;
+  background-color: lightgray;
+
+  flex-flow: column wrap;
+  row-gap: 10px;
+  column-gap: 20px;
 }

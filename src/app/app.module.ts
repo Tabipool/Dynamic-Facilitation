@@ -15,6 +15,7 @@ import { CounterService } from './state/counter/counter.service';
 import { ChartStateService } from './state/chart-states/chart-states.service';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers, metaReducers } from './state';
+import { FakeBackendProvider } from './fake-backend.interceptor';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -36,7 +37,7 @@ import { reducers, metaReducers } from './state';
       },
     }),
   ],
-  providers: [CounterService, ChartStateService],
+  providers: [CounterService, ChartStateService, FakeBackendProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,16 @@
 <!-- Headings -->
 
+# Auth Routes
+
+**POST api/login**
+frontend sends User/Moderator Data and backend returns JWT (uid und role als private claims) inkl roles and Refresh Token or throw authorisation error
+-> https://www.geeksforgeeks.org/jwt-authentication-with-refresh-tokens/ als reference und fürs Verständnis
+beschäftig di pls damit bc des brucha ma fürd anmeldung, du kannsch mi aba gern froga falls was bruchsch
+des mit den roles isch damit ma identifizieren kann obs an admin isch oda ned und da refresh token isch dass ma wenn da jwt abloft an neuer kriagt
+https://www.toptal.com/angular/angular-6-jwt-authentication
+
+**POST api/refresh** frontend sends refresh Token and server returns new jwt/access token or throw authorisation error
+
 # Moderator
 
 **GET api/moderators/** Returns a list of all moderators

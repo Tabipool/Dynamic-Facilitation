@@ -12,10 +12,7 @@ export class AppComponent implements OnInit {
   title = 'Dynamic-Facilitation';
   public count: number;
 
-  constructor(
-    public authenticationService: AuthenticationService,
-    private _counterService: CounterService
-  ) {}
+  constructor(private _counterService: CounterService) {}
 
   ngOnInit() {
     this.count = this._counterService.getValue();

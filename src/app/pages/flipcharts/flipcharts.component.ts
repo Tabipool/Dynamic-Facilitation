@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ItemListService } from 'app/service/item-list.service';
 import { ChartStateService } from 'app/state/chart-states/chart-states.service';
 import { chartType } from '../../../types/chartType';
+import { Store } from '@ngrx/store';
+import { State } from 'app/state';
+import { Item } from 'app/state/Items/item.states';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-flipcharts',
@@ -17,11 +22,19 @@ export class FlipchartsComponent implements OnInit {
 
   typeOfChart: typeof chartType = chartType;
 
-  constructor(public _chartStateService: ChartStateService) {}
+  constructor(
+    public _chartStateService: ChartStateService,
+    private _itemListService: ItemListService,
+    private store: Store<State>
+  ) {}
+
+  itemList: Observable<Item[]>;
 
   ToggleInput() {
     this.addingItem = !this.addingItem;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.itemList = this._itemListService.getItemList();
+  }
 }

@@ -1,6 +1,4 @@
 <div>
   <app-header [flipchart]="isFlipchartview"></app-header>
   <router-outlet (activate)="onActivate($event)"></router-outlet>
-
-  <p *ngIf="authenticationService.isAuthenticated">hallo</p>
 </div>

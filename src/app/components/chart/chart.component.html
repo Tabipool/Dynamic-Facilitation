@@ -1,23 +1,26 @@
 <div class="charts">
   <p>{{ title }}</p>
-  <app-add-button
-    [flipchart]="true"
-    class="charts__add-button"
-    *ngIf="!addingItem"
-    (click)="ToggleInput()"
-  ></app-add-button>
-  <app-item-flipchart
-    *ngIf="addingItem"
-    (submitCanceled)="cancelSubmit()"
-    (submitItem)="itemSubmit($event)"
-    [counter]="_counterService.getValue()"
-  ></app-item-flipchart>
+  <ng-container *ngIf="authenticationService.isLoggedIn$ | async">
+    <app-add-button
+      [flipchart]="true"
+      class="charts__add-button"
+      *ngIf="!addingItem"
+      (click)="ToggleInput()"
+    ></app-add-button>
+    <app-item-flipchart
+      *ngIf="addingItem"
+      (submitCanceled)="cancelSubmit()"
+      (submitItem)="itemSubmit($event)"
+      [counter]="_counterService.getValue()"
+    ></app-item-flipchart>
+  </ng-container>
   <div class="charts__dropList" cdkDropList>
-    <ng-container *ngIf="itemList | async as Items">
-      <ng-container *ngFor="let item of Items">
+    <ng-container *ngIf="itemList | async as items">
+      <ng-container *ngFor="let item of items">
         <app-added-item
           *ngIf="item.type == chartsType"
           [newItem]="item"
+          cdkDrag
         ></app-added-item>
       </ng-container>
     </ng-container>

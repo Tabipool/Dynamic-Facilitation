@@ -7,5 +7,22 @@
     </button>
   </div>
 
-  <app-add-button [flipchart]="false" class="addButton"></app-add-button>
+  <app-add-button
+    [flipchart]="false"
+    class="addButton"
+    *ngIf="!addingIssue"
+    (click)="ToggleInput()"
+  ></app-add-button>
+  <app-item
+    *ngIf="addingIssue"
+    (submitCanceled)="cancelSubmit()"
+    (submitIssue)="issueSubmit($event)"
+    [counter]="counter"
+  ></app-item>
+  <div class="issues-wrapper">
+    <app-added-issue
+      *ngFor="let issue of issues.slice().reverse()"
+      [newIssue]="issue"
+    ></app-added-issue>
+  </div>
 </div>
