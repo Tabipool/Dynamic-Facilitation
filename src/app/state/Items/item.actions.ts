@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { chartType } from 'types/chartType';
 import { Item } from '../Items/item.states';
 
 export const addItemAction = createAction(
@@ -52,7 +53,7 @@ const deleteSolutionAction = createAction(
 );
 */
 
-const addOfCourseAction = createAction(
+export const changeOfCourseAction = createAction(
   '[OfCourse] Add',
   props<{ item: Item }>()
 );
@@ -68,7 +69,7 @@ const deleteOfCourseAction = createAction(
 
 */
 
-const addBookmarkAction = createAction(
+export const changeBookmarkAction = createAction(
   '[Bookmark] Add',
   props<{ item: Item }>()
 );
@@ -100,10 +101,10 @@ export const actions = {
   addSolutionAction,
   updateSolutionAction,
   deleteSolutionAction,*/
-  addOfCourseAction,
+  changeOfCourseAction,
   /*updateOfCourseAction,
   deleteOfCourseAction,*/
-  addBookmarkAction,
+  changeBookmarkAction,
   /*updateBookmarkAction,
   deleteBookmarkAction,*/
 };

@@ -3,22 +3,27 @@
     <button>c</button><button>c</button><button>c</button><button>c</button>
   </div>
   <hr />
-  <div class="row-wrapper">
-    <img class="icons" src="assets/icons/bookmark.svg" />
-    <p>Als Bookmark <br />markieren</p>
+  <div class="row-wrapper" (click)="un_markOfCourse()">
+    <img class="icons" src="assets/icons/star.svg" />
+    <p *ngIf="item.ofCourse; then notOfCourse; else OfCourse"></p>
+    <ng-template #notOfCourse>Als OfCourse <br />markieren</ng-template>
+    <ng-template #OfCourse>OfCourse Markierung<br />aufheben</ng-template>
   </div>
   <hr />
-  <div class="row-wrapper">
+  <div class="row-wrapper" (click)="un_markBookmark()">
     <img class="icons" src="assets/icons/bookmark.svg" />
-    <p>Als Bookmark <br />markieren</p>
+    <p *ngIf="item.bookmark; then notBookmark; else Bookmark"></p>
+    <ng-template #notBookmark>Als Bookmark <br />markieren</ng-template>
+    <ng-template #Bookmark>Bookmark Markierung<br />aufheben</ng-template>
   </div>
   <hr />
-  <div class="row-wrapper">
+  <div class="row-wrapper" (click)="editItem()">
     <img class="icons" src="assets/icons/bookmark.svg" />
     <p>Bearbeiten</p>
   </div>
   <hr />
-  <div class="row-wrapper">
+  <div class="row-wrapper" (click)="changeChartType(item.type)">
+    <!--platzhalter ändern-->
     <img class="icons" src="assets/icons/bookmark.svg" />
     <p>Übertragen</p>
   </div>

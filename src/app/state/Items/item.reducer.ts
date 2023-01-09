@@ -1,6 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { actions } from './item.actions';
 import { Item } from '../Items/item.states';
+import { state } from '@angular/animations';
+import { chartType } from 'types/chartType';
 
 export interface ItemListState {
   items: Item[];
@@ -27,11 +29,11 @@ const itemReducer = createReducer(
   })),
 
   //ofCourse / Bookmark
-  on(actions.addOfCourseAction, (state, { item }) => ({
+  on(actions.changeOfCourseAction, (state, { item }) => ({
     ...state,
     items: changeOfCourseStatus(state.items, item.number),
   })),
-  on(actions.addBookmarkAction, (state, { item }) => ({
+  on(actions.changeBookmarkAction, (state, { item }) => ({
     ...state,
     items: changeBookmarkStatus(state.items, item.number),
   }))
@@ -55,6 +57,23 @@ function updateItemInList(list: Item[], updatedItem: Item) {
 function removeItemFromList(list: Item[], number: number): Item[] {
   return list.filter((element) => {
     return element.number !== number;
+  });
+}
+
+function changeChartType(
+  list: Item[],
+  number: number,
+  newchartType: chartType
+): Item[] {
+  return list.map((value) => {
+    if (value.number === number) {
+      return {
+        ...value,
+        chartType: newchartType,
+      };
+    } else {
+      return value;
+    }
   });
 }
 

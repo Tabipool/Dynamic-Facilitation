@@ -12,10 +12,12 @@ import { HomeviewMeetingComponent } from './homeview-meeting/homeview-meeting.co
 import { ModeratorDetailedComponent } from './moderator-detailed/moderator-detailed.component';
 import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homeview.component';
 import { AddedIssueComponent } from './added-issue/added-issue.component';
+import { ItemMenuComponent } from './item-menu/item-menu.component';
 
 @NgModule({
   declarations: [
     ItemComponent,
+    ItemMenuComponent,
     HeaderComponent,
     AddButtonComponent,
     ItemFlipchartComponent,
