@@ -9,8 +9,11 @@
   "username": "string",
   "password": "string",
 }
-des kriagsch du vo mia
+des kriagsch du vo mia (glaube)
+```
 
+```diff
+StatusCode: 200 OK
 ```
 
 frontend sends User/Moderator Data and backend returns JWT (uid und role als private claims) inkl roles and Refresh Token or throw authorisation error
@@ -195,4 +198,20 @@ StatusCode: 204 NoContext
 
 ```diff
 StatusCode: 204 NoContext
+```
+
+**GET api/meetings/items?bookmark** (maybe jenochdem ob mas jett bruchen)
+Get bookmarks of latest meeting of moderator (token)
+
+```json
+[
+  {
+    "number": 1,
+    "description": "string",
+    "color": "string",
+    "type": "enum(p,i,b,l)",
+    "bookmark": true,
+    "ofcourse": false
+  }
+]
 ```

@@ -5,6 +5,6 @@ export class Item {
   description: string;
   color: string;
   type: chartType;
-  bookmark: boolean = true;
-  ofCourse: boolean = false;
+  bookmark: boolean = false;
+  ofCourse: boolean = true;
 }
