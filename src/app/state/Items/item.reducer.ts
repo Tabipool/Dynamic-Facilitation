@@ -95,7 +95,7 @@ function changeOfCourseStatus(list: Item[], number: number): Item[] {
     if (value.number === number) {
       return {
         ...value,
-        ofCourse: true,
+        ofCourse: !value.ofCourse,
       };
     } else {
       return value;

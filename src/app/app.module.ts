@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +15,7 @@ import { ChartStateService } from './state/chart-states/chart-states.service';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers, metaReducers } from './state';
 import { FakeBackendProvider } from './fake-backend.interceptor';
+
 //import { MatMenuModule } from '@angular/material';
 
 @NgModule({

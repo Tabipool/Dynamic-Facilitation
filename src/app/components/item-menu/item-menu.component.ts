@@ -4,7 +4,9 @@ import {
   HostListener,
   Input,
   OnInit,
+  ViewChild,
 } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
 import { Store } from '@ngrx/store';
 import { ItemListService } from 'app/service/item-list.service';
 import { State } from 'app/state';
@@ -15,6 +17,7 @@ import {
   changeOfCourseAction,
   changeBookmarkAction,
   updateItemAction,
+  deleteItemAction,
 } from '../../../app/state/Items/item.actions';
 
 @Component({
@@ -23,6 +26,7 @@ import {
   styleUrls: ['./item-menu.component.scss'],
 })
 export class ItemMenuComponent implements OnInit {
+  @ViewChild(MatMenu, { read: MatMenu }) menu: MatMenu;
   constructor(
     private _itemListService: ItemListService,
     private store: Store<State>
@@ -30,31 +34,32 @@ export class ItemMenuComponent implements OnInit {
 
   itemList: Observable<Item[]>;
 
-  @Input() item: Item;
-
   ngOnInit(): void {
     this.itemList = this._itemListService.getItemList();
   }
 
-  un_markOfCourse() {
-    this.store.dispatch(changeOfCourseAction({ item: this.item }));
+  un_markOfCourse(item: Item) {
+    this.store.dispatch(changeOfCourseAction({ item: item }));
   }
 
-  un_markBookmark() {
-    this.store.dispatch(changeBookmarkAction({ item: this.item }));
+  un_markBookmark(item: Item) {
+    this.store.dispatch(changeBookmarkAction({ item: item }));
   }
 
-  editItem() {}
+  editItem(item: Item) {}
 
-  changeChartType(newType: chartType) {
-    this.item.type = newType;
-    this.store.dispatch(updateItemAction({ item: this.item }));
+  changeChartType(item: Item, newType: chartType) {
+    item.type = newType;
+    this.store.dispatch(updateItemAction({ item: item }));
   }
 
-  deleteItem() {
-    this.close();
-    console.log('löschen');
+  deleteItem(item: Item) {
+    this.store.dispatch(deleteItemAction({ id: item.number }));
   }
 
-  close() {}
+  changeColor(e: Event, item: Item) {
+    let updatedItem = item;
+    updatedItem.color = String((e.currentTarget as HTMLInputElement).id);
+    //if random then execute get random color()
+  }
 }

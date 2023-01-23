@@ -134,7 +134,7 @@ StatusCode: 200 OK
 StatusCode: 200 OK
 ```
 
-**POST api/meetings/** Saves a new meeting
+**POST api/meetings/** Saves a new meeting, returns full Meeting (id, title, description, items[])
 
 ```json
 {

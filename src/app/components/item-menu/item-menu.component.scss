@@ -1,35 +1,112 @@
 @use "styles/colors" as c;
 
-.menu-wrapper {
+::ng-deep .menu-wrapper {
   background-color: c.$dark-grey;
-  color: white;
   width: 238px;
-  height: 302px;
+  margin-top: 2px;
+  min-height: 302px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 15px !important;
   justify-content: space-around;
   overflow: hidden;
+  align-items: stretch;
+}
+
+.color-wrapper {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.icons {
+.radio-color-picker {
+  display: none;
+
+  &:checked + .color-picker-lable {
+    span {
+      transform: scale(1.25);
+    }
+    @each $name, $value in c.$shift-colors {
+      .#{$name} {
+        border: 2px solid darken($value, 25%);
+      }
+    }
+  }
+}
+
+label[for="random"] {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+
+  cursor: pointer;
+  &:hover {
+    span {
+      transform: scale(1.25);
+    }
+  }
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+.color-picker-lable {
+  display: inline-block;
   width: 27px;
-  height: 32px;
+  height: 27px;
+  margin-right: 5px;
+  cursor: pointer;
+  &:hover {
+    span {
+      transform: scale(1.25);
+    }
+  }
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    transition: transform 0.2s ease-in-out;
+    @each $name, $value in c.$shift-colors {
+      &.#{$name} {
+        background: $value;
+      }
+    }
+  }
+}
+
+.icons {
+  width: 20px;
+  height: 25px;
   margin-right: 15px;
-  margin-left: 5%;
+}
+
+.smallicons {
+  width: 25px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.coloricon {
+  width: 20px;
+  height: 25px;
 }
 
 .row-wrapper {
   display: flex;
+  font-family: "Serenity" !important;
   flex-direction: row;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 22px;
   align-items: center;
   cursor: pointer;
-  padding: 5px;
-  width: 95%;
   border-radius: 5px;
+  color: white !important;
 }
 
 .row-wrapper:hover {
@@ -42,6 +119,8 @@ p {
 
 hr {
   margin: 0px;
-  width: 90%;
+  height: 2px;
+  margin: 0px 5%;
   align-self: center;
+  color: white;
 }

@@ -13,6 +13,10 @@ import { ModeratorDetailedComponent } from './moderator-detailed/moderator-detai
 import { ModeratorHomeviewComponent } from './moderator-homeview/moderator-homeview.component';
 import { AddedIssueComponent } from './added-issue/added-issue.component';
 import { ItemMenuComponent } from './item-menu/item-menu.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,9 +33,17 @@ import { ItemMenuComponent } from './item-menu/item-menu.component';
     ModeratorHomeviewComponent,
     AddedIssueComponent,
   ],
-  imports: [CommonModule, DragDropModule],
+  imports: [
+    CommonModule,
+    DragDropModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatButtonToggleModule,
+    MatButtonModule,
+  ],
   exports: [
     ItemComponent,
+    ItemMenuComponent,
     HeaderComponent,
     AddButtonComponent,
     AddedItemComponent,

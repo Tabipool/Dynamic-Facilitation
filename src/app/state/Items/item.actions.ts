@@ -12,7 +12,7 @@ export const updateItemAction = createAction(
 );
 export const deleteItemAction = createAction(
   '[Item] Delete',
-  props<{ id: string }>()
+  props<{ id: number }>()
 );
 
 /*const addProblemAction = createAction('[Problem] Add', props<{ item: Item }>());

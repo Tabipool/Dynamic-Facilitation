@@ -6,5 +6,5 @@ export class Item {
   color: string;
   type: chartType;
   bookmark: boolean = false;
-  ofCourse: boolean = true;
+  ofCourse: boolean = false;
 }

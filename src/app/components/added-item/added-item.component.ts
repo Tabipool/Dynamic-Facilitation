@@ -13,7 +13,7 @@ import { ItemMenuComponent } from '../item-menu/item-menu.component';
 export class AddedItemComponent implements OnInit {
   @Input() newItem: Item = new Item();
   @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;
-  @ViewChild(ItemMenuComponent) menu: ItemMenuComponent;
+  @ViewChild(ItemMenuComponent) itemMenu: ItemMenuComponent;
 
   editItem: boolean = false;
 
@@ -31,7 +31,7 @@ export class AddedItemComponent implements OnInit {
     console.log(this.newItem.color);
   }
 
-  openMenu(e: any) {
+  /*openMenu(e: any) {
     const target = document.querySelector('.menu') as HTMLElement;
     const overlayRef = this.overlay.create({
       hasBackdrop: true,
@@ -54,5 +54,5 @@ export class AddedItemComponent implements OnInit {
     const componentRef = overlayRef.attach(menuOverlay);
     overlayRef.backdropClick().subscribe(() => overlayRef.detach());
     console.log(target);
-  }
+  }*/
 }

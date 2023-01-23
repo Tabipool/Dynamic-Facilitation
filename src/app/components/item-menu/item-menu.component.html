@@ -1,35 +1,86 @@
-<div class="menu-wrapper">
-  <div>
-    <button>c</button><button>c</button><button>c</button><button>c</button>
-  </div>
-  <hr />
-  <div class="row-wrapper" (click)="un_markOfCourse()">
-    <img class="icons" src="assets/icons/star.svg" />
-    <p *ngIf="item.ofCourse; then notOfCourse; else OfCourse"></p>
-    <ng-template #notOfCourse>Als OfCourse <br />markieren</ng-template>
-    <ng-template #OfCourse>OfCourse Markierung<br />aufheben</ng-template>
-  </div>
-  <hr />
-  <div class="row-wrapper" (click)="un_markBookmark()">
-    <img class="icons" src="assets/icons/bookmark.svg" />
-    <p *ngIf="item.bookmark; then notBookmark; else Bookmark"></p>
-    <ng-template #notBookmark>Als Bookmark <br />markieren</ng-template>
-    <ng-template #Bookmark>Bookmark Markierung<br />aufheben</ng-template>
-  </div>
-  <hr />
-  <div class="row-wrapper" (click)="editItem()">
-    <img class="icons" src="assets/icons/bookmark.svg" />
-    <p>Bearbeiten</p>
-  </div>
-  <hr />
-  <div class="row-wrapper" (click)="changeChartType(item.type)">
-    <!--platzhalter ändern-->
-    <img class="icons" src="assets/icons/bookmark.svg" />
-    <p>Übertragen</p>
-  </div>
-  <hr />
-  <div class="row-wrapper" (click)="deleteItem()">
-    <img class="icons" src="assets/icons/bookmark.svg" />
-    <p>Löschen</p>
-  </div>
-</div>
+<mat-menu #dropdownMenu="matMenu" class="menu-wrapper" xPosition="after">
+  <ng-template matMenuContent let-item="item">
+    <div mat-menu-item class="color-wrapper">
+      <input
+        type="radio"
+        name="color"
+        class="radio-color-picker"
+        id="shift-blue"
+        (change)="changeColor($event, item)"
+      />
+      <label for="shift-blue" class="color-picker-lable">
+        <span class="shift-blue"></span>
+      </label>
+
+      <input
+        type="radio"
+        class="radio-color-picker"
+        id="shift-turquoise"
+        (change)="changeColor($event, item)"
+      />
+      <label for="shift-turquoise" class="color-picker-lable">
+        <span class="shift-turquoise"></span>
+      </label>
+      <input
+        type="radio"
+        class="radio-color-picker"
+        id="shift-yellow"
+        (change)="changeColor($event, item)"
+      />
+      <label for="shift-yellow" class="color-picker-lable">
+        <span class="shift-yellow"></span>
+      </label>
+      <input
+        type="radio"
+        class="radio-color-picker"
+        id="shift-lightorange"
+        (change)="changeColor($event, item)"
+      />
+      <label for="shift-lightorange" class="color-picker-lable">
+        <span class="shift-lightorange"></span>
+      </label>
+      <input
+        type="radio"
+        class="radio-color-picker"
+        id="shift-orange"
+        (change)="changeColor($event, item)"
+      />
+      <label for="shift-orange" class="color-picker-lable">
+        <span class="shift-orange"></span>
+      </label>
+      <img class="coloricon" src="../../../assets/icons/randomwhite.svg" />
+    </div>
+    <div mat-menu-item class="row-wrapper" (click)="un_markOfCourse(item)">
+      <img class="smallicons" src="assets/icons/starwhite.svg" />
+      <p *ngIf="item.ofCourse; then OfCourse; else notOfCourse"></p>
+      <ng-template #notOfCourse>Als OfCourse <br />markieren</ng-template>
+      <ng-template #OfCourse>OfCourse Markierung<br />aufheben</ng-template>
+    </div>
+    <hr />
+    <div mat-menu-item class="row-wrapper" (click)="un_markBookmark(item)">
+      <img class="icons" src="assets/icons/bookmarkwhite.svg" />
+      <p *ngIf="item.bookmark; then Bookmark; else notBookmark"></p>
+      <ng-template #notBookmark>Als Bookmark <br />markieren</ng-template>
+      <ng-template #Bookmark>Bookmark Markierung<br />aufheben</ng-template>
+    </div>
+    <hr />
+    <div mat-menu-item class="row-wrapper" (click)="editItem(item)">
+      <img class="icons" src="assets/icons/editwhite.svg" />
+      <p>Bearbeiten</p>
+    </div>
+    <hr />
+    <div
+      mat-menu-item
+      class="row-wrapper"
+      (click)="changeChartType(item.type, item.type)"
+    >
+      <img class="icons" src="assets/icons/transferwhite.svg" />
+      <p>Übertragen</p>
+    </div>
+    <hr />
+    <div mat-menu-item class="row-wrapper" (click)="deleteItem(item)">
+      <img class="icons" src="assets/icons/deletewhite.svg" />
+      <p>Löschen</p>
+    </div>
+  </ng-template>
+</mat-menu>

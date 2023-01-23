@@ -1,13 +1,30 @@
 <div class="item-box">
   <div #coloredStripe [ngClass]="newItem.color" class="shift-color"></div>
-
   <div class="right-wrapper">
     <div class="counting-label">{{ newItem.number }}.</div>
     <div class="item-text">
       {{ newItem.description }}
     </div>
     <div class="icon-wrapper">
-      <button class="menu" (click)="openMenu($event)">dot</button>
+      <img
+        class="icon-wrapper__star"
+        *ngIf="newItem.ofCourse"
+        src="../../../assets/icons/stargrey.svg"
+      />
+      <img
+        class="icon-wrapper__bookmark"
+        *ngIf="newItem.bookmark"
+        src="../../../assets/icons/bookmarkgrey.svg"
+      />
+      <button
+        class="menu"
+        [matMenuTriggerFor]="x.menu"
+        [matMenuTriggerData]="{ item: newItem }"
+      >
+        <img src="../../../assets/icons/ellispsengrey.svg" />
+      </button>
     </div>
   </div>
 </div>
+
+<app-item-menu #x></app-item-menu>
