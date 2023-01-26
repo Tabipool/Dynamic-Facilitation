@@ -10,6 +10,10 @@ export const updateItemAction = createAction(
   '[Item] Update',
   props<{ item: Item }>()
 );
+export const changeChartTypeItemAction = createAction(
+  '[Item] ChangeChartType',
+  props<{ item: Item; newType: chartType }>()
+);
 export const deleteItemAction = createAction(
   '[Item] Delete',
   props<{ id: number }>()
@@ -105,6 +109,7 @@ export const actions = {
   /*updateOfCourseAction,
   deleteOfCourseAction,*/
   changeBookmarkAction,
+  changeChartTypeItemAction,
   /*updateBookmarkAction,
   deleteBookmarkAction,*/
 };

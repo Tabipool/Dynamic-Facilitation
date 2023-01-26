@@ -2,15 +2,18 @@
 
 ::ng-deep .menu-wrapper {
   background-color: c.$dark-grey;
-  width: 238px;
-  margin-top: 2px;
-  min-height: 302px;
   display: flex;
   flex-direction: column;
   border-radius: 15px !important;
   justify-content: space-around;
   overflow: hidden;
   align-items: stretch;
+}
+
+::ng-deep .big-menu {
+  width: 238px;
+  margin-top: 2px;
+  min-height: 302px;
 }
 
 .color-wrapper {

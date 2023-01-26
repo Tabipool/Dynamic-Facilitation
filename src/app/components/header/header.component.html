@@ -5,9 +5,13 @@
     /></a>
     <button *ngIf="flipchart" class="header__title">
       Titel des Meetings
-      <img class="header__title__dropdown" src="assets/icons/v.svg" />
+      <!--<img class="header__title__dropdown" src="assets/icons/v.svg" />-->
     </button>
-    <button *ngIf="flipchart" class="header__transparentButton">
+    <button
+      *ngIf="flipchart"
+      (click)="goToHomeview()"
+      class="header__transparentButton"
+    >
       <img class="header__icons" src="assets/icons/save.svg" />
     </button>
   </div>
@@ -26,8 +30,22 @@
     >
       <img class="header__icons" src="assets/icons/bookmark.svg" />
     </button>
-    <button class="header__transparentButton">
+    <button
+      class="header__transparentButton"
+      [matMenuTriggerFor]="dropdownMenu"
+    >
       <img class="header__dots" src="assets/icons/ellispsen.svg" />
     </button>
   </div>
 </div>
+
+<mat-menu class="menu-wrapper" #dropdownMenu="matMenu">
+  <div mat-menu-item class="row-wrapper">
+    <img class="smallicons" src="../../../assets/icons/link.svg" /> Link zum
+    Teilen erstellen
+  </div>
+  <div mat-menu-item class="row-wrapper">
+    <img class="smallicons" src="../../../assets/icons/export.svg" />
+    Exportieren
+  </div>
+</mat-menu>

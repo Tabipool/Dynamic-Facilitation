@@ -5,7 +5,22 @@
       {{ newIssue.description }}
     </div>
     <div class="icon-wrapper">
-      <button class="menu">dot</button>
+      <button
+        class="menu"
+        [matMenuTriggerFor]="dropdownMenu"
+        [matMenuTriggerData]="newIssue"
+      >
+        <img class="icons" src="../../../assets/icons/ellispsengrey.svg" />
+      </button>
     </div>
   </div>
 </div>
+
+<mat-menu class="menu-wrapper" #dropdownMenu="matMenu">
+  <ng-template matMenuContent let-newIssue="newIssue">
+    <div mat-menu-item class="row-wrapper" (click)="transferProblem()">
+      <img class="smallicons" src="../../../assets/icons/export.svg" />
+      Als Hauptproblem verwenden
+    </div>
+  </ng-template>
+</mat-menu>

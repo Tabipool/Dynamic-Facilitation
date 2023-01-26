@@ -2,6 +2,7 @@ import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
 import { Moderator } from 'app/state/moderator/moderator.states';
+import { MatMenu } from '@angular/material/menu';
 
 @Component({
   selector: 'app-moderator-detailed',

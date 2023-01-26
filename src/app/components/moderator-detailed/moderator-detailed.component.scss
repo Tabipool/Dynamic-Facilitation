@@ -1,6 +1,6 @@
 @use "styles/colors" as c;
 
-.detailed-wrapper {
+::ng-deep .detailed-wrapper {
   background-color: c.$dark-grey;
   color: white;
   width: 243px;

@@ -10,9 +10,12 @@
   line-height: 31px;
   border-radius: 15px;
   text-align: left;
+  display: flex;
+  align-items: center;
 
   &__icons {
     width: 27.6px;
     height: 24.6px;
+    margin: 10px;
   }
 }

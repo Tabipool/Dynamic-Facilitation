@@ -23,6 +23,10 @@ const itemReducer = createReducer(
     ...state,
     items: updateItemInList(state.items, item),
   })),
+  on(actions.changeChartTypeItemAction, (state, { item, newType }) => ({
+    ...state,
+    items: changeChartType(state.items, item.number, newType),
+  })),
   on(actions.deleteItemAction, (state, { id }) => ({
     ...state,
     items: removeItemFromList(state.items, Number(id)),
@@ -39,7 +43,7 @@ const itemReducer = createReducer(
   }))
 );
 
-function updateItemInList(list: Item[], updatedItem: Item) {
+function updateItemInList(list: Item[], updatedItem: Item): Item[] {
   return list.map((value) => {
     if (value.number === updatedItem.number) {
       return {
@@ -69,7 +73,7 @@ function changeChartType(
     if (value.number === number) {
       return {
         ...value,
-        chartType: newchartType,
+        type: newchartType,
       };
     } else {
       return value;

@@ -18,6 +18,7 @@ import {
   changeBookmarkAction,
   updateItemAction,
   deleteItemAction,
+  changeChartTypeItemAction,
 } from '../../../app/state/Items/item.actions';
 
 @Component({
@@ -34,6 +35,8 @@ export class ItemMenuComponent implements OnInit {
 
   itemList: Observable<Item[]>;
 
+  typeOfChart: typeof chartType = chartType;
+
   ngOnInit(): void {
     this.itemList = this._itemListService.getItemList();
   }
@@ -49,8 +52,12 @@ export class ItemMenuComponent implements OnInit {
   editItem(item: Item) {}
 
   changeChartType(item: Item, newType: chartType) {
-    item.type = newType;
-    this.store.dispatch(updateItemAction({ item: item }));
+    this.store.dispatch(
+      changeChartTypeItemAction({ item: item, newType: newType })
+    );
+    console.log(item);
+    console.log(newType);
+    console.log(this.itemList);
   }
 
   deleteItem(item: Item) {
@@ -58,8 +65,8 @@ export class ItemMenuComponent implements OnInit {
   }
 
   changeColor(e: Event, item: Item) {
-    let updatedItem = item;
-    updatedItem.color = String((e.currentTarget as HTMLInputElement).id);
+    item.color = String((e.currentTarget as HTMLInputElement).id);
+    this.store.dispatch(updateItemAction({ item: item }));
     //if random then execute get random color()
   }
 }

@@ -57,6 +57,7 @@ export class ChartComponent implements OnInit {
     newItem.type = this.chartsType;
 
     this.store.dispatch(addItemAction({ item: newItem }));
+    console.log('hallo');
     console.log(newItem);
 
     this._counterService.increase();

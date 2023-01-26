@@ -1,4 +1,8 @@
-<mat-menu #dropdownMenu="matMenu" class="menu-wrapper" xPosition="after">
+<mat-menu
+  #dropdownMenu="matMenu"
+  class="menu-wrapper big-menu"
+  xPosition="after"
+>
   <ng-template matMenuContent let-item="item">
     <div mat-menu-item class="color-wrapper">
       <input
@@ -72,7 +76,8 @@
     <div
       mat-menu-item
       class="row-wrapper"
-      (click)="changeChartType(item.type, item.type)"
+      [matMenuTriggerFor]="subMenu"
+      [matMenuTriggerData]="{ item: item }"
     >
       <img class="icons" src="assets/icons/transferwhite.svg" />
       <p>Übertragen</p>
@@ -81,6 +86,39 @@
     <div mat-menu-item class="row-wrapper" (click)="deleteItem(item)">
       <img class="icons" src="assets/icons/deletewhite.svg" />
       <p>Löschen</p>
+    </div>
+  </ng-template>
+</mat-menu>
+
+<mat-menu #subMenu="matMenu" class="menu-wrapper">
+  <ng-template matMenuContent let-item="item">
+    <div
+      mat-menu-item
+      class="row-wrapper"
+      (click)="changeChartType(item, typeOfChart.p)"
+    >
+      Problemstellung
+    </div>
+    <div
+      mat-menu-item
+      class="row-wrapper"
+      (click)="changeChartType(item, typeOfChart.i)"
+    >
+      Info, Daten, Sichtweisen
+    </div>
+    <div
+      mat-menu-item
+      class="row-wrapper"
+      (click)="changeChartType(item, typeOfChart.b)"
+    >
+      Bedenken
+    </div>
+    <div
+      mat-menu-item
+      class="row-wrapper"
+      (click)="changeChartType(item, typeOfChart.l)"
+    >
+      Lösungen
     </div>
   </ng-template>
 </mat-menu>

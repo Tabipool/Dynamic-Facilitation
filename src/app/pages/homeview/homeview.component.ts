@@ -20,9 +20,11 @@ export class HomeviewComponent implements OnInit {
   ) {}
 
   public meetings: MeetingHome[];
+  public meetingsMock: MeetingHome[];
   public moderators: Moderator[];
 
   ngOnInit() {
+    this.initializeMockData();
     this.restService.getMeetingsByModerator(1).subscribe(
       (data) => {
         this.meetings = data;
@@ -46,28 +48,32 @@ export class HomeviewComponent implements OnInit {
     this.router.navigate(['/issuecollector']);
   }
 
-  openInput(e: any) {
-    const target = document.querySelector('.moderatorAdd') as HTMLElement;
-    const overlayRef = this.overlay.create({
-      hasBackdrop: true,
-      backdropClass: 'cdk-overlay-transparent-backdrop',
-      panelClass: 'mat-elevation-z8',
-      positionStrategy: this.overlay
-        .position()
-        .flexibleConnectedTo(target)
-        .withPositions([
-          {
-            originX: 'center',
-            originY: 'top',
-            overlayX: 'start',
-            overlayY: 'top',
-            offsetX: 50,
-          },
-        ]),
-    });
-    const inputOverlay = new ComponentPortal(ModeratorDetailedComponent);
-    const componentRef = overlayRef.attach(inputOverlay);
-    overlayRef.backdropClick().subscribe(() => overlayRef.detach());
-    console.log(target);
+  initializeMockData() {
+    this.meetingsMock = [
+      {
+        id: 1,
+        title: 'Klimawandel und seine Auswirkungen',
+        description: 'Besprechung über den Klimawandel',
+        savedate: new Date('2022-08-12'),
+      },
+      {
+        id: 2,
+        title: 'Gleichberechtigung auf der Welt',
+        description: 'Besprechung über Gleichberechtigung',
+        savedate: new Date('2022-10-15'),
+      },
+      {
+        id: 3,
+        title: 'Marketingmethoden',
+        description: 'Besprechung über Marketingmethoden',
+        savedate: new Date('2022-11-03'),
+      },
+      {
+        id: 4,
+        title: 'Wo muss Tierschutz verbessert werden',
+        description: 'Besprechung über den Tierschutz',
+        savedate: new Date('2022-12-12'),
+      },
+    ];
   }
 }
