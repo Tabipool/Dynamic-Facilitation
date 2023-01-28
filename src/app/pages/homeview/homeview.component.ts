@@ -24,7 +24,7 @@ export class HomeviewComponent implements OnInit {
   public moderators: Moderator[];
 
   ngOnInit() {
-    this.initializeMockData();
+    //this.initializeMockData();
     this.restService.getMeetingsByModerator(1).subscribe(
       (data) => {
         this.meetings = data;

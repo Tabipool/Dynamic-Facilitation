@@ -33,8 +33,10 @@
     Moderatoren
   </button>
   <div class="wrapper moderators">
-    <div class="moderatorAdd">
-      <div class="moderatorAdd__plus">+</div>
+    <div class="moderatorAdd" [matMenuTriggerFor]="m.menu" place>
+      <div class="moderatorAdd__plus">
+        <img class="plusIcon" src="assets/icons/pluswhite.svg" />
+      </div>
       <p class="moderatorAdd__title">Neuer Moderator</p>
     </div>
     <app-moderator-homeview
@@ -43,3 +45,5 @@
     ></app-moderator-homeview>
   </div>
 </div>
+
+<app-moderator-detailed #m></app-moderator-detailed>

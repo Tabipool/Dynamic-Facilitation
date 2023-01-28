@@ -63,22 +63,12 @@ export class ChartComponent implements OnInit {
     this._counterService.increase();
   }
 
-  /*drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer != event.container) {
+      event.container.data;
     } else {
-      transferArrayItem(
-        event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
     }
 
     console.log(this.addingItem);
-  }*/
+  }
 }

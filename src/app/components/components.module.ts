@@ -53,6 +53,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeviewButtonComponent,
     HomeviewMeetingComponent,
     ModeratorHomeviewComponent,
+    ModeratorDetailedComponent,
   ],
 })
 export class ComponentsModule {}

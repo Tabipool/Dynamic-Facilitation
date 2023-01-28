@@ -1,5 +1,5 @@
 import { IfStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
 import { Moderator } from 'app/state/moderator/moderator.states';
 import { MatMenu } from '@angular/material/menu';
@@ -10,6 +10,7 @@ import { MatMenu } from '@angular/material/menu';
   styleUrls: ['./moderator-detailed.component.scss'],
 })
 export class ModeratorDetailedComponent implements OnInit {
+  @ViewChild(MatMenu, { read: MatMenu }) menu: MatMenu;
   constructor(private restService: RESTAPIServiceService) {}
 
   ngOnInit(): void {}

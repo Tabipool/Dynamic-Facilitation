@@ -4,6 +4,7 @@
   border-radius: 15px;
   padding: 20px 10px;
   gap: 5px;
+  overflow: hidden;
 
   &__add-button {
     display: flex;
@@ -14,11 +15,17 @@
   &__dropList {
     position: relative;
     margin-top: 15px;
-    height: auto;
+    height: 71vh;
+    overflow: auto;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 5px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
 }
 
 p {

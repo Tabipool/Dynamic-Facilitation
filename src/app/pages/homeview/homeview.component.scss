@@ -46,14 +46,13 @@ hr {
   margin-right: 3%;
   margin-top: 2%;
   &__plus {
-    text-align: center;
-    width: 171px;
-    height: 171px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
     border-radius: 100%;
     background-color: map-get(c.$shift-colors, shift-yellow);
-    color: white;
-    padding: auto;
-    font-size: 77pt;
   }
 
   &__title {
@@ -64,6 +63,11 @@ hr {
     text-align: center;
     margin: 5px;
   }
+}
+
+.plusIcon {
+  height: 71px;
+  width: 71px;
 }
 
 .moderatorAdd:hover {

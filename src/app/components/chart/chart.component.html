@@ -14,9 +14,9 @@
       [counter]="_counterService.getValue()"
     ></app-item-flipchart>
   </ng-container>
-  <div class="charts__dropList" cdkDropList>
+  <div class="charts__dropList" cdkDropList (cdkDropListDropped)="drop($event)">
     <ng-container *ngIf="itemList | async as items">
-      <ng-container *ngFor="let item of items">
+      <ng-container *ngFor="let item of items.slice().reverse()">
         <app-added-item
           *ngIf="item.type == chartsType"
           [newItem]="item"
