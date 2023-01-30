@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Injectable, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlipchartsModule } from 'app/pages/flipcharts';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
 import { ChartStateService } from 'app/state/chart-states/chart-states.service';
 
@@ -10,7 +11,7 @@ import { ChartStateService } from 'app/state/chart-states/chart-states.service';
 })
 export class HeaderComponent {
   constructor(
-    private router: Router,
+    public router: Router,
     public _chartStateService: ChartStateService
   ) {}
 
@@ -25,6 +26,4 @@ export class HeaderComponent {
   ToggleBookmarkChart() {
     this._chartStateService.ToggleBookmarkChart();
   }
-
-  @Input() flipchart: boolean | undefined;
 }

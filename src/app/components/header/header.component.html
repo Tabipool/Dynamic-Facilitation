@@ -3,12 +3,12 @@
     <a (click)="goToHomeview()"
       ><img class="header__logo" src="assets/images/DFLogo.png"
     /></a>
-    <button *ngIf="flipchart" class="header__title">
+    <button *ngIf="router.url.includes('flipcharts')" class="header__title">
       Titel des Meetings
       <!--<img class="header__title__dropdown" src="assets/icons/v.svg" />-->
     </button>
     <button
-      *ngIf="flipchart"
+      *ngIf="router.url.includes('flipcharts')"
       (click)="goToHomeview()"
       class="header__transparentButton"
     >
@@ -17,14 +17,14 @@
   </div>
   <div class="header__right">
     <button
-      *ngIf="flipchart"
+      *ngIf="router.url.includes('flipcharts')"
       (click)="ToggleOfCourseChart()"
       class="header__transparentButton"
     >
       <img class="header__icons" src="assets/icons/star.svg" />
     </button>
     <button
-      *ngIf="flipchart"
+      *ngIf="router.url.includes('flipcharts')"
       (click)="ToggleBookmarkChart()"
       class="header__transparentButton"
     >

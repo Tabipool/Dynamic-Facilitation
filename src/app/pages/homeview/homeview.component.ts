@@ -15,8 +15,7 @@ import { Moderator } from 'app/state/moderator/moderator.states';
 export class HomeviewComponent implements OnInit {
   constructor(
     private router: Router,
-    private restService: RESTAPIServiceService,
-    private overlay: Overlay
+    private restService: RESTAPIServiceService
   ) {}
 
   public meetings: MeetingHome[];

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FlipchartsComponent } from './pages/flipcharts'; //!!
 import { AuthenticationService } from './service/authentication/authentication.service';
 import { CounterService } from './state/counter/counter.service';
 
@@ -20,7 +19,5 @@ export class AppComponent implements OnInit {
 
   isFlipchartview: boolean = false;
 
-  onActivate(e: any) {
-    this.isFlipchartview = e instanceof FlipchartsComponent;
-  }
+  onActivate(e: any) {}
 }
