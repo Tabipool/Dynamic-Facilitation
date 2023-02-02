@@ -200,8 +200,7 @@ StatusCode: 204 NoContext
 StatusCode: 204 NoContext
 ```
 
-**GET api/meetings/items?bookmark** (maybe jenochdem ob mas jett bruchen)
-Get bookmarks of latest meeting of moderator (token)
+**GET api/meetings/items?bookmark** Get bookmarks of latest meeting of moderator (token)
 
 ```json
 [

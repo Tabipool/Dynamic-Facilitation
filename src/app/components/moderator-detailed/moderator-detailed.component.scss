@@ -3,17 +3,22 @@
 ::ng-deep .detailed-wrapper {
   background-color: c.$dark-grey;
   color: white;
-  width: 243px;
-  height: 460px;
+  width: 225px;
+  height: 395px;
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
-  justify-content: space-around;
+  border-radius: 20px;
   overflow: hidden;
-  padding: 10px 15px 60px;
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-top: 0;
 }
 
 .iconButtons {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
   &__detailed-icons {
     width: 23px;
     height: 23px;
@@ -27,4 +32,11 @@
 
 label {
   text-align: left;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+button {
+  border: none;
+  background-color: transparent;
 }

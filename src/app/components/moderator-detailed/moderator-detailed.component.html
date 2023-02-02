@@ -1,36 +1,53 @@
 <mat-menu #dropdownMenu="matMenu" class="detailed-wrapper">
-  <ng-template matMenuContent let-moderator?="moderator">
-    <label for="username">Benutzername:</label>
-    <input type="text" name="username" #username class="inputFields" required />
-    <label for="firstname">Vorname:</label>
-    <input
-      type="text"
-      name="firstname"
-      #firstname
-      class="inputFields"
-      required
-    />
-    <label for="lastname">Nachname:</label>
-    <input type="text" name="lastname" #lastname class="inputFields" required />
-    <label for="password">Passwort festlegen:</label>
-    <input
-      type="password"
-      name="password"
-      #password
-      class="inputFields"
-      required
-    />
-    <label for="checkpw">Passwort bestätigen:</label>
-    <input
-      type="password"
-      name="checkpw"
-      #checkpw
-      class="inputFields"
-      required
-    />
+  <ng-template matMenuContent let-moderator?="moderator" class="item-wrapper">
+    <div (click)="stopPropagation($event)">
+      <label for="username">Benutzername:</label>
+      <input
+        type="text"
+        name="username"
+        #username
+        class="inputFields"
+        required
+      />
+      <label for="firstname">Vorname:</label>
+      <input
+        type="text"
+        name="firstname"
+        #firstname
+        class="inputFields"
+        required
+      />
+      <label for="lastname">Nachname:</label>
+      <input
+        type="text"
+        name="lastname"
+        #lastname
+        class="inputFields"
+        required
+      />
+      <label for="password">Passwort festlegen:</label>
+      <input
+        type="password"
+        name="password"
+        #password
+        class="inputFields"
+        required
+      />
+      <label for="checkpw">Passwort bestätigen:</label>
+      <input
+        type="password"
+        name="checkpw"
+        #checkpw
+        class="inputFields"
+        required
+      />
+    </div>
     <div class="iconButtons">
       <button>
-        <img class="iconButtons__detailed-icons" src="assets/icons/x.svg" />
+        <img
+          class="iconButtons__detailed-icons"
+          src="assets/icons/xwhite.svg"
+        />
       </button>
       <button
         (click)="
@@ -43,7 +60,10 @@
           )
         "
       >
-        <img class="iconButtons__detailed-icons" src="assets/icons/check.svg" />
+        <img
+          class="iconButtons__detailed-icons"
+          src="assets/icons/checkwhite.svg"
+        />
       </button>
     </div>
   </ng-template>

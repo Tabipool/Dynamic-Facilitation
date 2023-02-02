@@ -43,4 +43,8 @@ export class ModeratorDetailedComponent implements OnInit {
       alert('Die Passwörter stimmen nicht überein');
     }
   }
+
+  stopPropagation(event: any) {
+    event.stopPropagation();
+  }
 }

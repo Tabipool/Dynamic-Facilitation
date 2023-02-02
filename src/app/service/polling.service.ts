@@ -15,7 +15,7 @@ export class PollingService {
   constructor(private restService: RESTAPIServiceService) {
     this.allItems$ = timer(0, 5000).pipe(
       switchMap(() => restService.getMeetingById(this.meetingId)), //active meeting
-      retry(),
+      retry(2),
       tap(console.log),
       share(),
       takeUntil(this.stopPolling),
@@ -24,11 +24,6 @@ export class PollingService {
         return of([]);
       })
     );
-
-    /*restService
-      .getMeetingById(this.meetingId)
-      .subscribe((error) => console.log(error));
-    console.log('bye');*/
   }
 
   getAllItems() {
