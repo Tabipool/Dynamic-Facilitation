@@ -7,6 +7,7 @@ import { CounterService } from 'app/state/counter/counter.service';
 import { Issue } from 'app/state/issues/issue.states';
 import { addItemAction } from 'app/state/Items/item.actions';
 import { Item } from 'app/state/Items/item.states';
+import { Observable } from 'rxjs';
 import { chartType } from 'types/chartType';
 
 @Component({
@@ -17,11 +18,20 @@ import { chartType } from 'types/chartType';
 export class AddedIssueComponent implements OnInit {
   @Input() newIssue: Issue;
 
+  itemList: Observable<Item[]>;
+
   editItem: boolean = false;
 
-  constructor(private router: Router, public _counterService: CounterService) {}
+  constructor(
+    private router: Router,
+    public _counterService: CounterService,
+    private _itemListService: ItemListService,
+    private store: Store<State>
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.itemList = this._itemListService.getItemList();
+  }
 
   transferProblem() {
     let newItem = new Item();
@@ -30,10 +40,13 @@ export class AddedIssueComponent implements OnInit {
     newItem.color = 'shift-blue';
     newItem.type = chartType.p;
 
-    //this.store.dispatch(addItemAction({ item: newItem }));
+    this.router.navigate(['/flipcharts']);
+
+    this.store.dispatch(addItemAction({ item: newItem }));
     console.log(newItem);
 
-    //this._counterService.increase();
-    this.router.navigate(['/flipcharts']);
+    this._counterService.increase();
+    console.log(this._itemListService.getItemList());
+    console.log(this.itemList);
   }
 }

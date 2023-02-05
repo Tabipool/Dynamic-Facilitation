@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { State } from 'app/state';
 import { Item } from 'app/state/Items/item.states';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { getItems } from '../state/Items/item.selectors';
 
 @Injectable({
@@ -20,10 +20,14 @@ export class ItemListService {
     this.retrieveListFromStore();
   }
 
-  retrieveListFromStore() {
-    this.store
+  /* retrieveListFromStore() {
+    return this.store
       .select(getItems)
       .subscribe((value) => this.itemListSubject.next(value));
+  }*/
+
+  retrieveListFromStore(): Observable<Item[]> {
+    return this.store.select((appState) => appState.itemList.items);
   }
 
   /*retrieveListFromDataBase() {

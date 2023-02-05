@@ -23,7 +23,7 @@ export class HomeviewComponent implements OnInit {
   public moderators: Moderator[];
 
   ngOnInit() {
-    //this.initializeMockData();
+    this.initializeMockData();
     this.restService.getMeetingsByModerator(1).subscribe(
       (data) => {
         this.meetings = data;
@@ -69,7 +69,7 @@ export class HomeviewComponent implements OnInit {
       },
       {
         id: 4,
-        title: 'Wo muss Tierschutz verbessert werden',
+        title: 'Wie hält man eine gute DigBiz-Award Präsentation?',
         description: 'Besprechung über den Tierschutz',
         savedate: new Date('2022-12-12'),
       },

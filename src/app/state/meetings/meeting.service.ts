@@ -3,9 +3,15 @@ import { MeetingFull } from './meetings.states';
 
 @Injectable()
 export class MeetingService {
-  public meeting = new MeetingFull();
+  public activeMeeting = new MeetingFull();
 
-  public initializeActiveMeeting() {
-    this.meeting.title = 'Neues Meeting';
+  public initializeNewActiveMeeting() {
+    this.activeMeeting.title = 'Neues Meeting';
+  }
+
+  public initializeActiveMeeting(meeting: MeetingFull) {
+    this.activeMeeting.title = meeting.title;
+    this.activeMeeting.description = meeting.description;
+    this.activeMeeting.id = meeting.id;
   }
 }

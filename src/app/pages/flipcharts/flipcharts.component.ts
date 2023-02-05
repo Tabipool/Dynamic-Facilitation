@@ -49,7 +49,7 @@ export class FlipchartsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.itemList = this._itemListService.getItemList();
+    this.itemList = this._itemListService.retrieveListFromStore();
   }
 
   ngOnDestroy(): void {

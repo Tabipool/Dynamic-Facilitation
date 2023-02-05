@@ -44,7 +44,8 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemList = this._itemListService.getItemList();
+    this.itemList = this._itemListService.retrieveListFromStore();
+    console.log('chart init');
   }
 
   cancelSubmit() {

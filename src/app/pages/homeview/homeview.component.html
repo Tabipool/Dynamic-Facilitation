@@ -23,7 +23,7 @@
   </button>
   <div class="wrapper meetings">
     <app-homeview-meeting
-      *ngFor="let data of meetings"
+      *ngFor="let data of meetingsMock.slice().reverse()"
       [meeting]="data"
     ></app-homeview-meeting>
   </div>

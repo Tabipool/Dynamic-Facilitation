@@ -15,6 +15,7 @@ import { ChartStateService } from './state/chart-states/chart-states.service';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers, metaReducers } from './state';
 import { FakeBackendProvider } from './fake-backend.interceptor';
+import { MeetingService } from './state/meetings/meeting.service';
 
 //import { MatMenuModule } from '@angular/material';
 
@@ -38,7 +39,12 @@ import { FakeBackendProvider } from './fake-backend.interceptor';
       },
     }),
   ],
-  providers: [CounterService, ChartStateService, FakeBackendProvider],
+  providers: [
+    CounterService,
+    ChartStateService,
+    FakeBackendProvider,
+    MeetingService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
