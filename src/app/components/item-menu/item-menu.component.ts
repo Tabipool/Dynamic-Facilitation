@@ -1,9 +1,11 @@
 import {
   Component,
+  EventEmitter,
   HostBinding,
   HostListener,
   Input,
   OnInit,
+  Output,
   ViewChild,
 } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
@@ -28,6 +30,7 @@ import {
 })
 export class ItemMenuComponent implements OnInit {
   @ViewChild(MatMenu, { read: MatMenu }) menu: MatMenu;
+  @Output() editItemEvent = new EventEmitter<string>();
   constructor(
     private _itemListService: ItemListService,
     private store: Store<State>
@@ -49,11 +52,14 @@ export class ItemMenuComponent implements OnInit {
     this.store.dispatch(changeBookmarkAction({ item: item }));
   }
 
-  editItem(item: Item) {}
+  editItem() {
+    console.log('edit');
+    this.editItemEvent.emit();
+  }
 
   changeChartType(item: Item, newType: chartType) {
     this.store.dispatch(
-      changeChartTypeItemAction({ item: item, newType: newType })
+      changeChartTypeItemAction({ number: item.number, newType: newType })
     );
     console.log(item);
     console.log(newType);

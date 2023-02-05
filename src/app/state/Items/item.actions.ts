@@ -12,7 +12,7 @@ export const updateItemAction = createAction(
 );
 export const changeChartTypeItemAction = createAction(
   '[Item] ChangeChartType',
-  props<{ item: Item; newType: chartType }>()
+  props<{ number: number; newType: chartType }>()
 );
 export const deleteItemAction = createAction(
   '[Item] Delete',

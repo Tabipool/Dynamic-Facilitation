@@ -1,6 +1,13 @@
 import { style } from '@angular/animations';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Item } from '../../state/Items/item.states';
 import { ItemMenuComponent } from '../item-menu/item-menu.component';
 
@@ -11,14 +18,18 @@ import { ItemMenuComponent } from '../item-menu/item-menu.component';
 })
 export class AddedItemComponent implements OnInit {
   @Input() newItem: Item = new Item();
+  @Output() Item: Item = this.newItem;
   @ViewChild('coloredStripe') shiftColor: ElementRef<HTMLDivElement>;
   @ViewChild(ItemMenuComponent) itemMenu: ItemMenuComponent;
+  @ViewChild('editInput') editInput: ElementRef;
 
-  editItem: boolean = false;
+  editItemStatus: boolean = false;
 
   color: string = this.newItem.color;
 
-  constructor() {}
+  constructor() {
+    console.log(this.editItemStatus);
+  }
 
   ngOnInit(): void {}
 
@@ -28,5 +39,12 @@ export class AddedItemComponent implements OnInit {
       this.newItem.color.toString()
     );
     console.log(this.newItem.color);
+  }
+
+  editItem() {
+    this.editItemStatus = true;
+    const inputField = this.editInput.nativeElement;
+    inputField.select();
+    console.log(inputField);
   }
 }

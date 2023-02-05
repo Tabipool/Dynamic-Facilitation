@@ -9,7 +9,10 @@ import { CounterService } from '../../state/counter/counter.service';
 import { chartType } from '../../../types/chartType';
 import { Store } from '@ngrx/store';
 import { State } from 'app/state';
-import { addItemAction } from '../../../app/state/Items/item.actions';
+import {
+  addItemAction,
+  changeChartTypeItemAction,
+} from '../../../app/state/Items/item.actions';
 import { Observable } from 'rxjs';
 import { ItemListService } from 'app/service/item-list.service';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
@@ -64,11 +67,18 @@ export class ChartComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    let itemNumber: number = +event.item.element.nativeElement
+      .getElementsByClassName('counting-label')[0]
+      .innerHTML.replace('.', '');
     if (event.previousContainer != event.container) {
-      event.container.data;
+      console.log(itemNumber);
+      this.store.dispatch(
+        changeChartTypeItemAction({
+          number: itemNumber,
+          newType: this.chartsType,
+        })
+      );
     } else {
     }
-
-    console.log(this.addingItem);
   }
 }

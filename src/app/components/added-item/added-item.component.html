@@ -2,9 +2,15 @@
   <div #coloredStripe [ngClass]="newItem.color" class="shift-color"></div>
   <div class="right-wrapper">
     <div class="counting-label">{{ newItem.number }}.</div>
-    <div class="item-text">
+    <div #test *ngIf="!editItemStatus" class="item-text">
       {{ newItem.description }}
     </div>
+    <input
+      #editInput
+      [hidden]="!editItemStatus"
+      [value]="newItem.description"
+      type="text"
+    />
     <div class="icon-wrapper">
       <img
         class="icon-wrapper__star"
@@ -27,4 +33,4 @@
   </div>
 </div>
 
-<app-item-menu #x></app-item-menu>
+<app-item-menu #x (editItemEvent)="editItem()"></app-item-menu>

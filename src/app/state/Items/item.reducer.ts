@@ -23,9 +23,9 @@ const itemReducer = createReducer(
     ...state,
     items: updateItemInList(state.items, item),
   })),
-  on(actions.changeChartTypeItemAction, (state, { item, newType }) => ({
+  on(actions.changeChartTypeItemAction, (state, { number, newType }) => ({
     ...state,
-    items: changeChartType(state.items, item.number, newType),
+    items: changeChartType(state.items, number, newType),
   })),
   on(actions.deleteItemAction, (state, { id }) => ({
     ...state,
