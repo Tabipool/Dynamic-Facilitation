@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SignInData } from 'app/state/signInData';
+import { UserModel } from 'app/service/authentication/signInData';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  loginUser: any = {
+    username: '',
+    password: '',
+  };
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router
@@ -17,9 +22,23 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmit(signInForm: NgForm) {
-    if (signInForm.invalid) {
-      console.log('help');
+  onSubmit() {
+    let authFlow = this.authenticationService
+      .authenticate(this.loginUser)
+      .pipe(switchMap(() => this.authenticationService.profile()));
+
+    authFlow.subscribe({
+      next: (user: UserModel) => {
+        this.authenticationService.saveUserToLocalStorage(user);
+        console.log(user);
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+
+    /*if (signInForm.invalid) {
+      alert('Überprüfen Sie Ihre Eingabe.');
     }
     const signInData = new SignInData(
       signInForm.value.username,
@@ -29,6 +48,6 @@ export class LoginComponent implements OnInit {
       .Authenticate(signInData)
       .subscribe((response) => {
         this.router.navigate(['/home']);
-      });
+      });*/
   }
 }

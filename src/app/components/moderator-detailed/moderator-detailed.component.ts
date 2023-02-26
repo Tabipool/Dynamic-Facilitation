@@ -22,7 +22,8 @@ export class ModeratorDetailedComponent implements OnInit {
     firstname: string,
     lastname: string,
     password: string,
-    checkpw: string
+    checkpw: string,
+    event: any
   ) {
     if (
       password == checkpw &&
@@ -39,8 +40,12 @@ export class ModeratorDetailedComponent implements OnInit {
       this.restService
         .postModerator(this.newModerator) //.subscribe(moderator => this.moderators.push(moderator))
         .subscribe((error) => console.log(error));
-    } else {
+    } else if (password != checkpw) {
       alert('Die Passwörter stimmen nicht überein');
+      this.stopPropagation(event);
+    } else {
+      alert('Bitte überprüfen Sie Ihre Eingabe.');
+      this.stopPropagation(event);
     }
   }
 

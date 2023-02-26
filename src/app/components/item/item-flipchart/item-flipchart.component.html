@@ -26,7 +26,7 @@
         id="shift-blue"
         class="radio-color-picker"
         #shiftBlue
-        checked
+        [checked]="_colorService.checkColor('shift-blue')"
         (change)="changeColor($event)"
       />
       <label for="shift-blue" class="color-picker-lable"
@@ -38,6 +38,7 @@
         name="color"
         id="shift-turquoise"
         class="radio-color-picker"
+        [checked]="_colorService.checkColor('shift-turquoise')"
         (change)="changeColor($event)"
       />
       <label for="shift-turquoise" class="color-picker-lable"
@@ -49,6 +50,7 @@
         name="color"
         id="shift-orange"
         class="radio-color-picker"
+        [checked]="_colorService.checkColor('shift-orange')"
         (change)="changeColor($event)"
       />
       <label for="shift-orange" class="color-picker-lable"
@@ -60,6 +62,7 @@
         name="color"
         id="shift-yellow"
         class="radio-color-picker"
+        [checked]="_colorService.checkColor('shift-yellow')"
         (change)="changeColor($event)"
       />
       <label for="shift-yellow" class="color-picker-lable"

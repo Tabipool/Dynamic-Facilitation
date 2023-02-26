@@ -4,13 +4,18 @@ body {
   background-color: c.$main-background;
 }
 
+.toggle.collapsed .toggle__icons {
+  transform: rotate(-90deg);
+  transition-duration: 0.3s;
+}
+
 .homeviewWrapper {
   padding: 20px;
   padding-top: 2%;
   overflow: hidden;
 }
 
-.collapsible {
+.toggle {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,6 +31,8 @@ body {
     width: 25px;
     height: 13px;
     margin-right: 20px;
+    transform: rotate(0deg);
+    transition-duration: 0.3s;
   }
 }
 

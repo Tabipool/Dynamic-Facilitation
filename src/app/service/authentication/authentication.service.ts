@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { faLeaf } from '@fortawesome/free-solid-svg-icons';
-import { SignInData } from 'app/state/signInData';
-import { BehaviorSubject } from 'rxjs';
+import { UserModel } from 'app/service/authentication/signInData';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { RESTAPIServiceService } from '../restapiservice.service';
 
@@ -9,35 +9,46 @@ import { RESTAPIServiceService } from '../restapiservice.service';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private _isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  isLoggedIn$ = this._isLoggedIn$.asObservable();
+  userProfile: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>({
+    id: 0,
+    username: '',
+    name: '',
+    lastname: '',
+    picturePath: new URL(''),
+    admin: false,
+  });
 
-  constructor(private apiService: RESTAPIServiceService) {
-    const token = localStorage.getItem('auth');
-    this._isLoggedIn$.next(!!token);
+  constructor(private apiService: RESTAPIServiceService) {}
+
+  authenticate(signInData: any) {
+    return this.apiService.login(signInData.username, signInData.password);
   }
 
-  Authenticate(signInData: SignInData) {
-    return this.apiService
-      .login(signInData.getUsername(), signInData.getPassword())
-      .pipe(
-        tap((response: any) => {
-          localStorage.setItem('auth', response.token);
-        })
-      );
+  refreshCookie() {
+    return this.apiService.refresh();
+  }
 
-    /*if (this.CheckCredentials(signInData)) {
-      this.isAuthenticated = true;
-      return true;
+  logout() {
+    return this.apiService.logout();
+  }
+
+  profile(): Observable<UserModel> {
+    return this.apiService.getUser();
+  }
+
+  saveUserToLocalStorage(user: UserModel) {
+    this.userProfile.next(user);
+    localStorage.setItem('user-profile', JSON.stringify(user));
+  }
+
+  loadUserFromLocalStorage(): UserModel {
+    if (this.userProfile.value.id == 0) {
+      let fromLocalStorage = localStorage.getItem('user-profile');
+      if (fromLocalStorage) {
+        let userInfo = JSON.parse(fromLocalStorage);
+        this.userProfile.next(userInfo);
+      }
     }
-    this.isAuthenticated = false;
-    return false;
-  }
-
-  private CheckCredentials(signInData: SignInData): boolean {
-    return (
-      signInData.getEmail() == this.mockedUser.getEmail() &&
-      signInData.getPassword() == this.mockedUser.getPassword()
-    );*/
+    return this.userProfile.value;
   }
 }

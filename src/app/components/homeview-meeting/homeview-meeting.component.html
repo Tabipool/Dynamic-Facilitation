@@ -1,8 +1,22 @@
 <div class="wrapper" (click)="openMeeting()">
   <div class="wrapper__upper">{{ meeting.title }}</div>
   <div class="wrapper__lower">
-    <p>25. Nov 2022</p>
+    <p>01. Feb 2022</p>
     <!--<p>{{ meeting.savedate }}</p>-->
-    <button><img src="../../../assets/icons/ellispsengrey.svg" /></button>
+    <button [matMenuTriggerFor]="dropDownMenu">
+      <img src="../../../assets/icons/ellispsengrey.svg" />
+    </button>
   </div>
 </div>
+
+<mat-menu #dropDownMenu="matMenu">
+  <ng-template matMenuContent let-meeting="meeting">
+    <div mat-menu-item><img src="../../../assets/icons/open.svg" />Öffnen</div>
+    <div mat-menu-item>
+      <img src="../../../assets/icons/export.svg" />Exportieren
+    </div>
+    <div mat-menu-item>
+      <img src="../../../assets/icons/delete.svg" />Löschen
+    </div>
+  </ng-template>
+</mat-menu>

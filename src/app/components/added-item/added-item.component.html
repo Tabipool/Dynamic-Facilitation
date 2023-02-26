@@ -5,12 +5,15 @@
     <div #test *ngIf="!editItemStatus" class="item-text">
       {{ newItem.description }}
     </div>
-    <input
+    <textarea
       #editInput
+      class="inputField"
+      (blur)="saveChanges()"
       [hidden]="!editItemStatus"
       [value]="newItem.description"
-      type="text"
-    />
+      type="texarea"
+      oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+    ></textarea>
     <div class="icon-wrapper">
       <img
         class="icon-wrapper__star"

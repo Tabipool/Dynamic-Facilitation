@@ -18,4 +18,10 @@
     height: 24.6px;
     margin: 10px;
   }
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #02a399;
+  transition: ease-in-out;
 }

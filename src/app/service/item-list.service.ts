@@ -10,6 +10,7 @@ import { getItems } from '../state/Items/item.selectors';
 })
 export class ItemListService {
   private itemListSubject: Subject<Item[]> = new Subject<Item[]>();
+  private mockInitialized: boolean = false;
 
   constructor(
     /*private storageService: StorageService,
@@ -28,6 +29,14 @@ export class ItemListService {
 
   retrieveListFromStore(): Observable<Item[]> {
     return this.store.select((appState) => appState.itemList.items);
+  }
+
+  getMockInitializedBool() {
+    return this.mockInitialized;
+  }
+
+  initializeMock() {
+    this.mockInitialized = true;
   }
 
   /*retrieveListFromDataBase() {

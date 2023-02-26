@@ -23,6 +23,13 @@
     justify-content: space-between;
     align-content: center;
   }
+
+  transition: all 0.2s ease;
+}
+
+.wrapper:hover {
+  background-color: #f7f7f7;
+  cursor: pointer;
 }
 
 button {

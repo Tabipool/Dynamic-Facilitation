@@ -16,6 +16,8 @@ import {
 import { Observable } from 'rxjs';
 import { ItemListService } from 'app/service/item-list.service';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
+import { RESTAPIServiceService } from 'app/service/restapiservice.service';
+import { MeetingService } from 'app/state/meetings/meeting.service';
 
 @Component({
   selector: 'app-chart',
@@ -27,7 +29,9 @@ export class ChartComponent implements OnInit {
     public _counterService: CounterService,
     private _itemListService: ItemListService,
     private store: Store<State>,
-    public authenticationService: AuthenticationService
+    public authenticationService: AuthenticationService,
+    public _restApiService: RESTAPIServiceService,
+    private _meetingService: MeetingService
   ) {}
   addingItem: boolean = false;
 
@@ -61,8 +65,9 @@ export class ChartComponent implements OnInit {
     newItem.type = this.chartsType;
 
     this.store.dispatch(addItemAction({ item: newItem }));
-    console.log('hallo');
-    console.log(newItem);
+    this._restApiService
+      .postItem(newItem, this._meetingService.activeMeeting.id)
+      .subscribe((error) => console.log(error));
 
     this._counterService.increase();
   }

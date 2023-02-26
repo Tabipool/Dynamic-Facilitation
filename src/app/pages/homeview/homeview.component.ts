@@ -6,6 +6,9 @@ import { ModeratorDetailedComponent } from 'app/components/moderator-detailed/mo
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
 import { MeetingHome } from 'app/state/meetings/meetings.states';
 import { Moderator } from 'app/state/moderator/moderator.states';
+import { MeetingService } from 'app/state/meetings/meeting.service';
+import { AuthenticationService } from 'app/service/authentication/authentication.service';
+import { UserModel } from 'app/service/authentication/signInData';
 
 @Component({
   selector: 'app-homeview',
@@ -15,14 +18,20 @@ import { Moderator } from 'app/state/moderator/moderator.states';
 export class HomeviewComponent implements OnInit {
   constructor(
     private router: Router,
-    private restService: RESTAPIServiceService
+    private restService: RESTAPIServiceService,
+    private _meetingService: MeetingService,
+    private auth: AuthenticationService
   ) {}
 
   public meetings: MeetingHome[];
   public meetingsMock: MeetingHome[];
   public moderators: Moderator[];
+  userInfo?: UserModel;
 
   ngOnInit() {
+    this.auth.userProfile.subscribe((data) => {
+      this.userInfo = data;
+    });
     this.initializeMockData();
     this.restService.getMeetingsByModerator(1).subscribe(
       (data) => {
@@ -31,6 +40,7 @@ export class HomeviewComponent implements OnInit {
       (error) => console.log(error)
     );
 
+    //if admin
     this.restService.getModerators().subscribe(
       (data) => {
         this.moderators = data;
@@ -40,6 +50,11 @@ export class HomeviewComponent implements OnInit {
   }
 
   newSession() {
+    this.restService
+      .postMeeting(this._meetingService.activeMeeting)
+      .subscribe((data) => {
+        this._meetingService.initializeActiveMeeting(data);
+      });
     this.router.navigate(['/flipcharts']);
   }
 
@@ -69,7 +84,25 @@ export class HomeviewComponent implements OnInit {
       },
       {
         id: 4,
-        title: 'Wie hält man eine gute DigBiz-Award Präsentation?',
+        title: 'Was ist Dynamic Facilitation?',
+        description: 'Besprechung über den Tierschutz',
+        savedate: new Date('2022-12-12'),
+      },
+      {
+        id: 5,
+        title: 'Das AIDA-Prinzip',
+        description: 'Besprechung über den Tierschutz',
+        savedate: new Date('2022-12-12'),
+      },
+      {
+        id: 6,
+        title: 'Was macht einen guten Moderator aus?',
+        description: 'Besprechung über den Tierschutz',
+        savedate: new Date('2022-12-12'),
+      },
+      {
+        id: 7,
+        title: 'DigBiz-Award Präsentation',
         description: 'Besprechung über den Tierschutz',
         savedate: new Date('2022-12-12'),
       },

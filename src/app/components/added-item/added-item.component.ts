@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
 import { ComponentPortal } from '@angular/cdk/portal';
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
@@ -8,6 +9,11 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { RESTAPIServiceService } from 'app/service/restapiservice.service';
+import { State } from 'app/state';
+import { updateItemAction } from 'app/state/Items/item.actions';
+import { MeetingService } from 'app/state/meetings/meeting.service';
 import { Item } from '../../state/Items/item.states';
 import { ItemMenuComponent } from '../item-menu/item-menu.component';
 
@@ -27,7 +33,12 @@ export class AddedItemComponent implements OnInit {
 
   color: string = this.newItem.color;
 
-  constructor() {
+  constructor(
+    private cdRef: ChangeDetectorRef,
+    private store: Store<State>,
+    private _restApiService: RESTAPIServiceService,
+    private _meetingService: MeetingService
+  ) {
     console.log(this.editItemStatus);
   }
 
@@ -43,8 +54,32 @@ export class AddedItemComponent implements OnInit {
 
   editItem() {
     this.editItemStatus = true;
-    const inputField = this.editInput.nativeElement;
-    inputField.select();
-    console.log(inputField);
+    this.cdRef.detectChanges();
+    let inputField = this.editInput.nativeElement;
+
+    setTimeout(function () {
+      inputField.focus();
+    }, 100);
+  }
+
+  saveChanges() {
+    if (this.editInput.nativeElement.value.trim() != '') {
+      this.editItemStatus = false;
+
+      let updatedItem: Item = {
+        number: this.newItem.number,
+        description: this.editInput.nativeElement.value,
+        color: this.newItem.color,
+        type: this.newItem.type,
+        bookmark: this.newItem.bookmark,
+        ofCourse: this.newItem.ofCourse,
+      };
+      this._restApiService
+        .putItem(updatedItem, this._meetingService.activeMeeting.id)
+        .subscribe((error) => console.log(error));
+      this.store.dispatch(updateItemAction({ item: updatedItem }));
+    } else {
+      this.editInput.nativeElement.focus();
+    }
   }
 }

@@ -15,4 +15,8 @@ export class CounterService {
   public getValue(): number {
     return this.counter;
   }
+
+  public setCounter(number: number) {
+    this.counter = number;
+  }
 }

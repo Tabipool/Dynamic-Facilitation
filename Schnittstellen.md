@@ -2,7 +2,7 @@
 
 # Auth Routes
 
-**POST api/login**
+**POST api/token**
 
 ```json
 {
@@ -23,7 +23,7 @@ des mit den roles isch damit ma identifizieren kann obs an admin isch oda ned un
 https://www.toptal.com/angular/angular-6-jwt-authentication
 https://www.syncfusion.com/blogs/post/best-practices-for-jwt-authentication-in-angular-apps.aspx
 
-**POST api/refresh** frontend sends refresh Token and server returns new jwt/access token or throw authorisation error
+**POST api/token/refresh** frontend sends refresh Token and server returns new jwt/access token or throw authorisation error
 
 # Moderator
 
@@ -186,6 +186,12 @@ StatusCode: 200 OK
   "bookmark": false,
   "ofcourse": false
 }
+```
+
+**DELETE api/meetings/{idmeeting}** Deletes given meeting (with all items)
+
+```diff
+StatusCode: 204 NoContext
 ```
 
 **DELETE api/meetings/{idmeeting}** Deletes given meeting (with all items)

@@ -1,4 +1,4 @@
-<mat-menu #dropdownMenu="matMenu" class="detailed-wrapper">
+<mat-menu #dropdownMenu="matMenu" class="detailed-wrapper" xPosition="after">
   <ng-template matMenuContent let-moderator?="moderator" class="item-wrapper">
     <div (click)="stopPropagation($event)">
       <label for="username">Benutzername:</label>
@@ -56,7 +56,8 @@
             firstname.value,
             lastname.value,
             password.value,
-            checkpw.value
+            checkpw.value,
+            $event
           )
         "
       >

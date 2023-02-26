@@ -3,10 +3,22 @@
     <a (click)="goToHomeview()"
       ><img class="header__logo" src="assets/images/DFLogo.png"
     /></a>
-    <button *ngIf="router.url.includes('flipcharts')" class="header__title">
-      Titel des Meetings
-      <!--<img class="header__title__dropdown" src="assets/icons/v.svg" />-->
+    <button
+      [hidden]="editTitleState"
+      *ngIf="router.url.includes('flipcharts')"
+      (click)="editTitle()"
+      class="header__title"
+    >
+      {{ activeMeeting.title }}
     </button>
+    <input
+      #editInput
+      class="header__title input"
+      (blur)="saveChanges()"
+      [hidden]="!editTitleState"
+      [value]="activeMeeting.title"
+      type="text"
+    />
     <button
       *ngIf="router.url.includes('flipcharts')"
       (click)="goToHomeview()"

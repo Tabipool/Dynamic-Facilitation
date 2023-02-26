@@ -12,10 +12,13 @@ import { StoreModule } from '@ngrx/store';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CounterService } from './state/counter/counter.service';
 import { ChartStateService } from './state/chart-states/chart-states.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { reducers, metaReducers } from './state';
 import { FakeBackendProvider } from './fake-backend.interceptor';
 import { MeetingService } from './state/meetings/meeting.service';
+import { ColorService } from './state/color-state/color-state.service';
+import { AuthGuard } from './service/authentication/auth-guard';
+import { AuthInterceptor } from './service/authentication/auth.interceptor';
 
 //import { MatMenuModule } from '@angular/material';
 
@@ -44,6 +47,13 @@ import { MeetingService } from './state/meetings/meeting.service';
     ChartStateService,
     FakeBackendProvider,
     MeetingService,
+    ColorService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

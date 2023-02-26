@@ -4,6 +4,7 @@ import { Item } from '../state/Items/item.states';
 import { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';
 import { catchError, Observable } from 'rxjs';
 import { Moderator } from 'app/state/moderator/moderator.states';
+import { UserModel } from './authentication/signInData';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +15,29 @@ export class RESTAPIServiceService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
-    return this.http.post('/login', { username, password });
+    return this.http.post(
+      this.baseUrl + '/login',
+      { username, password },
+      { withCredentials: true }
+    );
+  }
+
+  getUser() {
+    return this.http.get<UserModel>('http://localhost:3000/user-profile', {
+      withCredentials: true,
+    });
+  }
+
+  refresh() {
+    return this.http.get('http://localhost:3000/refresh', {
+      withCredentials: true,
+    });
   }
 
   logout() {
-    //delete
+    return this.http.get('http://localhost:3000/logout', {
+      withCredentials: true,
+    });
   }
 
   //Meetings
@@ -41,10 +60,31 @@ export class RESTAPIServiceService {
     return this.http.post<any>(this.baseUrl + '/meetings/', meeting);
   }
 
+  putMeeting(meeting: MeetingFull): Observable<any> {
+    //full?
+    return this.http.put<any>(
+      this.baseUrl + '/meetings/' + meeting.id,
+      meeting
+    );
+  }
+
   postItem(item: Item, idmeeting: number): Observable<any> {
     return this.http.post<any>(
       this.baseUrl + '/meetings/' + idmeeting + '/items/',
       item
+    );
+  }
+
+  putItem(item: Item, idmeeting: number): Observable<any> {
+    return this.http.put<any>(
+      this.baseUrl + '/meetings/' + idmeeting + '/items/',
+      item
+    );
+  }
+
+  deleteItem(itemId: number, idmeeting: number): Observable<any> {
+    return this.http.delete<any>(
+      this.baseUrl + '/meetings/' + idmeeting + '/items/' + itemId
     );
   }
 

@@ -1,6 +1,6 @@
 <div class="login-wrapper">
   <div class="card-body">
-    <form (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #signInForm="ngForm">
       <div class="form-floating">
         <input
           type="text"
@@ -10,7 +10,7 @@
           placeholder="Benutzername"
           autocomplete="off"
           required
-          ngModel
+          [(ngModel)]="loginUser.username"
         />
         <label for="floatingInput">Benutzername</label>
       </div>
@@ -23,7 +23,7 @@
           id="floatingPassword"
           placeholder="Password"
           required
-          ngModel
+          [(ngModel)]="loginUser.password"
         />
         <label for="floatingPassword">Password</label>
       </div>
