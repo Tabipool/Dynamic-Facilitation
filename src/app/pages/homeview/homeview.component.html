@@ -44,29 +44,31 @@
       ></app-homeview-meeting>
     </div>
   </div>
-  <hr />
-  <button
-    class="toggle"
-    data-bs-toggle="collapse"
-    data-bs-target="#moderatorsCol"
-    aria-expanded="true"
-    aria-controls="moderatorsCol"
-  >
-    <img class="toggle__icons" src="assets/icons/v.svg" />
-    Moderatoren
-  </button>
-  <div id="moderatorsCol" class="collapse show">
-    <div class="wrapper moderators">
-      <div class="moderatorAdd" [matMenuTriggerFor]="m.menu" place>
-        <div class="moderatorAdd__plus">
-          <img class="plusIcon" src="assets/icons/pluswhite.svg" />
+  <div *ngIf="userInfo?.admin == true">
+    <hr />
+    <button
+      class="toggle"
+      data-bs-toggle="collapse"
+      data-bs-target="#moderatorsCol"
+      aria-expanded="true"
+      aria-controls="moderatorsCol"
+    >
+      <img class="toggle__icons" src="assets/icons/v.svg" />
+      Moderatoren
+    </button>
+    <div id="moderatorsCol" class="collapse show">
+      <div class="wrapper moderators">
+        <div class="moderatorAdd" [matMenuTriggerFor]="m.menu" place>
+          <div class="moderatorAdd__plus">
+            <img class="plusIcon" src="assets/icons/pluswhite.svg" />
+          </div>
+          <p class="moderatorAdd__title">Neuer Moderator</p>
         </div>
-        <p class="moderatorAdd__title">Neuer Moderator</p>
+        <app-moderator-homeview
+          *ngFor="let data of moderators"
+          [moderator]="data"
+        ></app-moderator-homeview>
       </div>
-      <app-moderator-homeview
-        *ngFor="let data of moderators"
-        [moderator]="data"
-      ></app-moderator-homeview>
     </div>
   </div>
 </div>

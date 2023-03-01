@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { faLeaf } from '@fortawesome/free-solid-svg-icons';
 import { UserModel } from 'app/service/authentication/signInData';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { RESTAPIServiceService } from '../restapiservice.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   userProfile: BehaviorSubject<UserModel> = new BehaviorSubject<UserModel>({
-    id: 0,
+    acc_id: 0,
     username: '',
     name: '',
     lastname: '',
-    picturePath: new URL(''),
+    picturePath: '',
     admin: false,
   });
 
@@ -42,7 +41,7 @@ export class AuthenticationService {
   }
 
   loadUserFromLocalStorage(): UserModel {
-    if (this.userProfile.value.id == 0) {
+    if (this.userProfile.value.acc_id == 0) {
       let fromLocalStorage = localStorage.getItem('user-profile');
       if (fromLocalStorage) {
         let userInfo = JSON.parse(fromLocalStorage);

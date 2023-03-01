@@ -10,32 +10,36 @@ import { UserModel } from './authentication/signInData';
   providedIn: 'root',
 })
 export class RESTAPIServiceService {
-  public baseUrl = 'http://localhost:8000';
+  public baseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string) {
+    let bodyStr = JSON.stringify({ username, password });
+    console.log(bodyStr);
     return this.http.post(
-      this.baseUrl + '/login',
+      this.baseUrl + '/token/',
       { username, password },
-      { withCredentials: true }
+      {
+        withCredentials: true,
+      }
     );
   }
 
   getUser() {
-    return this.http.get<UserModel>('http://localhost:3000/user-profile', {
+    return this.http.get<UserModel>(this.baseUrl + '/moderators/activeuser', {
       withCredentials: true,
     });
   }
 
   refresh() {
-    return this.http.get('http://localhost:3000/refresh', {
+    return this.http.get(this.baseUrl + '/token/refresh/', {
       withCredentials: true,
     });
   }
 
   logout() {
-    return this.http.get('http://localhost:3000/logout', {
+    return this.http.get(this.baseUrl + '/logout', {
       withCredentials: true,
     });
   }

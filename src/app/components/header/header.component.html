@@ -24,7 +24,11 @@
       (click)="goToHomeview()"
       class="header__transparentButton"
     >
-      <img class="header__icons" src="assets/icons/save.svg" />
+      <img
+        class="header__icons"
+        src="assets/icons/save.svg"
+        *ngIf="userInfo?.acc_id != 0"
+      />
     </button>
   </div>
   <div class="header__right">

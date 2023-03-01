@@ -19,6 +19,7 @@ import { MeetingService } from './state/meetings/meeting.service';
 import { ColorService } from './state/color-state/color-state.service';
 import { AuthGuard } from './service/authentication/auth-guard';
 import { AuthInterceptor } from './service/authentication/auth.interceptor';
+import { CookieService } from 'ngx-cookie-service';
 
 //import { MatMenuModule } from '@angular/material';
 
@@ -54,6 +55,7 @@ import { AuthInterceptor } from './service/authentication/auth.interceptor';
       useClass: AuthInterceptor,
       multi: true,
     },
+    CookieService,
   ],
   bootstrap: [AppComponent],
 })

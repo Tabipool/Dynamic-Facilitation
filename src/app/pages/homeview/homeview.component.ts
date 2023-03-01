@@ -33,20 +33,21 @@ export class HomeviewComponent implements OnInit {
       this.userInfo = data;
     });
     this.initializeMockData();
-    this.restService.getMeetingsByModerator(1).subscribe(
+    this.restService.getMeetingsByModerator(this.userInfo?.acc_id!).subscribe(
       (data) => {
         this.meetings = data;
       },
       (error) => console.log(error)
     );
 
-    //if admin
-    this.restService.getModerators().subscribe(
-      (data) => {
-        this.moderators = data;
-      },
-      (error) => console.log(error)
-    );
+    if (this.userInfo?.admin == true) {
+      this.restService.getModerators().subscribe(
+        (data) => {
+          this.moderators = data;
+        },
+        (error) => console.log(error)
+      );
+    }
   }
 
   newSession() {

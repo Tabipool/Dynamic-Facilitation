@@ -10,6 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { FlipchartsModule } from 'app/pages/flipcharts';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
+import { UserModel } from 'app/service/authentication/signInData';
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
 import { ChartStateService } from 'app/state/chart-states/chart-states.service';
 import { MeetingService } from 'app/state/meetings/meeting.service';
@@ -20,30 +21,41 @@ import { MeetingFull } from 'app/state/meetings/meetings.states';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   constructor(
     private cdRef: ChangeDetectorRef,
     public router: Router,
     public _chartStateService: ChartStateService,
     public _activeMeeting: MeetingService,
-    private _restApiService: RESTAPIServiceService
+    private _restApiService: RESTAPIServiceService,
+    private auth: AuthenticationService
   ) {}
 
   @ViewChild('editInput') editInput: ElementRef;
+
+  userInfo?: UserModel;
 
   public activeMeeting: MeetingFull = this._activeMeeting.getActiveMeeting();
 
   public editTitleState: boolean = false;
 
+  ngOnInit() {
+    this.auth.userProfile.subscribe((data) => {
+      this.userInfo = data;
+    });
+  }
+
   editTitle() {
-    this.editTitleState = true;
+    if (this.userInfo?.acc_id != 0) {
+      this.editTitleState = true;
 
-    this.cdRef.detectChanges();
-    let inputField = this.editInput.nativeElement;
+      this.cdRef.detectChanges();
+      let inputField = this.editInput.nativeElement;
 
-    setTimeout(function () {
-      inputField.focus();
-    }, 100);
+      setTimeout(function () {
+        inputField.focus();
+      }, 100);
+    }
   }
 
   saveChanges() {

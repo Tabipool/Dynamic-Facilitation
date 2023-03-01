@@ -1,8 +1,8 @@
 export interface UserModel {
-  id: number;
+  acc_id: number;
   username: string;
   name: string;
   lastname: string;
-  picturePath: URL;
+  picturePath: string;
   admin: boolean; //possible?
 }

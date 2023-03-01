@@ -6,6 +6,9 @@ import { ItemListService } from './item-list.service';
 import { Item } from 'app/state/Items/item.states';
 import { FlipchartsModule } from 'app/pages/flipcharts/flipcharts.module';
 import { MeetingService } from 'app/state/meetings/meeting.service';
+import { Store } from '@ngrx/store';
+import { State } from 'app/state';
+import { setItemAction } from 'app/state/Items/item.actions';
 
 @Injectable()
 export class PollingService {
@@ -14,11 +17,13 @@ export class PollingService {
 
   constructor(
     private restService: RESTAPIServiceService,
-    private _meetingService: MeetingService
+    private _meetingService: MeetingService,
+    private store: Store<State>
   ) {
     this.allItems$ = timer(0, 5000).pipe(
-      switchMap(() =>
-        restService.getMeetingById(_meetingService.activeMeeting.id)
+      switchMap(async () =>
+        //restService.getMeetingById(_meetingService.activeMeeting.id)
+        restService.getMeetingById(1)
       ), //active meeting
       retry(2),
       tap(console.log),

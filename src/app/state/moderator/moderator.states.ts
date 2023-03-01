@@ -4,5 +4,5 @@ export class Moderator {
   name: string;
   lastname: string;
   password: string;
-  picturePath: URL;
+  picturePath: string;
 }

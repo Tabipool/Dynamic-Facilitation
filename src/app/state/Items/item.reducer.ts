@@ -15,6 +15,9 @@ export const initialState: ItemListState = {
 const itemReducer = createReducer(
   initialState,
   //Items
+  on(actions.setItemAction, (state, { items }) => ({
+    items: setItemsInList(state.items, items),
+  })),
   on(actions.addItemAction, (state, { item }) => ({
     ...state,
     items: state.items.concat(item),
@@ -42,6 +45,10 @@ const itemReducer = createReducer(
     items: changeBookmarkStatus(state.items, item.number),
   }))
 );
+
+function setItemsInList(list: Item[], item: Item[]) {
+  return (list = item);
+}
 
 function updateItemInList(list: Item[], updatedItem: Item): Item[] {
   return list.map((value) => {

@@ -25,12 +25,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     let authFlow = this.authenticationService
       .authenticate(this.loginUser)
-      .pipe(switchMap(() => this.authenticationService.profile()));
+      .subscribe((data) => console.log(data));
 
-    authFlow.subscribe({
+    this.router.navigate(['/home']);
+    //.pipe(switchMap(() => this.authenticationService.profile()));
+
+    /*authFlow.subscribe({
       next: (user: UserModel) => {
         this.authenticationService.saveUserToLocalStorage(user);
         console.log(user);
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         console.log(error);
@@ -47,7 +51,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService
       .Authenticate(signInData)
       .subscribe((response) => {
-        this.router.navigate(['/home']);
+        
       });*/
   }
 }

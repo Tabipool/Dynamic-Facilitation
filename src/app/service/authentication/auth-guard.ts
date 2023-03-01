@@ -27,13 +27,13 @@ export class AuthGuard implements CanActivate {
     if (route.data['userType'] === 'guest') {
       return true;
     } else if (route.data['userType'] === 'logged-in') {
-      if (userInfo.id > 0) {
+      if (userInfo.acc_id > 0) {
         return true;
       }
       this.router.navigate(['/']);
       return false;
     } else if (route.data['userType'] === 'non-logged-in') {
-      if (userInfo.id === 0) {
+      if (userInfo.acc_id === 0) {
         return true;
       }
       this.router.navigate(['/']);

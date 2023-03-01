@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  CdkDragDrop,
-  moveItemInArray,
-  transferArrayItem,
-} from '@angular/cdk/drag-drop';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Item } from '../../state/Items/item.states';
 import { CounterService } from '../../state/counter/counter.service';
 import { chartType } from '../../../types/chartType';
@@ -18,6 +14,7 @@ import { ItemListService } from 'app/service/item-list.service';
 import { AuthenticationService } from 'app/service/authentication/authentication.service';
 import { RESTAPIServiceService } from 'app/service/restapiservice.service';
 import { MeetingService } from 'app/state/meetings/meeting.service';
+import { UserModel } from 'app/service/authentication/signInData';
 
 @Component({
   selector: 'app-chart',
@@ -31,9 +28,12 @@ export class ChartComponent implements OnInit {
     private store: Store<State>,
     public authenticationService: AuthenticationService,
     public _restApiService: RESTAPIServiceService,
-    private _meetingService: MeetingService
+    private _meetingService: MeetingService,
+    private auth: AuthenticationService
   ) {}
   addingItem: boolean = false;
+
+  userInfo?: UserModel;
 
   itemList: Observable<Item[]>;
 
@@ -48,6 +48,9 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth.userProfile.subscribe((data) => {
+      this.userInfo = data;
+    });
     this.itemList = this._itemListService.retrieveListFromStore();
     console.log('chart init');
   }
