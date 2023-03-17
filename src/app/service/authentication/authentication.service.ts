@@ -12,7 +12,7 @@ export class AuthenticationService {
     acc_id: 0,
     username: '',
     name: '',
-    lastname: '',
+    nachname: '',
     picturePath: '',
     admin: false,
   });
@@ -36,6 +36,7 @@ export class AuthenticationService {
   }
 
   saveUserToLocalStorage(user: UserModel) {
+    console.log('userprofile');
     this.userProfile.next(user);
     localStorage.setItem('user-profile', JSON.stringify(user));
   }

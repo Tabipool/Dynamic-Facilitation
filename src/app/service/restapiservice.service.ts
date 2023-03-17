@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Item } from '../state/Items/item.states';
 import { MeetingFull, MeetingHome } from '../state/meetings/meetings.states';
-import { catchError, Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
 import { Moderator } from 'app/state/moderator/moderator.states';
 import { UserModel } from './authentication/signInData';
+import { User } from 'stories/User';
 
 @Injectable({
   providedIn: 'root',
@@ -16,9 +17,8 @@ export class RESTAPIServiceService {
 
   login(username: string, password: string) {
     let bodyStr = JSON.stringify({ username, password });
-    console.log(bodyStr);
     return this.http.post(
-      this.baseUrl + '/token/',
+      this.baseUrl + '/login/',
       { username, password },
       {
         withCredentials: true,
@@ -27,9 +27,18 @@ export class RESTAPIServiceService {
   }
 
   getUser() {
-    return this.http.get<UserModel>(this.baseUrl + '/moderators/activeuser', {
-      withCredentials: true,
-    });
+    console.log(
+      this.http
+        .get<UserModel[]>(this.baseUrl + '/moderators/activeuser', {
+          withCredentials: true,
+        })
+        .pipe(map((user) => user[0]))
+    );
+    return this.http
+      .get<UserModel[]>(this.baseUrl + '/moderators/activeuser', {
+        withCredentials: true,
+      })
+      .pipe(map((user) => user[0]));
   }
 
   refresh() {
@@ -54,9 +63,14 @@ export class RESTAPIServiceService {
     );
   }
 
-  getMeetingById(idmeeting: number): Observable<any> {
+  getMeetingById(idmeeting: number): Observable<MeetingFull> {
     //Wie macht man das mit den Items?
-    return this.http.get<any>(this.baseUrl + '/meetings/' + idmeeting + '/');
+    console.log(
+      this.http.get<MeetingFull>(this.baseUrl + '/meetings/' + idmeeting + '/')
+    );
+    return this.http.get<MeetingFull>(
+      this.baseUrl + '/meetings/' + idmeeting + '/'
+    );
   }
 
   postMeeting(meeting: MeetingFull): Observable<any> {

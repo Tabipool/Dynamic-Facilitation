@@ -11,5 +11,5 @@ export class MeetingFull {
   id: number;
   title: string;
   description: string;
-  items: Item[];
+  fk_idmeeting: Item[];
 }

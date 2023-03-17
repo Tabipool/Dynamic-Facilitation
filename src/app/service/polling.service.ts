@@ -9,6 +9,7 @@ import { MeetingService } from 'app/state/meetings/meeting.service';
 import { Store } from '@ngrx/store';
 import { State } from 'app/state';
 import { setItemAction } from 'app/state/Items/item.actions';
+import { MeetingFull } from 'app/state/meetings/meetings.states';
 
 @Injectable()
 export class PollingService {
@@ -20,10 +21,15 @@ export class PollingService {
     private _meetingService: MeetingService,
     private store: Store<State>
   ) {
+    console.log(restService.getMeetingById(1));
     this.allItems$ = timer(0, 5000).pipe(
       switchMap(async () =>
         //restService.getMeetingById(_meetingService.activeMeeting.id)
-        restService.getMeetingById(1)
+        restService
+          .getMeetingById(1)
+          .subscribe((data) =>
+            store.dispatch(setItemAction({ items: data.fk_idmeeting }))
+          )
       ), //active meeting
       retry(2),
       tap(console.log),
@@ -37,9 +43,7 @@ export class PollingService {
   }
 
   getAllItems() {
-    return this.allItems$.pipe(
-      tap(() => console.log('data sent to subscriber'))
-    );
+    return this.allItems$;
   }
 
   onDestroy(): void {

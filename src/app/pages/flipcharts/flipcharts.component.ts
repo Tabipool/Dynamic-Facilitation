@@ -38,14 +38,14 @@ export class FlipchartsComponent implements OnInit, OnDestroy {
     private auth: AuthenticationService
   ) {
     this.InitializeData();
-    if (this.userInfo?.acc_id == 0) {
-      //logged in
-      console.log(this.itemList);
 
-      /*timer(0, 3000)
+    //logged in
+
+    console.log(restService.getMeetingById(1));
+
+    /*timer(0, 3000)
         .pipe(tap(() => console.log('hllo')))
         .subscribe();*/
-    }
   }
 
   ToggleInput() {
@@ -53,15 +53,17 @@ export class FlipchartsComponent implements OnInit, OnDestroy {
   }
 
   InitializeData() {
+    console.log('initalize data');
     this.auth.userProfile.subscribe((data) => {
       this.userInfo = data;
     });
   }
 
   ngOnInit(): void {
-    this.itemList = this.pollingService.getAllItems();
-    console.log(this.pollingService.getAllItems());
-    this.itemList.subscribe();
+    if (this.userInfo?.acc_id == 0) {
+      console.log(this.pollingService.getAllItems());
+    }
+    console.log('items:');
   }
 
   ngOnDestroy(): void {

@@ -2,7 +2,7 @@ export interface UserModel {
   acc_id: number;
   username: string;
   name: string;
-  lastname: string;
-  picturePath: string;
+  nachname: string;
   admin: boolean; //possible?
+  picturePath: string;
 }
