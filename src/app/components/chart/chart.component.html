@@ -1,6 +1,6 @@
 <div class="charts">
   <p>{{ title }}</p>
-  <ng-container>
+  <ng-container *ngIf="userInfo?.acc_id != 0">
     <app-add-button
       [flipchart]="true"
       class="charts__add-button"
